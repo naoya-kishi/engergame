@@ -3,7 +3,6 @@
 
 docker images
 ```
-engergame_vue_app              latest              *************        * minutes ago      360MB
 engergame_nginx                latest              *************        * hours ago         127MB
 engergame_python                latest              *************        * hours ago        915MB
 engergame_db                   latest              *************        * hours ago        373MB
