@@ -31,7 +31,7 @@ npm -v
 node -v
 v12.11.1
 ```
-**vue cli install
+**vue cli install**
 ```
 npm install -g vue-cli
 ```
