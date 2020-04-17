@@ -32,12 +32,12 @@ services:
     depends_on:
       - python
 
-  vue_app:
-    build: .
-    ports:
-      - "8080:8080" # ここを変更していく
-    volumes:
-      - .:/app
-    stdin_open: true
-    tty: true
-    command: /bin/sh
+  # vue_app: 
+  #   build: .
+  #   ports:
+  #     - "8080:8080" # ここを変更していく
+  #   volumes:
+  #     - .:/app
+  #   stdin_open: true
+  #   tty: true
+  #   command: /bin/sh
