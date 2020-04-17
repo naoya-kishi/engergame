@@ -19,16 +19,30 @@ docker-compose up --build
 **Django** port http://localhost/8000 
 <img width="1440" alt="スクリーンショット 2020-04-17 16 29 40" src="https://user-images.githubusercontent.com/56709557/79543719-e01c7f80-80c8-11ea-8cbe-18c4047790bb.png">
 
-**Vue** port http://localhost:8080/
-Vue 起動コマンド
+
+### Vue.js install
+**npm  install**
+```
+npm -v
+6.11.3
+```
+**node install**
+```
+node -v
+v12.11.1
+```
+**vue cli install
+```
+npm install -g vue-cli
+```
+**Vue 起動コマンド**
 ```
 cd vue_app
-npm run serve
+npm run dev
 ```
+
+**Vue** port http://localhost:8080/
+
 <img width="1440" alt="スクリーンショット 2020-04-17 16 29 50" src="https://user-images.githubusercontent.com/56709557/79543688-d72bae00-80c8-11ea-8df6-4dde1752cdb0.png">
 
-**Vue routerの導入**
-```
-cd vue_app
-yarn add vue-router
-```
+ 
