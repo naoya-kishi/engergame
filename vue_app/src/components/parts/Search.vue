@@ -1,0 +1,69 @@
+<template>
+  <div class="serach-box">
+    <form id="seach-form" action="URL" method="get">
+      <input v-model="form.WorkType" id="search-type" name="" type="text" placeholder="職種"/>
+      <input v-model="form.Location" id="search-location" name="" type="text" placeholder="地域"/>
+      <input v-model="form.Freeword" id="search-free" name="" type="text" placeholder="フリーワード"/>
+      <input id="search-btn" type="submit" value="検索" />
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      form: {
+        WorkType: '',
+        Location: '',
+        Freeword: '',
+      },
+    }
+  },
+  computed: {
+    // JSON型のデータの中から出力する値を算出する
+  }
+
+}
+</script>
+
+<style scoped>
+.serach-box{
+  width: 70%;
+  height: 48px;
+  float: right;
+  padding: 15px;
+}
+#seach-form{
+  width: 90%;
+  height: 100%;
+}
+#search-type{
+  width: 20%;
+  height: 70%;
+  border-radius: 4%;
+  border: 1px solid grey;
+}
+#search-location{
+  width: 20%;
+  height: 70%;
+  border-radius: 4%;
+  border: 1px solid grey;
+}
+#search-free{
+  width: 40%;
+  height: 70%;
+  border-radius: 4%;
+  border: 1px solid grey;
+}
+#search-btn{
+  width: 52px;
+  height: 32px;
+  border-radius: 3%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #117ee4;
+  border-radius: 3px;
+  color: #117ee4;
+}
+
+</style>
