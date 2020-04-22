@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Battle from "@/assets/battle.png";
+// import Battle from "@/assets/battle.png";
 export default {
   name: 'Game',
   data () {
@@ -13,9 +13,9 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       text: 'Test data',
       showText: true,
-      assetsImage: Battle,
-      assetsImage_NG: "../assets/battle.jpg",
-      staticImage: "/battle.jpg"
+      // assetsImage: Battle,
+      // assetsImage_NG: "../assets/battle.jpg",
+      // staticImage: "/battle.jpg"
     }
   },
   methods: {
@@ -35,9 +35,6 @@ h1, h2 {
 
 /* Responsive */
 @media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
-  .img{
-    width: 335px;
-    height: 295px;
-  }
+  
 }
 </style>

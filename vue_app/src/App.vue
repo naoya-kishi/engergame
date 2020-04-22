@@ -2,6 +2,11 @@
   <div id="app">
     <div class="header">
       <Search></Search> <!-- 検索コンポーネント -->
+      <div class="user-box">
+        <div class="user-icon">
+          <div class="top-user-profile"></div>
+        </div>
+      </div>
     </div>
 
     <div class="left-container">
@@ -18,25 +23,25 @@
       </div>
       <div class="menu-conntent">
         <ul class="menu-box">
-          <router-link to="/recruit">
+          <router-link to="/recruit" class="link-spa">
             <li class="work-menu">
               <div class="logobox"></div>
               <div class="menu-name">案件一覧</div>
             </li>
           </router-link>
-          <router-link to="/like">
+          <router-link to="/like" class="link-spa"> 
           <li class="work-menu">
             <div class="logobox"></div>
             <div class="menu-name">お気に入り</div>
           </li>
           </router-link>
-          <router-link to="/chat">
+          <router-link to="/chat" class="link-spa">
           <li class="work-menu">
             <div class="logobox"></div>
             <div class="menu-name">チャット</div>
           </li>
           </router-link>
-          <router-link to="/game">
+          <router-link to="/game" class="link-spa">
           <li class="work-menu">
             <div class="logobox"></div>
             <div class="menu-name">ゲーム</div>
@@ -82,10 +87,9 @@ export default {
 .header{
   width: 100%;
   height: 64px;
-  background-color: #117ee4;
+  background-color: #1f5abc;
   /* background-color: #FFFFFF; */
 }
-
 
 /* ! left-Container CSS */
 .left-container{
@@ -188,6 +192,119 @@ export default {
 
 /* Responsive */
 @media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
+  #app{
+    width: 100vw;
+    height: 100vh;
+    /* background-color: #1f5abc; */
+    position: relative;
+  }
+  .link-spa{
+    width: 85px;
+    height: 50px;
+    margin-right: 5px;
+    /* background-color: red; */
+  }
+  .header{
+    width: 100%;
+  }
+  .user-box{
+    width: 100px;
+    height: 100%;
+  }
+  .user-icon{
+    width: 50px;
+    height: 70%;
+    padding: 10px;
+  }
+  .top-user-profile{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: #506690;
+  }
 
+  /* bottom_bar */
+  .left-container{
+    width: 100%;
+    height: 68px;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+  }
+  .user-content{
+    width: 100%;
+    height: 80px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 4px 8px rgba(128, 128, 128, 0.39);
+    color: #506690;
+    display: none;
+  }
+  .user-profile{
+    width: 92%;
+    height: 50px;
+    padding: 12px 10px;
+    cursor: pointer;
+    color: #506690;
+    display: none;
+  }
+  .user-image{
+    width: 60px;
+    height: 60px;
+    background-color: grey;
+    border-radius: 50%;
+    display: inline-block;
+    display: none;
+  }
+  .user-name{
+    float: right;
+    padding: 20px 0 0 0;
+    width: 67%;
+    height: 40px;
+    display: none;
+  }
+
+  .menu-content{
+    width: 100%;
+    height: 100px;
+    z-index: 30;
+  }
+  .menu-box{
+    display: flex;
+    height: 30px;
+  }
+  .work-menu{
+    display: inline-block;
+    width: 70px;
+    height: 65px;
+    /* margin: 0px 10px 0 20px; */
+    margin: 0px 15px 0px 15px;
+    top:0;
+    position: absolute;
+  }
+  .logobox{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 0 10px 0 10px;
+  }
+  .menu-name{
+    width: 80px;
+    height: 20px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+
+  /* container */
+  .container{
+  width: 100%;
+  height: 80%;
+  background-color: rgb(226, 227, 229);
+  /* background-color: #FFFFFF; */
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  overflow: scroll;
+  }
 }
 </style>
