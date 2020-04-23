@@ -58,10 +58,10 @@ export default {
   width: 58px;
   height: 39px;
   border-radius: 3%;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid #117ee4;
+  background-color: #ef6443;
+  border: 1px solid #ef6443;
   border-radius: 3px;
-  color: #117ee4;
+  color: #FFFFFF;
   font-weight: 600; 
 }
 

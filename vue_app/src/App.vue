@@ -25,28 +25,34 @@
         <ul class="menu-box">
           <router-link to="/recruit" class="link-spa">
             <li class="work-menu">
-              <div class="logobox"></div>
+              <div class="logobox"><div class="logobox"><font-awesome-icon icon="list" class="awesome-icon"/></div></div>
               <div class="menu-name">案件一覧</div>
             </li>
           </router-link>
           <router-link to="/like" class="link-spa"> 
           <li class="work-menu">
-            <div class="logobox"></div>
+            <div class="logobox"><font-awesome-icon icon="bookmark" class="awesome-icon"/></div>
             <div class="menu-name">お気に入り</div>
           </li>
           </router-link>
           <router-link to="/chat" class="link-spa">
           <li class="work-menu">
-            <div class="logobox"></div>
+            <div class="logobox"><font-awesome-icon icon="comment-dots" class="awesome-icon"/></div>
             <div class="menu-name">チャット</div>
           </li>
           </router-link>
           <router-link to="/game" class="link-spa">
           <li class="work-menu">
-            <div class="logobox"></div>
+            <div class="logobox"><font-awesome-icon icon="gamepad" class="awesome-icon"/></div>
             <div class="menu-name">ゲーム</div>
           </li>
           </router-link>
+          <!-- <router-link to="/game" class="link-spa"> -->
+          <li class="work-menu" style="cursor: no-drop;">
+            <div class="logobox"><font-awesome-icon icon="dungeon" class="awesome-icon"/></div>
+            <div class="menu-name">ギルド</div>
+          </li>
+          <!-- </router-link> -->
         </ul>
       </div>
     </div>
@@ -152,11 +158,14 @@ export default {
   padding: 5px;
   cursor: pointer;
   color: #506690;
+  box-shadow: 0 0 3px 0 rgba(255, 255, 255, 0.12), 0 2px 3px 0 rgba(255, 255, 255, 0.22);
+	transition: .3s;
 }
 .logobox{
   width: 40px;
   height: 40px;
-  background-color: grey;
+  margin-top: 5px;
+  /* background-color: grey; */
   display: inline-block;
 }
 .menu-name{
@@ -186,10 +195,19 @@ export default {
 .work-menu:hover{
   /* background-color: #117ee4; */
   background-color: rgb(235, 236, 240);
+  box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-4px);
   /* color: #FFFFFF; */
 }
 .user-profile:hover{
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+/* icon アイコン */
+.awesome-icon{
+  color: #1f5abc;
+  width: 30px;
+  height: 30px;
 }
 
 /* Responsive */

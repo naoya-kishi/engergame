@@ -267,7 +267,6 @@ export default {
   width: 280px;
   height: 100%;
   overflow: scroll;
-  /* background-color: rgb(226, 227, 229); */
   background-color: #FFFFFF;
   box-shadow: 2px 4px 8px rgba(128, 128, 128, 0.39);
   display: inline-block;
@@ -277,17 +276,17 @@ export default {
   height: 50px;
   padding: 10px;
   margin: 0 auto;
+  cursor: pointer;
 }
 .userimage{
   width: 50px;
   height: 50px;
   background-color: grey;
-  border-radius: 50%;
+  border-radius: 20%;
   display: inline-block;
 }
 .user-detail{
   float: right;
-  /* display: inline-block; */
   font-size: 14px;
   width: 180px;
   height: 50px;
@@ -338,6 +337,8 @@ export default {
 }
 .chat-profile-name{
   display: inline-block;
+  font-size: 14px;
+  color: #506690;
 }
 .message-content{
   padding: 5px;
@@ -400,11 +401,17 @@ export default {
   float: right;/*bms_sendに対して右寄せ*/
   color: #fff;
   font-weight: bold;
-  background: #bcbcbc;
+  background: #ef6443;
   text-align: center;/*文字をボタン中央に表示*/
-  border: 1px solid #bbb;
+  border: 1px solid #ef6443;
   border-radius: 4px;/*角丸*/
   box-sizing: border-box;
   margin-top: 15px;
 }
+
+/* Action アクション */
+.user-chatbox:hover{
+  opacity: 0.7;
+}
+
 </style>
