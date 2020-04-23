@@ -133,6 +133,7 @@ export default {
   padding: 20px 0 0 0;
   width: 67%;
   height: 40px;
+  font-size: 14px;
   /* background-color: red; */
 }
 
@@ -164,8 +165,9 @@ export default {
   /* background-color: yellow; */
   /* display: inline-block;  */
   float: right;
-  padding: 10px 0 0 0;
+  padding: 12px 0 0 0;
   /* color: #506690; */
+  font-size: 14px;
 }
 
 /* contant */
@@ -206,6 +208,7 @@ export default {
   }
   .header{
     width: 100%;
+    height: 62px;
   }
   .user-box{
     width: 100px;
