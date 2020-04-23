@@ -30,6 +30,12 @@ npm -v
 node -v
 v12.11.1
 ```
+**yarn install**
+```
+yarn -v
+1.19.0
+```
+
 **vue cli install**
 ```
 npm install -g vue-cli
