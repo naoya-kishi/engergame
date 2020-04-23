@@ -17,81 +17,11 @@
       <div class="recruit-btmbox">
         <div class="recruit-detail-box">
           <div class="money-area">
-            <div class="money-logo"></div>
+            <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
             <div class="money-content">70万 ~ 80万</div>
           </div>
           <div class="location-area">
-            <div class="location-logo"></div>
-            <div class="location-content">東京都 渋谷区</div>
-          </div>
-        </div>
-        <div class="recruit-skill-box">
-          <div class="skill-logo">スキル</div>
-          <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-        </div>
-        <div class="recruit-sales-box">
-          <div class="sales-logo"></div>
-          <div class="sales-name">SAMPLE NAME</div>
-        </div>
-      </div>
-    </div>
-    <div class="recruit-content">
-      <div class="recruit-topbox">
-        <div class="create-time">2020年4月12日</div>
-        <div class="create-work">業務委託</div>
-        <div class="matching-status">マッチング率22%</div>
-      </div>
-      <div class="recruit-centerbox">
-        <div class="recruit-title-box">
-          【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
-        </div>
-        <div class="recruit-company-box">
-          株式会社エイト
-        </div>
-      </div>
-      <div class="recruit-btmbox">
-        <div class="recruit-detail-box">
-          <div class="money-area">
-            <div class="money-logo"></div>
-            <div class="money-content">70万 ~ 80万</div>
-          </div>
-          <div class="location-area">
-            <div class="location-logo"></div>
-            <div class="location-content">東京都 渋谷区</div>
-          </div>
-        </div>
-        <div class="recruit-skill-box">
-          <div class="skill-logo">スキル</div>
-          <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-        </div>
-        <div class="recruit-sales-box">
-          <div class="sales-logo"></div>
-          <div class="sales-name">SAMPLE NAME</div>
-        </div>
-      </div>
-    </div>
-    <div class="recruit-content">
-      <div class="recruit-topbox">
-        <div class="create-time">2020年4月12日</div>
-        <div class="create-work">業務委託</div>
-        <div class="matching-status">マッチング率22%</div>
-      </div>
-      <div class="recruit-centerbox">
-        <div class="recruit-title-box">
-          【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
-        </div>
-        <div class="recruit-company-box">
-          株式会社エイト
-        </div>
-      </div>
-      <div class="recruit-btmbox">
-        <div class="recruit-detail-box">
-          <div class="money-area">
-            <div class="money-logo"></div>
-            <div class="money-content">70万 ~ 80万</div>
-          </div>
-          <div class="location-area">
-            <div class="location-logo"></div>
+            <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
             <div class="location-content">東京都 渋谷区</div>
           </div>
         </div>
@@ -129,6 +59,9 @@ export default {
   box-shadow: 10px 5px 5px grey;
   padding: 20px;
   margin: 15px 0;
+  cursor: pointer;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+	transition: .3s;
 }
 /* Top BOX */
 .recruit-topbox{
@@ -149,7 +82,7 @@ export default {
   padding: 5px 12px;
   font-size: 12px;
   text-align: center;
-  border: solid 1px #5c5c5c;
+  border: solid 1px #ef6443;
 }
 .matching-status{
   float: right;
@@ -204,15 +137,13 @@ export default {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: grey;
   display: inline-block;
 }
 .money-content{
   font-size: 14px;
   display: inline-block;
   position: absolute;
-  top: 5px;
-  margin-left: 10px;
+  top: 7px;
   color: #818181;
 }
 
@@ -225,15 +156,13 @@ export default {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: grey;
   display: inline-block;
 }
 .location-content{
   font-size: 14px;
   display: inline-block;
   position: absolute;
-  top: 5px;
-  margin-left: 10px;
+  top: 7px;
   color: #818181;
 }
 
@@ -257,6 +186,7 @@ export default {
 .skill-content{
   display: inline-block;
   color: #818181;
+  font-size: 14px;
 }
 
 /* 営業 CSS */
@@ -278,6 +208,19 @@ export default {
   top: 5px;
   margin-left: 5px;
   color: #818181;
+}
+
+/* Icon  */
+.awesome-icon{
+  color: #2AC1DF;
+  height: 30px;
+}
+
+/* Action アクション*/
+.recruit-content:hover{
+  opacity: 0.8;
+  box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-4px);
 }
 
 
