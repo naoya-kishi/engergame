@@ -1,9 +1,7 @@
 <template>
   <div class="serach-box">
     <form id="seach-form" action="URL" method="get">
-      <input v-model="form.WorkType" id="search-type" name="" type="text" placeholder=" 職種"/>
-      <input v-model="form.Location" id="search-location" name="" type="text" placeholder=" 地域"/>
-      <input v-model="form.Freeword" id="search-free" name="" type="text" placeholder=" フリーワード"/>
+      <input v-model="form.WorkType" id="search-type" name="" type="text" placeholder=" 職種"/><input v-model="form.Location" id="search-location" name="" type="text" placeholder=" 地域"/><input v-model="form.Freeword" id="search-free" name="" type="text" placeholder=" フリーワード"/>
       <input id="search-btn" type="submit" value="検索" />
     </form>
   </div>
@@ -41,29 +39,30 @@ export default {
 #search-type{
   width: 20%;
   height: 70%;
-  border-radius: 4%;
-  border: 1px solid grey;
+  /* border-radius: 4%; */
+  border: 1px solid #FFFFFF;
 }
 #search-location{
   width: 20%;
   height: 70%;
-  border-radius: 4%;
-  border: 1px solid grey;
+  /* border-radius: 4%; */
+  border: 1px solid #FFFFFF;
 }
 #search-free{
   width: 40%;
   height: 70%;
-  border-radius: 4%;
-  border: 1px solid grey;
+  /* border-radius: 4%; */
+  border: 1px solid #FFFFFF;
 }
 #search-btn{
-  width: 52px;
-  height: 32px;
+  width: 58px;
+  height: 39px;
   border-radius: 3%;
   background-color: rgb(255, 255, 255);
   border: 1px solid #117ee4;
   border-radius: 3px;
   color: #117ee4;
+  font-weight: 600; 
 }
 
 /* レスポンシブ */
@@ -86,16 +85,16 @@ export default {
     display: none;
   }
   #search-free{
-    width: 120px;
+    width: 150px;
     height: 95%;
     border-radius: 4%;
     border: 1px solid grey;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     font-size: 11px;
   }
   #search-btn{
     width: 42px;
-    height: 22px;
+    height: 33px;
     border-radius: 3%;
     background-color: rgb(255, 255, 255);
     border: 1px solid #117ee4;
