@@ -143,7 +143,7 @@ export default {
 .create-work{
   display: inline-block;
   width: 8%;
-  background-color: #818181;
+  background-color: #ef6443;
   color: #FFFFFF;
   border-radius: 12px;
   padding: 5px 12px;
