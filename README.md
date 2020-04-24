@@ -21,17 +21,18 @@ docker-compose up --build
 
 ## Vue.js install
 ### ローカルにInstall
-**npm  install**
+### VERSION 一覧
+**npm**
 ```
 npm -v
-6.11.3
+6.11.3n
 ```
-**node install**
+**node**
 ```
 node -v
 v12.11.1
 ```
-**yarn install**
+**yarn**
 ```
 yarn -v
 1.19.0
@@ -64,3 +65,48 @@ npm install -D normalize.css
 ```
 
 
+### homebrowのインストール
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+### nodebrewのインストール
+```
+ brew install nodebrew
+```
+**確認**
+```
+ nodebrew -v
+```
+### バージョンを指定してインスール
+```
+nodebrew install-binary 12.11.1
+```
+**確認**
+```
+ nodebrew list
+ > v12.11.1
+```
+
+### Webpack install
+```
+ npm install webpack-dev-server -g
+```
+
+### webpack-dev-serverの導入
+```
+//最新のバージョンを確認
+$npm info webpack-dev-server
+//インストール
+$npm install --save-dev webpack-dev-server@2.9.1
+```
+
+
+
+**参考URL**
+ > https://qiita.com/akakuro43/items/600e7e4695588ab2958d
+ > https://qiita.com/fuwamaki/items/3d8af42cf7abee760a81
+ > https://qiita.com/yn01/items/d1fa10dbe4850f7cd693
+ > https://qiita.com/bumptakayuki/items/01c3ebeb928a127e7af9
+ 
+**Vue.js VS code 拡張機能**
+ > https://iwb.jp/vscode-vuejs-extensions-install-settings/
