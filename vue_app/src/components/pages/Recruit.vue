@@ -329,6 +329,73 @@ export default {
 }
 
 
+/* レスポンシブ デザイン */
+@media screen and (max-width: 767px) {
+  .recruit-wrapper{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .recruit-content{
+    width: 300px;
+  }
+  .recruit-topbox{
+    width: 100%;
+  }
+  .create-time{
+    font-size: 11px;
+  }
+  .create-work{
+    width: 20%;
+  }
+  .matching-status{
+    
+  }
+  .recruit-centerbox{
+    width: 100%;
+    height: 60%;
+    position: relative;
+  }
+  .recruit-title-box{
+    font-size: 14px;
+  }
+  .recruit-company-box{
+    position: absolute;
+    bottom: 0;
+  }
+  .recruit-btmbox{
+    width: 100%;
+    height: 30%;
+  }
+  .recruit-detail-box{
+    width: 100%;
+  }
+  .money-area{
+    width: 49%;
+    font-size: 9px;
+    display: inline-block;
+  }
+  .location-area{
+    width: 49%;
+    font-size: 9px;
+    display: inline-block;
+  }
+  .recruit-skill-box{
+    width: 100%;
+    height: 30%;
+  }
+  .skill-logo{
+    width: 20%;
+    font-size: 11px;
+    height: 90%;
+  }
+  .skill-content{
+    font-size: 11px;
+  }
+  .recruit-sales-box{
+    display: none;
+  }
+
+}
 
 </style>
 
