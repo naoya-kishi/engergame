@@ -163,7 +163,7 @@ export default {
 }
 .usercompany{
   font-size: 9px;
-  color: #1f5abc;
+  color: #2AC1DF;
 }
 
 /* 右側 チャットボックス */
@@ -232,11 +232,6 @@ export default {
 
 }
 #bms_send_btn{
-  /* width: 50px;
-  height: 20px;
-  text-align: center;
-  background-color: #1f5abc;
-  display: inline-block; */
   width: 62px;
   height: 48px;
   font-size: 16px;
@@ -244,7 +239,8 @@ export default {
   float: right;/*bms_sendに対して右寄せ*/
   color: #fff;
   font-weight: bold;
-  background: #ef6443;
+  /* background: #ef6443; */
+  background: linear-gradient(#ef6443, #f09819);
   text-align: center;/*文字をボタン中央に表示*/
   border: 1px solid #ef6443;
   border-radius: 4px;/*角丸*/

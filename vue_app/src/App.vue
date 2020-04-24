@@ -93,8 +93,8 @@ export default {
 .header{
   width: 100%;
   height: 64px;
-  background-color: #1f5abc;
-  /* background-color: #FFFFFF; */
+  /* background-color: #1f5abc; */
+  background: linear-gradient(#1f5ae8, #2ac1df);
 }
 
 /* ! left-Container CSS */
@@ -182,7 +182,8 @@ export default {
 /* contant */
 .container{
   width: calc(1440px - 240px);
-  height: calc(811px - 87px);
+  /* height: calc(811px - 87px); */
+  height: 95%;
   background-color: rgb(226, 227, 229);
   /* background-color: #FFFFFF; */
   display: inline-block;
