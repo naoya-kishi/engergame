@@ -1,6 +1,7 @@
 <template>
   <div class="chat-container">
     <div class="left-chatbox">
+      <router-link to="/chat/1/" class="link-spa">
       <div class="user-chatbox">
         <div class="userimage">
         </div>
@@ -9,6 +10,7 @@
           <div class="usercompany">株式会社SAMPLE</div>   
         </div>
       </div>
+      </router-link>
       <div class="user-chatbox">
         <div class="userimage">
         </div>
@@ -101,141 +103,7 @@
     <div class="right-chatbox">
       <div class="main-box">
         <div class="chat-mainbox">
-          <div class="chat-message-box">
-            <div class="chat-message-profile-box">
-              <div class="chat-profile-image">
-              </div>
-              <div class="chat-profile-name">
-                kauzya sakamoto
-              </div>
-            </div>
-            <div class="message-content">
-              確認したら、基本設計時記載していなかったですね！
-              未作業: 何もしていない
-              作業中: 1つでも行なってる
-              申請中; 申請ボタンを押し、メールを送信した段階
-              承認済み: 承認者が承認した段階
-              完了: 完了
-              もしDB設計上で、何か判定に不具合がありそうであれば、小西さんに報告して修正してもいいと思いますよ！
-            </div>
-          </div>
-          <div class="chat-message-box">
-            <div class="chat-message-profile-box">
-              <div class="chat-profile-image">
-              </div>
-              <div class="chat-profile-name">
-                kauzya sakamoto
-              </div>
-            </div>
-            <div class="message-content">
-              確認したら、基本設計時記載していなかったですね！
-              未作業: 何もしていない
-              作業中: 1つでも行なってる
-              申請中; 申請ボタンを押し、メールを送信した段階
-              承認済み: 承認者が承認した段階
-              完了: 完了
-              もしDB設計上で、何か判定に不具合がありそうであれば、小西さんに報告して修正してもいいと思いますよ！
-            </div>
-          </div>
-          <div class="chat-message-box">
-            <div class="chat-message-profile-box">
-              <div class="chat-profile-image">
-              </div>
-              <div class="chat-profile-name">
-                kauzya sakamoto
-              </div>
-            </div>
-            <div class="message-content">
-              確認したら、基本設計時記載していなかったですね！
-              未作業: 何もしていない
-              作業中: 1つでも行なってる
-              申請中; 申請ボタンを押し、メールを送信した段階
-              承認済み: 承認者が承認した段階
-              完了: 完了
-              もしDB設計上で、何か判定に不具合がありそうであれば、小西さんに報告して修正してもいいと思いますよ！
-            </div>
-          </div>
-          <div class="chat-message-box">
-            <div class="chat-message-profile-box">
-              <div class="chat-profile-image">
-              </div>
-              <div class="chat-profile-name">
-                kauzya sakamoto
-              </div>
-            </div>
-            <div class="message-content">
-              確認したら、基本設計時記載していなかったですね！
-              未作業: 何もしていない
-              作業中: 1つでも行なってる
-              申請中; 申請ボタンを押し、メールを送信した段階
-              承認済み: 承認者が承認した段階
-              完了: 完了
-              もしDB設計上で、何か判定に不具合がありそうであれば、小西さんに報告して修正してもいいと思いますよ！
-            </div>
-          </div>
-          <div class="chat-message-box">
-            <div class="chat-message-profile-box">
-              <div class="chat-profile-image">
-              </div>
-              <div class="chat-profile-name">
-                kauzya sakamoto
-              </div>
-            </div>
-            <div class="message-content">
-              確認したら、基本設計時記載していなかったですね！
-              未作業: 何もしていない
-              作業中: 1つでも行なってる
-              申請中; 申請ボタンを押し、メールを送信した段階
-              承認済み: 承認者が承認した段階
-              完了: 完了
-              もしDB設計上で、何か判定に不具合がありそうであれば、小西さんに報告して修正してもいいと思いますよ！
-            </div>
-          </div>
-          <div class="chat-message-box">
-            <div class="chat-message-profile-box">
-              <div class="chat-profile-image">
-              </div>
-              <div class="chat-profile-name">
-                kauzya sakamoto
-              </div>
-            </div>
-            <div class="message-content">
-              確認したら、基本設計時記載していなかったですね！
-              未作業: 何もしていない
-              作業中: 1つでも行なってる
-              申請中; 申請ボタンを押し、メールを送信した段階
-              承認済み: 承認者が承認した段階
-              完了: 完了
-              もしDB設計上で、何か判定に不具合がありそうであれば、小西さんに報告して修正してもいいと思いますよ！
-            </div>
-          </div>
-          <div class="chat-message-box">
-            <div class="chat-message-profile-box">
-              <div class="chat-profile-image">
-              </div>
-              <div class="chat-profile-name">
-                kauzya sakamoto
-              </div>
-            </div>
-            <div class="message-content">
-              確認したら、基本設計時記載していなかったですね！
-              未作業: 何もしていない
-              作業中: 1つでも行なってる
-              申請中; 申請ボタンを押し、メールを送信した段階
-              承認済み: 承認者が承認した段階
-              完了: 完了
-              もしDB設計上で、何か判定に不具合がありそうであれば、小西さんに報告して修正してもいいと思いますよ！
-            </div>
-          </div>
         </div>
-        <!-- <div class="left-message">
-          <div class="left-message-box">
-            なんでなの？
-          </div>
-        </div>
-        <div class="right-message">
-
-        </div> -->
       </div>
       <div class="bottom-box">
         <div id="bms_send">
@@ -345,31 +213,6 @@ export default {
   font-size: 14px;
 }
 
-/* 左右 分ける 未使用*/
-.left-message{
-  width: 49%;
-  height: 100%;
-  background-color: green;
-  /* display: inline-block; */
-  float: right;
-}
-.right-message{
-  width: 49%;
-  height: 100%;
-  background-color: blue;
-  /* display: inline-block; */
-}
-.left-message-box{
-  float: right;
-  width: 300px;
-  /* height: 100px; */
-  /* border-radius: 3%; */
-  background-color: yellow;
-  margin-bottom: 15px;
-  padding: 10px;
-}
-/* ここまで */
-
 
 /* 送信ボックス */
 .bottom-box{
@@ -412,6 +255,13 @@ export default {
 /* Action アクション */
 .user-chatbox:hover{
   opacity: 0.7;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 767px) {
+  .right-chatbox{
+    display: none;
+  }
 }
 
 </style>

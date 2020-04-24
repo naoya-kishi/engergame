@@ -7,6 +7,9 @@ import Recruit from '@/components/pages/Recruit.vue'
 import Like from '@/components/pages/Like.vue'
 import Chat from '@/components/pages/Chat.vue'
 import Profile from '@/components/pages/Profile.vue'
+import RecruitDetail from '@/components/pages/RecruitDetail.vue'
+import ChatMessage from '@/components/pages/ChatMessage.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -31,6 +34,14 @@ export default new Router({
     {
       path: '/profile',
       component: Profile
+    },
+    {
+      path: '/recruit/detail/',
+      component: RecruitDetail
+    },
+    {
+      path: '/chat/1/',
+      component: ChatMessage
     }
   ]
 })
