@@ -52,19 +52,6 @@ npm run dev
 
 <img width="1440" alt="スクリーンショット 2020-04-17 16 29 50" src="https://user-images.githubusercontent.com/56709557/79543688-d72bae00-80c8-11ea-8df6-4dde1752cdb0.png">
 
-**Reset CSS**
-```
-npm install -D normalize.css
-```
-
-**Font awesome**
-```
-> yarn add @fortawesome/fontawesome-svg-core
-> yarn add @fortawesome/free-solid-svg-icons
-> yarn add @fortawesome/vue-fontawesome
-```
-
-
 ### homebrowのインストール
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -99,6 +86,21 @@ $npm info webpack-dev-server
 //インストール
 $npm install --save-dev webpack-dev-server@2.9.1
 ```
+
+### ライブラリー
+**Reset CSS**
+```
+npm install -D normalize.css
+```
+
+**Font awesome**
+```
+> yarn add @fortawesome/fontawesome-svg-core
+> yarn add @fortawesome/free-solid-svg-icons
+> yarn add @fortawesome/vue-fontawesome
+```
+
+
 
 
 
