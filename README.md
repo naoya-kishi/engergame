@@ -107,8 +107,8 @@ npm install -D normalize.css
 **参考URL**
  > https://qiita.com/akakuro43/items/600e7e4695588ab2958d
  > https://qiita.com/fuwamaki/items/3d8af42cf7abee760a81
- > https://qiita.com/yn01/items/d1fa10dbe4850f7cd693
- > https://qiita.com/bumptakayuki/items/01c3ebeb928a127e7af9
+ >> https://qiita.com/yn01/items/d1fa10dbe4850f7cd693
+ >> https://qiita.com/bumptakayuki/items/01c3ebeb928a127e7af9
  
 **Vue.js VS code 拡張機能**
  > https://iwb.jp/vscode-vuejs-extensions-install-settings/
