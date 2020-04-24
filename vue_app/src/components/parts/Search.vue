@@ -58,7 +58,8 @@ export default {
   width: 58px;
   height: 39px;
   border-radius: 3%;
-  background-color: #ef6443;
+  /* background-color: #ef6443; */
+  background: linear-gradient(#ef6443, #f09819);
   border: 1px solid #ef6443;
   border-radius: 3px;
   color: #FFFFFF;
@@ -99,7 +100,7 @@ export default {
     background-color: rgb(255, 255, 255);
     border: 1px solid #117ee4;
     border-radius: 3px;
-    color: #117ee4;
+    color: #ffffff;
     font-size: 12px;
   }
 }

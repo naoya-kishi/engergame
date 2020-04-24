@@ -83,13 +83,13 @@ a{
 .create-work{
   display: inline-block;
   width: 8%;
-  background-color: #ef6443;
+  background-color: #f09819;
   color: #FFFFFF;
   border-radius: 12px;
   padding: 5px 12px;
   font-size: 12px;
   text-align: center;
-  border: solid 1px #ef6443;
+  border: solid 1px #f09819;
 }
 .matching-status{
   float: right;
