@@ -1,40 +1,42 @@
 <template>
   <div class="recruit-wrapper">
-    <div class="recruit-content">
-      <div class="recruit-topbox">
-        <div class="create-time">2020年4月12日</div>
-        <div class="create-work">業務委託</div>
-        <div class="matching-status">マッチング率22%</div>
-      </div>
-      <div class="recruit-centerbox">
-        <div class="recruit-title-box">
-          【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
+    <router-link to="/recruit/detail/">
+      <div class="recruit-content">
+        <div class="recruit-topbox">
+          <div class="create-time">2020年4月12日</div>
+          <div class="create-work">業務委託</div>
+          <div class="matching-status">マッチング率22%</div>
         </div>
-        <div class="recruit-company-box">
-          株式会社エイト
-        </div>
-      </div>
-      <div class="recruit-btmbox">
-        <div class="recruit-detail-box">
-          <div class="money-area">
-            <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-            <div class="money-content">70万 ~ 80万</div>
+        <div class="recruit-centerbox">
+          <div class="recruit-title-box">
+            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
           </div>
-          <div class="location-area">
-            <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-            <div class="location-content">東京都 渋谷区</div>
+          <div class="recruit-company-box">
+            株式会社エイト
           </div>
         </div>
-        <div class="recruit-skill-box">
-          <div class="skill-logo">スキル</div>
-          <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-        </div>
-        <div class="recruit-sales-box">
-          <div class="sales-logo"></div>
-          <div class="sales-name">SAMPLE NAME</div>
+        <div class="recruit-btmbox">
+          <div class="recruit-detail-box">
+            <div class="money-area">
+              <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
+              <div class="money-content">70万 ~ 80万</div>
+            </div>
+            <div class="location-area">
+              <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
+              <div class="location-content">東京都 渋谷区</div>
+            </div>
+          </div>
+          <div class="recruit-skill-box">
+            <div class="skill-logo">スキル</div>
+            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
+          </div>
+          <div class="recruit-sales-box">
+            <div class="sales-logo"></div>
+            <div class="sales-name">SAMPLE NAME</div>
+          </div>
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -45,6 +47,11 @@ export default {
 </script>
 
 <style scoped>
+/* Router URL textdecoration 削除 */
+a{
+  text-decoration: none;
+}
+
 .recruit-wrapper{
   width: 92%;
   height: 120%;
@@ -224,6 +231,73 @@ export default {
 }
 
 
+/* レスポンシブ デザイン */
+@media screen and (max-width: 767px) {
+  .recruit-wrapper{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .recruit-content{
+    width: 300px;
+  }
+  .recruit-topbox{
+    width: 100%;
+  }
+  .create-time{
+    font-size: 11px;
+  }
+  .create-work{
+    width: 20%;
+  }
+  .matching-status{
+    
+  }
+  .recruit-centerbox{
+    width: 100%;
+    height: 60%;
+    position: relative;
+  }
+  .recruit-title-box{
+    font-size: 14px;
+  }
+  .recruit-company-box{
+    position: absolute;
+    bottom: 0;
+  }
+  .recruit-btmbox{
+    width: 100%;
+    height: 30%;
+  }
+  .recruit-detail-box{
+    width: 100%;
+  }
+  .money-area{
+    width: 49%;
+    font-size: 9px;
+    display: inline-block;
+  }
+  .location-area{
+    width: 49%;
+    font-size: 9px;
+    display: inline-block;
+  }
+  .recruit-skill-box{
+    width: 100%;
+    height: 30%;
+  }
+  .skill-logo{
+    width: 20%;
+    font-size: 11px;
+    height: 90%;
+  }
+  .skill-content{
+    font-size: 11px;
+  }
+  .recruit-sales-box{
+    display: none;
+  }
+
+}
 
 </style>
 
