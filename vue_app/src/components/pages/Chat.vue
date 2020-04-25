@@ -1,7 +1,7 @@
 <template>
   <div class="chat-container">
     <div class="left-chatbox">
-      <router-link to="/chat/1/" class="link-spa">
+      <router-link to="/chat/1/">
       <div class="user-chatbox">
         <div class="userimage">
         </div>
@@ -123,6 +123,10 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+}
+
 .chat-container{
   width: 100%;
   height: 100%;
@@ -164,6 +168,10 @@ export default {
 .usercompany{
   font-size: 9px;
   color: #2AC1DF;
+}
+.username{
+  text-decoration: none;
+  color: #252525;
 }
 
 /* 右側 チャットボックス */
