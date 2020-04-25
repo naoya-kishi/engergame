@@ -297,7 +297,11 @@ export default {
 }
 .usercompany{
   font-size: 9px;
-  color: #1f5abc;
+  color: #2AC1DF;
+}
+.username{
+  text-decoration: none;
+  color: #252525;
 }
 
 /* 右側 チャットボックス */
