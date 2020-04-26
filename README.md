@@ -100,6 +100,10 @@ npm install -D normalize.css
 > yarn add @fortawesome/vue-fontawesome
 ```
 
+**起動**
+```
+npm run dev
+```
 
 **参考URL**
  - https://qiita.com/akakuro43/items/600e7e4695588ab2958d
