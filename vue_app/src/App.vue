@@ -220,9 +220,9 @@ export default {
     position: relative;
   }
   .link-spa{
-    width: 85px;
+    width: 65px;
     height: 50px;
-    margin-right: 5px;
+    /* margin-right: 5px; */
     /* background-color: red; */
   }
   .header{
@@ -288,20 +288,23 @@ export default {
   .menu-content{
     width: 100%;
     height: 100px;
-    z-index: 30;
   }
   .menu-box{
     display: flex;
     height: 30px;
+    /* background-color: rgba(0, 128, 0, 0.377); */
   }
   .work-menu{
     display: inline-block;
-    width: 70px;
-    height: 65px;
+    width: 74px;
+    height: 45px;
     /* margin: 0px 10px 0 20px; */
-    margin: 0px 15px 0px 15px;
+    /* margin: 0px 5px 0px 5px; */
+    margin-left: 2px;
+    padding: 0;
     top:0;
-    position: absolute;
+    background-color: #FFFFFF;
+    /* position: absolute; */
   }
   .logobox{
     width: 40px;
@@ -314,6 +317,7 @@ export default {
     height: 20px;
     font-size: 12px;
     text-align: center;
+    display: none;
   }
 
 
@@ -328,6 +332,12 @@ export default {
   position: absolute;
   right: 0;
   overflow: scroll;
+  }
+  .work-menu:hover{
+  /* background-color: #117ee4; */
+  /* color: #FFFFFF; */
+  }
+  .user-profile:hover{
   }
 }
 </style>
