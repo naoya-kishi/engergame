@@ -99,6 +99,30 @@
           <div class="usercompany">株式会社SAMPLE</div>   
         </div>
       </div>
+      <div class="user-chatbox">
+        <div class="userimage">
+        </div>
+        <div class="user-detail">
+          <div class="username">SAMPLE NAME</div>
+          <div class="usercompany">株式会社SAMPLE</div>   
+        </div>
+      </div>
+      <div class="user-chatbox">
+        <div class="userimage">
+        </div>
+        <div class="user-detail">
+          <div class="username">SAMPLE NAME</div>
+          <div class="usercompany">株式会社SAMPLE</div>   
+        </div>
+      </div>
+      <div class="user-chatbox">
+        <div class="userimage">
+        </div>
+        <div class="user-detail">
+          <div class="username">SAMPLE NAME</div>
+          <div class="usercompany">株式会社SAMPLE</div>   
+        </div>
+      </div>
     </div>
     <div class="right-chatbox">
       <div class="main-box">
