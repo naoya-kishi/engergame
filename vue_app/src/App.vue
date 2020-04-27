@@ -84,8 +84,9 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  height: 789px;
+  /* position: relative; */
+  /* height: 789px; */
+  height: 100%;
   font-family: "Mplus 1p";
 }
 
@@ -181,7 +182,7 @@ export default {
 
 /* contant */
 .container{
-  width: calc(1440px - 240px);
+  width: calc(100% - 240px);
   /* height: calc(811px - 87px); */
   height: 95%;
   background-color: rgb(226, 227, 229);
@@ -194,7 +195,7 @@ export default {
 
 /* action */
 .work-menu:hover{
-  /* background-color: #117ee4; */
+  /* background-color : #117ee4; */
   background-color: rgb(235, 236, 240);
   box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
 	transform: translateY(-4px);
