@@ -1,7 +1,7 @@
 <template>
   <div class="game-wraper">
     <div class="top-title">
-      <img class="game-img" :src="assetsImage"/>
+      <!-- <img class="game-img" :src="assetsImage"/> -->
     </div>
   </div>
 </template>
