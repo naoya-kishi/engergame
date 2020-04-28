@@ -3,8 +3,8 @@
     <div class="top-recruit-detail">
       <div class="time-zone">2020年4月22日</div>
       <div class="company-logo"></div>
-      <div class="company-name">SAMLPE株式会社</div>
-      <div class="recruit-title">19万人が利用するWebサイトの最適化で使い心地の良さを追求するフロントエンジニアを募集！</div>
+      <div class="company-name">株式会社エイト</div>
+      <div class="recruit-title">【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！</div>
     </div>
     <div class="top-main-recruit-box">
       <div class="recruit-list-box">
@@ -121,6 +121,7 @@ export default {
   width: 250px;
   padding: 10px;
   display: inline-block;
+  color: #818181;
 }
 .recruit-title{
   margin: 15px 0 35px 35px ;
@@ -128,18 +129,20 @@ export default {
   height: 65%;
   font-size: 20px;
   color: #506690;
+  font-weight: bold;
 }
 
 /* 中間 */
 .top-main-recruit-box{
   width: 95%;
-  height: 230px;
+  height: 210px;
   margin: 0 auto;
 }
 /* top */
 .recruit-list-box{
   width: 95%;
   height: 180px;
+  box-shadow: 10px 5px 5px grey;
 }
 .top-list{
   width: 100%;
@@ -155,15 +158,18 @@ export default {
   display: inline-block;
   color: #FFFFFF;
   padding: 20px 10px 10px 10px;
+  font-weight: bold;
 }
 .salary-area{
   width: calc(100% - 30%);
   height: calc(100% - 30px);
   display: inline-block;
   top: 0;
+  font-size: 18px;
   position: absolute;
   padding: 20px 10px 10px 10px;
   color: #F09819;
+  font-weight: bold;
   /* box-shadow: 10px 10px 10px rgba(0,0,0,0.4);  */
 }
 
@@ -189,6 +195,7 @@ export default {
   display: inline-block;
   color: #FFFFFF;
   padding: 20px 10px 10px 10px;
+  font-weight: bold;
 }
 .recruit-type-area{
   /* width: calc(90% - 30%); */
@@ -211,6 +218,7 @@ export default {
   display: inline-block;
   color: #FFFFFF;
   padding: 20px 10px 10px 10px;
+  font-weight: bold;
 }
 .recruit-days-area{
   height: calc(100% - 30px);
@@ -246,6 +254,7 @@ export default {
   display: inline-block;
   color: #FFFFFF;
   padding: 20px 10px 10px 10px;
+  font-weight: bold;
 }
 .recruit-times-area{
   height: calc(100% - 30px);
@@ -254,6 +263,7 @@ export default {
   position: absolute;
   padding: 20px 10px 10px 10px;
   color: #9C9C9C;
+  /* font-weight: bold; */
 }
 .recruit-worktype-menu{
   width: 40.8%;
@@ -263,6 +273,7 @@ export default {
   display: inline-block;
   color: #FFFFFF;
   padding: 20px 10px 10px 10px;
+  font-weight: bold;
 }
 .recruit-worktype-area{
   /* width: calc(100% - 30%); */
@@ -402,7 +413,9 @@ export default {
 /* レスポンシブデザイン */
 @media screen and (max-width: 767px) {
   .detail-wrapper{
-    
+    padding: 20px;
+    width: 82%;
+    /* margin: 0; */
   }
   .company-logo{
     width: 30px;
@@ -417,11 +430,13 @@ export default {
   }
   .recruit-title{
     font-size: 14px;
+    width: 100%;
     margin: 0;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
   .top-list{
-    border: solid 1px rgb(199, 199, 199);
+    /* border: solid 1px rgb(199, 199, 199); */
+    border: none;
     width: 100%;
     height: 50px;
   }
@@ -432,7 +447,8 @@ export default {
   }
   .recruit-list-box{
     width: 100%;
-    height: 200px;
+    height: 255px;
+    margin: 30px 0;
   }
   .salary-menu{
     font-size: 12px;
@@ -445,20 +461,141 @@ export default {
     height: 20px;
   }
   .middle-list{
-    height: 50px;
+    height: 82px;
     font-size: 12px;
+    border: none;
+  }
+  .recruit-type-area{
+    height: 20px;
   }
   .recruit-type-menu{
     font-size: 12px;
-    /* width: 20px; */
     height: 20px;
+    width: 20%;
+    margin-top: 2px;
+  }
+  .left-box-first{
+    width: 100%;
+    height: 30px;
+  }
+  .right-box-secound{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 44px;
+  }
+  .rigth-box-second{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    border: none;
+    /* display: none; */
+  }
+  .recruit-days-menu{
+    width: 20%;
+    height: 20px;
+    margin-top: 2px;
+  }
+  .recruit-type-area{
+    width: 100%;
+    height: 20px;
+  }
+  .recruit-times-area{
+    width: 100%;
   }
   .bottom-list{
     font-size: 12px;
-    height: 50px;
+    height: 95px;
+    margin-top: 20px;
+    position: relative;
+    border: none;
   }
-  /* .recruit-times-area{
-    font-size: 12px;
-  } */
+  .left-box-secound{
+    width: 100%;
+    height: 30px;
+  }
+  .recruit-times-menu{
+    width: 20%;
+    height: 20px;
+    margin-top: 4px;
+
+  }
+  .recruit-times-area{
+    width: 80%;
+    height: 20px;
+  }
+  .recruit-worktype-menu{
+    width: 100%;
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    margin-top: 2px;
+  }
+  .recruit-worktype-menu{
+    width: 20%;
+    height: 20px;
+    margin-top: 2px;
+  }
+  .recruit-worktype-area{
+    width: 80%;
+    height: 22px;
+  }
+
+  .title-label{
+  margin-top: 20px;
+  position: relative;
+  padding: 5px 5px 5px 42px;
+  background: #77c3df;
+  font-size: 20px;
+  color: white;
+  margin-left: -33px;
+  line-height: 1.3;
+  /* z-index:-1; */
+  z-index: 2;
+  width: 30%;
+  font-size: 14px;
+  font-weight: bold;
+  }
+
+  .bottom-recruit-detail{
+    width: 100%;
+    height: 230px;
+  }
+  .sales-comment-box{
+    padding: 15px 15px 15px 0;
+    width: 100%;
+    height: 120px;
+  }
+  .sales-logo{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+  }
+  .sales-comment{
+    width:calc(90% - 30px);
+    float: none;
+    /* height: ; */
+  }
+  .send-area{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .btn-are{
+    width: 70%;
+    margin:0 auto
+  }
+  .apply-btn{
+    width: 100px;
+    display: inline-block;
+  }
+  .save-btn{
+    width: 100px;
+    display: inline-block;
+  }
 }
 </style>
