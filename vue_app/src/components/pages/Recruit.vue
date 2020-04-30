@@ -349,7 +349,7 @@ a{
     margin: 0 auto;
   }
   .recruit-content{
-    width: 300px;
+    width: calc(100% - 40px);
   }
   .recruit-topbox{
     width: 100%;
