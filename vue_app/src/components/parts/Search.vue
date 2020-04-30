@@ -1,6 +1,6 @@
 <template>
   <div class="serach-box">
-    <form id="seach-form" action="URL" method="get">
+    <form id="seach-form" action="search" method="get">
       <input v-model="form.WorkType" id="search-type" name="" type="text" placeholder=" 職種"/><input v-model="form.Location" id="search-location" name="" type="text" placeholder=" 地域"/><input v-model="form.Freeword" id="search-free" name="" type="text" placeholder=" フリーワード"/>
       <input id="search-btn" type="submit" value="検索" />
     </form>

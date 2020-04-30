@@ -77,8 +77,14 @@
       </div>
       <div class="send-area">
         <div class="btn-are">
-          <button class="apply-btn">応募する</button>
-          <button class="save-btn">保存する</button>
+          <router-link to="/" class="link-spa">
+            <form id="seach-form" action="apply" method="get">
+              <button class="apply-btn">応募する</button>
+            </form>
+          </router-link>
+          <form id="seach-form" action="like" method="get">
+            <button class="save-btn">保存する</button>
+          </form>
         </div>
       </div>
     </div>
@@ -388,6 +394,12 @@ export default {
   height: 100%;
   margin: 0 auto;
 }
+
+/* 保存 応募ボタン */
+#seach-form{
+  width: 160px;
+  display:inline-block;
+}
 .apply-btn{
   width: 160px;
   height: 40px;
@@ -579,6 +591,7 @@ export default {
     float: none;
     /* height: ; */
   }
+  /* 応募ボタン 保存ボタン */
   .send-area{
     padding: 0;
     margin: 0;
@@ -588,6 +601,10 @@ export default {
   .btn-are{
     width: 70%;
     margin:0 auto
+  }
+  #seach-form{
+    width: 100px;
+    display:inline-block;
   }
   .apply-btn{
     width: 100px;

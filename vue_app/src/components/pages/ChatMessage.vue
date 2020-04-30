@@ -241,6 +241,8 @@
       </div>
       <div class="bottom-box">
         <div id="bms_send">
+          <!-- <textarea id="bms_send_message" v-model="credentials.username" :counter="70" :rules="rules.username" label="Eメールアドレス" maxlength="70" required >
+          </textarea> -->
           <textarea id="bms_send_message">
           </textarea>
           <div id="bms_send_btn">送信</div>
@@ -252,7 +254,7 @@
 
 <script>
 export default {
-
+  name: 'ChatMessage',
 }
 </script>
 
