@@ -1,164 +1,93 @@
 <template>
   <div class="recruit-wrapper">
+    <paginate name="paginate-log" :list="projects" :per="10">
     <router-link to="/recruit/detail/">
-      <div class="recruit-content">
+      <div class="recruit-content" v-for="project in paginated('paginate-log')">
         <div class="recruit-topbox">
-          <div class="create-time">2020年4月12日</div>
-          <div class="create-work">業務委託</div>
-          <div class="matching-status">マッチング率22%</div>
+          <div class="create-time">{{ project.created_at }}</div>
+          <div class="create-work">{{ project.working_type }}</div>
+          <div class="matching-status">マッチング率{{ project.matching }}%</div>
         </div>
         <div class="recruit-centerbox">
           <div class="recruit-title-box">
-            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
+            {{ project.title }}
           </div>
           <div class="recruit-company-box">
-            株式会社エイト
+            {{ project.company }}
           </div>
         </div>
         <div class="recruit-btmbox">
           <div class="recruit-detail-box">
             <div class="money-area">
               <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-              <div class="money-content">70万 ~ 80万</div>
+              <div class="money-content">
+                {{ project.monthly_income_min }} ~ {{ project.monthly_income_max }}
+              </div>
             </div>
             <div class="location-area">
               <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-              <div class="location-content">東京都 渋谷区</div>
+              <div class="location-content">
+                {{ project.prefecture }} {{ project.city }}
+              </div>
             </div>
           </div>
           <div class="recruit-skill-box">
             <div class="skill-logo">スキル</div>
-            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
+            <div class="skill-content">{{ project.must_skill }}</div>
           </div>
           <div class="recruit-sales-box">
             <div class="sales-logo"></div>
-            <div class="sales-name">SAMPLE NAME</div>
+            <div class="sales-name">{{ project.sales_name }}</div>
           </div>
         </div>
       </div>
     </router-link>
-    <router-link to="/recruit/detail/">
-      <div class="recruit-content">
-        <div class="recruit-topbox">
-          <div class="create-time">2020年4月12日</div>
-          <div class="create-work">業務委託</div>
-          <div class="matching-status">マッチング率22%</div>
-        </div>
-        <div class="recruit-centerbox">
-          <div class="recruit-title-box">
-            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
-          </div>
-          <div class="recruit-company-box">
-            株式会社エイト
-          </div>
-        </div>
-        <div class="recruit-btmbox">
-          <div class="recruit-detail-box">
-            <div class="money-area">
-              <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-              <div class="money-content">70万 ~ 80万</div>
-            </div>
-            <div class="location-area">
-              <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-              <div class="location-content">東京都 渋谷区</div>
-            </div>
-          </div>
-          <div class="recruit-skill-box">
-            <div class="skill-logo">スキル</div>
-            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-          </div>
-          <div class="recruit-sales-box">
-            <div class="sales-logo"></div>
-            <div class="sales-name">SAMPLE NAME</div>
-          </div>
-        </div>
-      </div>
-    </router-link>
-    <router-link to="/recruit/detail/">
-      <div class="recruit-content">
-        <div class="recruit-topbox">
-          <div class="create-time">2020年4月12日</div>
-          <div class="create-work">業務委託</div>
-          <div class="matching-status">マッチング率22%</div>
-        </div>
-        <div class="recruit-centerbox">
-          <div class="recruit-title-box">
-            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
-          </div>
-          <div class="recruit-company-box">
-            株式会社エイト
-          </div>
-        </div>
-        <div class="recruit-btmbox">
-          <div class="recruit-detail-box">
-            <div class="money-area">
-              <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-              <div class="money-content">70万 ~ 80万</div>
-            </div>
-            <div class="location-area">
-              <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-              <div class="location-content">東京都 渋谷区</div>
-            </div>
-          </div>
-          <div class="recruit-skill-box">
-            <div class="skill-logo">スキル</div>
-            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-          </div>
-          <div class="recruit-sales-box">
-            <div class="sales-logo"></div>
-            <div class="sales-name">SAMPLE NAME</div>
-          </div>
-        </div>
-      </div>
-    </router-link>
-    <router-link to="/recruit/detail/">
-      <div class="recruit-content">
-        <div class="recruit-topbox">
-          <div class="create-time">2020年4月12日</div>
-          <div class="create-work">業務委託</div>
-          <div class="matching-status">マッチング率22%</div>
-        </div>
-        <div class="recruit-centerbox">
-          <div class="recruit-title-box">
-            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
-          </div>
-          <div class="recruit-company-box">
-            株式会社エイト
-          </div>
-        </div>
-        <div class="recruit-btmbox">
-          <div class="recruit-detail-box">
-            <div class="money-area">
-              <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-              <div class="money-content">70万 ~ 80万</div>
-            </div>
-            <div class="location-area">
-              <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-              <div class="location-content">東京都 渋谷区</div>
-            </div>
-          </div>
-          <div class="recruit-skill-box">
-            <div class="skill-logo">スキル</div>
-            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-          </div>
-          <div class="recruit-sales-box">
-            <div class="sales-logo"></div>
-            <div class="sales-name">SAMPLE NAME</div>
-          </div>
-        </div>
-      </div>
-    </router-link>
+    </paginate>
+    <paginate-links for="paginate-log" class="pagination" :show-step-links="true" ></paginate-links>
   </div>
 </template>
 
 <script>
-export default {
+import axios from 'axios'
 
+export default {
+  data(){
+    return{
+      url: 'http://localhost:3000/mock/users',
+      // 案件項目 Data
+      projects: [],
+      title: "",
+      company: "",
+      monthly_income_min: "",
+      monthly_income_max: "",
+      working_type: "",
+      created_at: "",
+      matching: "",
+      must_skill: "",
+      sales_name: "",
+      prefecture: "",
+      city: "",
+      paginate: ['paginate-log']
+    }
+  },
+  mounted: function(){
+    axios.get(this.url)
+    .then(response => this.projects = response.data)
+    .catch(response => console.log(response))
+  },
 }
 </script>
 
 <style scoped>
 /* Router URL textdecoration 削除 */
+.paginate-links{
+  width: 200px;
+  /* height: 70px;
+  background-color: yellow; */
+  color: #1f5abc;
+  list-style: none;
+  cursor: pointer;
+}
 a{
   text-decoration: none;
 }
@@ -286,7 +215,7 @@ a{
 
 /* スキル CSS */
 .recruit-skill-box{
-  width: 80%;
+  width: 75%;
   /* height: 40px; */
   display: inline-block;
 }
