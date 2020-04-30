@@ -210,7 +210,7 @@ export default {
   top: 0;
   position: absolute;
   padding: 20px 10px 10px 10px;
-  color: #9C9C9C;
+  color: #818181;
 }
 .rigth-box-second{
   width: 49%;
@@ -232,7 +232,7 @@ export default {
   top: 0;
   position: absolute;
   padding: 20px 10px 10px 10px;
-  color: #9C9C9C;
+  color: #818181;
 }
 .bottom-list{
   width: 100%;
@@ -268,12 +268,10 @@ export default {
   top: 0;
   position: absolute;
   padding: 20px 10px 10px 10px;
-  color: #9C9C9C;
-  /* font-weight: bold; */
+  color: #818181;
 }
 .recruit-worktype-menu{
   width: 40.8%;
-  /* height: 100%; */
   height: calc(100% - 30px);
   background-color: #0052C0;
   display: inline-block;
@@ -282,13 +280,12 @@ export default {
   font-weight: bold;
 }
 .recruit-worktype-area{
-  /* width: calc(100% - 30%); */
   height: calc(100% - 30px);
   display: inline-block;
   top: 0;
   position: absolute;
   padding: 20px 10px 10px 10px;
-  color: #9C9C9C;
+  color: #818181;
 }
 .center-recruit-detail{
   width: 90%;
@@ -324,6 +321,7 @@ export default {
 }
 .content-label{
   font-size: 14px;
+  color: #636363;
 }
 
 /* 詳細 */
@@ -548,7 +546,7 @@ export default {
   .recruit-worktype-menu{
     width: 20%;
     height: 20px;
-    margin-top: 2px;
+    margin-top: 4px;
   }
   .recruit-worktype-area{
     width: 80%;
