@@ -88,6 +88,7 @@ export default {
   /* height: 789px; */
   height: 100%;
   font-family: "Mplus 1p";
+  font-family: 'Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'MS ゴシック',sans-serif;
 }
 
 /* ! Header CSS */
