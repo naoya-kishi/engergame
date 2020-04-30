@@ -115,6 +115,14 @@ npm install axios
 npm run dev
 ```
 
+**Mock Server を使用**
+```
+npm install axios --save
+npm install -g instant-mock
+cd mymock
+instant-mock
+```
+
 **参考URL**
  - https://qiita.com/akakuro43/items/600e7e4695588ab2958d
  - https://qiita.com/fuwamaki/items/3d8af42cf7abee760a81
