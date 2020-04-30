@@ -116,6 +116,7 @@ npm run dev
 ```
 
 **Mock Server を使用**
+仮想サーバーを構築してJSON型Dataを扱うため
 ```
 npm install axios --save
 npm install -g instant-mock
