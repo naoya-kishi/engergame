@@ -106,6 +106,12 @@ npm install -D normalize.css
 ```
 npm install axios
 ```
+
+**Vuex**
+```
+npm install vuex install --save
+```
+
 参考URL
 > https://github.com/axios/axios#example
 
