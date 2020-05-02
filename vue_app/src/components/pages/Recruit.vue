@@ -1,19 +1,34 @@
 <template>
   <div class="recruit-wrapper">
-    <paginate name="paginate-log" :list="projects" :per="10">
-    <router-link to="/recruit/detail/">
-      <div class="recruit-content" v-for="project in paginated('paginate-log')">
+    <paginate name="paginate-log" :list="projects" :per="10" class="paginate">
+    <!-- <router-link to="/recruit/:id/"> -->
+      <div class="recruit-content" 
+      v-for="{
+        project_id,
+        title,
+        created_at,
+        working_type,
+        matching,
+        company,
+        monthly_income_min,
+        monthly_income_max,
+        prefecture,
+        city,
+        must_skill,
+        sales_name 
+        } in (list, paginated('paginate-log'))">
+        <router-link :to="`/recruit/${ project_id }`">
         <div class="recruit-topbox">
-          <div class="create-time">{{ project.created_at }}</div>
-          <div class="create-work">{{ project.working_type }}</div>
-          <div class="matching-status">マッチング率{{ project.matching }}%</div>
+          <div class="create-time">{{ created_at }}</div>
+          <div class="create-work">{{ working_type }}</div>
+          <div class="matching-status">マッチング率{{ matching }}%</div>
         </div>
         <div class="recruit-centerbox">
           <div class="recruit-title-box">
-            {{ project.title }}
+            {{ title }}
           </div>
           <div class="recruit-company-box">
-            {{ project.company }}
+            {{ company }}
           </div>
         </div>
         <div class="recruit-btmbox">
@@ -21,27 +36,27 @@
             <div class="money-area">
               <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
               <div class="money-content">
-                {{ project.monthly_income_min }} ~ {{ project.monthly_income_max }}
+                {{ monthly_income_min }} ~ {{ monthly_income_max }}
               </div>
             </div>
             <div class="location-area">
               <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
               <div class="location-content">
-                {{ project.prefecture }} {{ project.city }}
+                {{ prefecture }} {{ city }}
               </div>
             </div>
           </div>
           <div class="recruit-skill-box">
             <div class="skill-logo">スキル</div>
-            <div class="skill-content">{{ project.must_skill }}</div>
+            <div class="skill-content">{{ must_skill }}</div>
           </div>
           <div class="recruit-sales-box">
             <div class="sales-logo"></div>
-            <div class="sales-name">{{ project.sales_name }}</div>
+            <div class="sales-name">{{ sales_name }}</div>
           </div>
         </div>
+        </router-link>
       </div>
-    </router-link>
     </paginate>
     <paginate-links for="paginate-log" class="pagination" :show-step-links="true" ></paginate-links>
   </div>
@@ -49,13 +64,14 @@
 
 <script>
 import axios from 'axios'
-
+import products from '@/api/products.js'
 export default {
   data(){
     return{
       url: 'http://localhost:3000/mock/users',
       // 案件項目 Data
       projects: [],
+      id: "",
       title: "",
       company: "",
       monthly_income_min: "",
@@ -75,6 +91,9 @@ export default {
     .then(response => this.projects = response.data)
     .catch(response => console.log(response))
   },
+  computed: {
+      list: () => products.fetch()
+  }
 }
 </script>
 
@@ -278,7 +297,12 @@ a{
     margin: 0 auto;
   }
   .recruit-content{
-    width: calc(100% - 40px);
+    /* width: calc(100% - 40px); */
+    /* width: 100%; */
+  }
+  .paginate{
+    width: 100%;
+    /* background-color: green; */
   }
   .recruit-topbox{
     width: 100%;

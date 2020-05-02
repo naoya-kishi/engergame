@@ -2,6 +2,7 @@
   <div class="detail-wrapper">
     <div class="top-recruit-detail">
       <div class="time-zone">2020年4月22日</div>
+      <p>このページは ID: {{ $route.params.id }} の詳細を表示する</p>
       <div class="company-logo"></div>
       <div class="company-name">株式会社エイト</div>
       <div class="recruit-title">【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！</div>
@@ -93,7 +94,9 @@
 
 <script>
 export default {
-
+  props: {
+    id: Number
+  }
 }
 </script>
 
