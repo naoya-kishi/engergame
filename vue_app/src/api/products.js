@@ -310,17 +310,17 @@ const database = [
   }
 ]
 
-  // インポート先で使用できる関数をオブジェクトとしてまとめたもの
-  export default {
-    fetch(id) {
-      return database
-    },
-    find(id) {
-      return database.find(el => el.id === id)
-    },
-    asyncFind(id, callback) {
-      setTimeout(() => {
-        callback(database.find(el => el.id === id))
-      }, 1000)
-    }
-  } 
+// インポート先で使用できる関数をオブジェクトとしてまとめたもの
+export default {
+  fetch(id) {
+    return database
+  },
+  find(project_id) { // 追記した関数
+    return database.find(el => el.project_id === project_id)
+  },
+  asyncFind(project_id) {
+    return new Promise(res => setTimeout(() => {
+      res(this.find(project_id))
+    }, 1000))
+  }
+}

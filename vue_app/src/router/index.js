@@ -39,7 +39,7 @@ export default new Router({
       path: '/recruit/:id/',
       component: RecruitDetail,
       props: route => ({
-        id: Number(route.params.id)
+        id: Number(route.params.id),
       })
     },
     {

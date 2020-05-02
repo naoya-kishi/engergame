@@ -1,7 +1,7 @@
 <template>
   <div class="recruit-wrapper">
     <paginate name="paginate-log" :list="projects" :per="10" class="paginate">
-    <!-- <router-link to="/recruit/:id/"> -->
+      <!-- <div class="recruit-content" v-for="{project_id, title} in list " :key="project_id"> -->
       <div class="recruit-content" 
       v-for="{
         project_id,
@@ -16,9 +16,9 @@
         city,
         must_skill,
         sales_name 
-        } in (list, paginated('paginate-log'))">
+        } in (list, paginated('paginate-log'))" :key="project_id">
         <router-link :to="`/recruit/${ project_id }`">
-        <div class="recruit-topbox">
+        <div class="recruit-topbox">{{ project_id }}
           <div class="create-time">{{ created_at }}</div>
           <div class="create-work">{{ working_type }}</div>
           <div class="matching-status">マッチング率{{ matching }}%</div>
@@ -71,18 +71,18 @@ export default {
       url: 'http://localhost:3000/mock/users',
       // 案件項目 Data
       projects: [],
-      id: "",
-      title: "",
-      company: "",
-      monthly_income_min: "",
-      monthly_income_max: "",
-      working_type: "",
-      created_at: "",
-      matching: "",
-      must_skill: "",
-      sales_name: "",
-      prefecture: "",
-      city: "",
+      // id: "",
+      // title: "",
+      // company: "",
+      // monthly_income_min: "",
+      // monthly_income_max: "",
+      // working_type: "",
+      // created_at: "",
+      // matching: "",
+      // must_skill: "",
+      // sales_name: "",
+      // prefecture: "",
+      // city: "",
       paginate: ['paginate-log']
     }
   },
