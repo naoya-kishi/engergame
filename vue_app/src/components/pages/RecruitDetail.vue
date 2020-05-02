@@ -1,36 +1,36 @@
 <template>
-  <div class="detail-wrapper">
+  <div class="detail-wrapper" v-if="item" key="product">
     <div class="top-recruit-detail">
       <div class="time-zone">2020年4月22日</div>
       <p>このページは ID: {{ $route.params.id }} の詳細を表示する</p>
       <div class="company-logo"></div>
-      <div class="company-name">株式会社エイト</div>
-      <div class="recruit-title">【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！</div>
+      <div class="company-name">{{ item.company }}</div>
+      <div class="recruit-title">{{ item.title }}</div>
     </div>
     <div class="top-main-recruit-box">
       <div class="recruit-list-box">
         <div class="top-list">
           <div class="salary-menu">月額単価</div>
-          <div class="salary-area">80~90万</div>
+          <div class="salary-area">{{ item.monthly_income_min }} ~ {{ item.monthly_income_max }}</div>
         </div>
         <div class="middle-list">
           <div class="left-box-first">
             <div class="recruit-type-menu">雇用携帯</div>
-            <div class="recruit-type-area">正社員</div>
+            <div class="recruit-type-area">{{ item.working_type }}</div>
           </div>
           <div class="rigth-box-second">
             <div class="recruit-days-menu">稼働日数</div>
-            <div class="recruit-days-area">週3 ~</div>
+            <div class="recruit-days-area">{{ item.working_days }} ~</div>
           </div>
         </div>
         <div class="bottom-list">
           <div class="left-box-secound">
             <div class="recruit-times-menu">契約期間</div>
-            <div class="recruit-times-area">2ヶ月 ~</div>
+            <div class="recruit-times-area">{{ item.time }}</div>
           </div>
           <div class="right-box-secound">
             <div class="recruit-worktype-menu">募集職種</div>
-            <div class="recruit-worktype-area">バックエンドエンジニア</div>
+            <div class="recruit-worktype-area">{{ item.position }}</div>
           </div>
         </div>
       </div>
@@ -38,11 +38,11 @@
     <div class="center-recruit-detail">
       <div class="label-tag">
         <p class="title-label">必須スキル</p>
-        <p class="content-label">JavaScript, PHP, Java, Python, MySQL, Vue.js, Node,js</p>
+        <p class="content-label">{{ item.must_skill }}</p>
       </div>
       <div class="label-tag">
         <p class="title-label">歓迎スキル</p>
-        <p class="content-label">JavaScript, PHP, Java, Python, MySQL, Vue.js, Node,js</p>
+        <p class="content-label">{{ item.want_skill }}</p>
       </div>
       <div class="label-tag">
         <p class="title-label">案件内容</p>
@@ -51,30 +51,30 @@
       <div class="recruit-detail-box">
         <div class="label-tag">
           <p class="detail-title-label">面談回数</p>
-          <p class="content-label">1回</p>
+          <p class="content-label">{{ item.mendann }}</p>
         </div>
         <div class="label-tag">
           <p class="detail-title-label">待遇 / 福利厚生</p>
-          <p class="content-label">年間休日120!!! 社保完備、会社内旅行あり</p>
+          <p class="content-label">{{ item.welfare }}</p>
         </div>
         <div class="label-tag">
           <p class="detail-title-label">休日 / 休暇</p>
-          <p class="content-label">夏期冬季休暇あり。GW、お盆休みあり。</p>
+          <p class="content-label">{{ item.vacation }}</p>
         </div>
         <div class="label-tag">
           <p class="detail-title-label">求める人材</p>
-          <p class="content-label">わからないことがあっても積極的に質問ができ、自ら行動ができる方。</p>
+          <p class="content-label">{{ item.want_person }}</p>
         </div>
         <div class="label-tag">
           <p class="detail-title-label">勤務地</p>
-          <p class="content-label">東京都 港区 最寄駅: JR横浜駅</p>
+          <p class="content-label">{{ item.prefecture }} {{ item.city }}</p>
         </div>
       </div>
     </div>
     <div class="bottom-recruit-detail">
       <div class="sales-comment-box">
         <div class="sales-logo"></div>
-        <div class="sales-comment">Pythonによる入札額及び日予算の最適化ロジックの開発に携わっていただきます。Python実務経験が1年以上ある方にマッチします。※担当者は変更になる場合がございます</div>
+        <div class="sales-comment">{{ item.agent_comment }}</div>
       </div>
       <div class="send-area">
         <div class="btn-are">
@@ -90,12 +90,29 @@
       </div>
     </div>
   </div>
+  <div v-else key="loading">読み込み中...</div>
 </template>
 
 <script>
+import products from '@/api/products.js'
 export default {
   props: {
     id: Number
+  },
+  data() {
+    return {
+      item: null
+    }
+  },
+  watch: {
+    id: {
+      handler() {
+        products
+          .asyncFind(this.id)
+          .then(it => this.item = it);
+      },
+      immediate: true
+    }
   }
 }
 </script>
