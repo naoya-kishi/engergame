@@ -3,7 +3,9 @@ import App from './App'
 import router from './router'
 import axios from 'axios' //Axios バックエンド側のデータ処理
 import VuePaginate from 'vue-paginate';
+import Vuex from 'vuex'
 
+Vue.use(Vuex)
 // reset css
 import 'normalize.css' //ResetCss
 
@@ -29,3 +31,6 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+
+

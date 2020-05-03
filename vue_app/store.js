@@ -1,29 +1,38 @@
-import Vue from 'vue';
-// Ajax通信ライブラリ
-import axios from 'axios';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-// Json取得のベースURL
-const URL_BASE = 'http://localhost:3000/mock/users';
+Vue.use(Vuex)
 
-// Vue.js のインスタンス
-module.exports = new Vue({
-  data: {
-    // Jsonデータ格納用
-    search_list: []
+const store = new Vuex.Store({
+
+  //state:コンポーネントでいうdata
+  state: {
+    message: '初期メッセージ'
   },
-  methods: {
-    // Ajax通信でJsonを取得し、特定のプロパティに格納する
-    // 取得したら GET_AJAX_COMPLETE で通知する
-    get_ajax(url, name) {
-      return axios.get(URL_BASE + url)
-      .then((res) => {
-        Vue.set(this, name, res.data);
-        this.$emit('GET_AJAX_COMPLETE');
-      });
-    },
-    // プロパティ名を指定してデータを取得
-    get_data(name) {
-      return this.$data[name];
+
+  //getters:コンポーネントでいうcomputed的なもの
+  getters:{
+    //messageを使用するgetter
+    message(state) {
+      return state.message
+    }
+  },
+
+  //mutations:コンポーネントでいうmethod（と言うかsetter）
+  //stateを唯一変更できるもの
+  mutations: {
+    //vuexでは引数をpayloadと呼ぶっぽい
+    //payloadはオブジェクトにするべき（いっぱい入れれるし）
+    setMessage(state,payload){
+      state.message = payload.message
+    }
+  },
+
+  //actionのコミットを使うことでミューテーションを呼び出す（コンポーネントには無い概念）
+  actions: {
+    doUpdate({commit}, message){
+      commit('setMessage',{message})
     }
   }
-});
+})
+export default store

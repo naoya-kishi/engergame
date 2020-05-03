@@ -1,6 +1,6 @@
 <template>
   <div class="recruit-wrapper">
-    <paginate name="paginate-log" :list="projects" :per="10" class="paginate">
+    <paginate name="paginate-log" :list="list" :per="10" class="paginate">
       <!-- <div class="recruit-content" v-for="{project_id, title} in list " :key="project_id"> -->
       <div class="recruit-content" 
       v-for="{
@@ -16,9 +16,11 @@
         city,
         must_skill,
         sales_name 
-        } in (list, paginated('paginate-log'))" :key="project_id">
+        } in paginated('paginate-log')" :key="project_id">
         <router-link :to="`/recruit/${ project_id }`">
-        <div class="recruit-topbox">{{ project_id }}
+        <div class="recruit-topbox">
+          <!-- IDの確認 -->
+          <!-- {{ project_id }} -->
           <div class="create-time">{{ created_at }}</div>
           <div class="create-work">{{ working_type }}</div>
           <div class="matching-status">マッチング率{{ matching }}%</div>
@@ -64,49 +66,28 @@
 
 <script>
 import axios from 'axios'
-import products from '@/api/products.js'
+import data from '@/api/products.js'
 export default {
   data(){
     return{
-      url: 'http://localhost:3000/mock/users',
-      // 案件項目 Data
-      projects: [],
-      // id: "",
-      // title: "",
-      // company: "",
-      // monthly_income_min: "",
-      // monthly_income_max: "",
-      // working_type: "",
-      // created_at: "",
-      // matching: "",
-      // must_skill: "",
-      // sales_name: "",
-      // prefecture: "",
-      // city: "",
+      // url: 'http://localhost:3000/mock/users',
+      // projects: [],
       paginate: ['paginate-log']
     }
   },
-  mounted: function(){
-    axios.get(this.url)
-    .then(response => this.projects = response.data)
-    .catch(response => console.log(response))
-  },
+  // mounted: function(){
+  //   axios.get(this.url)
+  //   .then(response => this.projects = console.log(response.data))
+  //   .catch(response => console.log(response))
+  // },
   computed: {
-      list: () => products.fetch()
+    list: () => data.fetch()
   }
 }
 </script>
 
 <style scoped>
 /* Router URL textdecoration 削除 */
-.paginate-links{
-  width: 200px;
-  /* height: 70px;
-  background-color: yellow; */
-  color: #1f5abc;
-  list-style: none;
-  cursor: pointer;
-}
 a{
   text-decoration: none;
 }
@@ -116,7 +97,6 @@ a{
   height: 120%;
   margin: 22px auto;
 }
-
 /* 求人content CSS */
 .recruit-content{
   width: calc(100% - 20px);
@@ -298,10 +278,12 @@ a{
   }
   .recruit-content{
     /* width: calc(100% - 40px); */
-    /* width: 100%; */
+    width: 90%;
   }
   .paginate{
     width: 100%;
+    margin: 0;
+    padding: 0;
     /* background-color: green; */
   }
   .recruit-topbox{
@@ -359,6 +341,9 @@ a{
   }
   .recruit-sales-box{
     display: none;
+  }
+  .pagination{
+    margin: 0;
   }
 
 }
