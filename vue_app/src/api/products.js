@@ -50,7 +50,7 @@ const database = [
       "project_detail": "容電子決済サービス向けプロダクトの機能追加がメインの作業となりますが、サービス全体を俯瞰してシステム構築作業にも携わっていただきます。",
       "time": "2ヶ月 ~",
       "matching": "39",
-      "working_type": "フリーランス",
+      "working_type": "業務委託",
       "want_person": "わからないことがあっても積極的に質問ができ、自ら行動ができる方。",
       "email": "sato@example.com",
       "created_at": "2020年4月20日",
@@ -218,7 +218,7 @@ const database = [
       "project_detail": "容電子決済サービス向けプロダクトの機能追加がメインの作業となりますが、サービス全体を俯瞰してシステム構築作業にも携わっていただきます。",
       "time": "2ヶ月 ~",
       "matching": "20",
-      "working_type": "フリーランス",
+      "working_type": "業務委託",
       "want_person": "わからないことがあっても積極的に質問ができ、自ら行動ができる方。",
       "email": "sato@example.com",
       "created_at": "2020年5月1日",
@@ -274,7 +274,7 @@ const database = [
       "project_detail": "容電子決済サービス向けプロダクトの機能追加がメインの作業となりますが、サービス全体を俯瞰してシステム構築作業にも携わっていただきます。",
       "time": "2ヶ月 ~",
       "matching": "20",
-      "working_type": "フリーランス",
+      "working_type": "業務委託",
       "want_person": "わからないことがあっても積極的に質問ができ、自ら行動ができる方。",
       "email": "sato@example.com",
       "created_at": "2020年5月1日",
@@ -311,7 +311,18 @@ const database = [
 ]
 
 // インポート先で使用できる関数をオブジェクトとしてまとめたもの
+import axios from 'axios'
 export default {
+  data(){
+    return{
+      database1: []
+    }
+  },
+  mounted: function(){
+    axios.get('http://localhost:3000/mock/users')
+    .then(response => this.database1 = response.data)
+    .catch(response => console.log(response))
+  },
   fetch(id) {
     return database
   },
