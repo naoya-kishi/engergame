@@ -102,6 +102,9 @@
     </div>
     <div class="right-chatbox">
       <div class="main-box">
+        <div class="message-recruit-title">
+          <p>【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォーム...</p>
+        </div>
         <div class="chat-mainbox">
           <div class="chat-message-box">
             <div class="chat-message-profile-box">
@@ -314,15 +317,36 @@ export default {
   height: 100%;
   display: inline-block;
 }
+
 /* チャット 送受信 */
+.message-recruit-title{
+  padding: 0.3em 1em;
+  margin: 1em 0;
+  color: #FFF;
+  background: #6eb7ff;
+  border-bottom: solid 6px #3f87ce;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  transition: .4s;
+  cursor: pointer;
+}
+.message-recruit-title:hover {
+  background-color: #ffffff;
+  border-color: #e2e2e2;
+  color: #6eb7ff;
+  font-weight: bold;
+}
+.message-recruit-title p {
+  font-size: 14px;
+}
 .main-box{
   width: calc(100% - 40px );
   height: calc(88% - 40px);
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 .chat-mainbox{
   width: 100%;
-  height: 100%;
+  height: 95%;
   /* background-color: green; */
   overflow: scroll;
 }
@@ -353,31 +377,6 @@ export default {
   font-size: 14px;
 }
 
-/* 左右 分ける 未使用*/
-.left-message{
-  width: 49%;
-  height: 100%;
-  background-color: green;
-  /* display: inline-block; */
-  float: right;
-}
-.right-message{
-  width: 49%;
-  height: 100%;
-  background-color: blue;
-  /* display: inline-block; */
-}
-.left-message-box{
-  float: right;
-  width: 300px;
-  /* height: 100px; */
-  /* border-radius: 3%; */
-  background-color: yellow;
-  margin-bottom: 15px;
-  padding: 10px;
-}
-/* ここまで */
-
 
 /* 送信ボックス */
 .bottom-box{
@@ -386,6 +385,7 @@ export default {
   padding: 15px;
   /* border-top: 1px solid red; */
   background-color: #FFFFFF;
+  z-index: 100;
   /* background-color: rgb(226, 227, 229); */
 }
 #bms_send_message{
@@ -421,6 +421,7 @@ export default {
 .user-chatbox:hover{
   opacity: 0.7;
 }
+
 
 /* レスポンシブ */
 @media screen and (max-width: 767px) {

@@ -309,21 +309,34 @@ const database = [
       "sales_name": "川崎 勇気"
   }
 ]
+var databaseResult = [];
+const data = axios.get('http://localhost:3000/mock/users').then(response => databaseResult = response.data)
+console.log(data)
+const result = data.then((value) => { return value });
+console.log(result)
+data.then((value) => {
+  console.log(value);
+  return value
+});
+
+
 
 // インポート先で使用できる関数をオブジェクトとしてまとめたもの
 import axios from 'axios'
 export default {
-  data(){
-    return{
+  data() {
+    return {
       database1: []
     }
   },
-  mounted: function(){
-    axios.get('http://localhost:3000/mock/users')
-    .then(response => this.database1 = response.data)
-    .catch(response => console.log(response))
-  },
-  fetch(id) {
+  fetch(id, value) {
+    // * dataから取り出す ...できない
+    // data.then((value) => {
+    //   console.log(value);
+    //   return value
+    // });
+    console.log("~~~~~~~~~~変わらない~~~~~~~~~")
+    // return value
     return database
   },
   find(project_id) { // 追記した関数

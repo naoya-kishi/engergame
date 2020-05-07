@@ -99,6 +99,7 @@
 <script>
 import products from '@/api/products.js'
 export default {
+  // * Project_id を継承する
   props: {
     id: Number
   },
@@ -126,7 +127,7 @@ export default {
   /* height: 140%; */
   margin: 22px auto;
   background-color: rgb(255, 255, 255);
-  box-shadow: 10px 5px 5px grey;
+  box-shadow: 4px 2px 2px grey;
   padding: 40px;
 }
 /* トップ 日付、会社名、タイトル */
@@ -227,7 +228,6 @@ export default {
   font-weight: bold;
 }
 .recruit-type-area{
-  /* width: calc(90% - 30%); */
   height: calc(100% - 30px);
   display: inline-block;
   top: 0;
@@ -592,7 +592,11 @@ export default {
     border: none;
   }
   .recruit-type-area{
-    height: 20px;
+    /* height: 20px; */
+    /* width: 10px; */
+    /* background-color: green; */
+    /* padding: 0; */
+    /* width: 100%; */
   }
   .recruit-type-menu{
     font-size: 12px;
@@ -629,7 +633,7 @@ export default {
     height: 20px;
   }
   .recruit-times-area{
-    width: 100%;
+    /* background-color: green; */
   }
   .bottom-list{
     font-size: 12px;
