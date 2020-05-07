@@ -1,7 +1,8 @@
 <template>
   <div class="recruit-wrapper">
     <paginate name="paginate-log" :list="list" :per="10" class="paginate">
-      <!-- <div class="recruit-content" v-for="{project_id, title} in list " :key="project_id"> -->
+      <!-- <div class="recruit-content" v-for="project in projects " :key="project_id">
+      </div> -->
       <div class="recruit-content" 
       v-for="{
         project_id,
@@ -66,7 +67,7 @@
 
 <script>
 import axios from 'axios'
-import data from '@/api/products.js'
+import database1 from '@/api/products.js'
 export default {
   data(){
     return{
@@ -75,13 +76,14 @@ export default {
       paginate: ['paginate-log']
     }
   },
+  // * axios setting
   // mounted: function(){
   //   axios.get(this.url)
-  //   .then(response => this.projects = console.log(response.data))
+  //   .then(response => this.projects =response.data)
   //   .catch(response => console.log(response))
   // },
   computed: {
-    list: () => data.fetch()
+    list: () => database1.fetch()
   }
 }
 </script>
@@ -256,6 +258,12 @@ a{
   color: #818181;
 }
 
+.pagination{
+  color: #1f5abc;
+  list-style: none;
+  cursor: pointer;
+}
+
 /* Icon  */
 .awesome-icon{
   color: #2AC1DF;
@@ -316,6 +324,8 @@ a{
   }
   .recruit-detail-box{
     width: 100%;
+    height: 22px;
+    /* background-color: #f09819; */
   }
   .money-area{
     width: 49%;
