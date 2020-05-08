@@ -191,7 +191,7 @@ a{
 }
 .usercompany{
   font-size: 9px;
-  color: #2AC1DF;
+  color: #506690;
 }
 .username{
   text-decoration: none;

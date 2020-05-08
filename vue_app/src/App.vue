@@ -129,10 +129,10 @@ export default {
   /* background-color: #117ee4; */
 }
 .user-image{
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   background-color: grey;
-  border-radius: 50%;
+  border-radius: 20%;
   display: inline-block;
 }
 .user-name{

@@ -233,14 +233,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="left-message">
-          <div class="left-message-box">
-            なんでなの？
-          </div>
-        </div>
-        <div class="right-message">
-
-        </div> -->
       </div>
       <div class="bottom-box">
         <div id="bms_send">
@@ -302,7 +294,7 @@ export default {
 }
 .usercompany{
   font-size: 9px;
-  color: #2AC1DF;
+  color: #506690;
 }
 .username{
   text-decoration: none;
@@ -320,7 +312,7 @@ export default {
 
 /* チャット 送受信 */
 .message-recruit-title{
-  padding: 0.3em 1em;
+  padding: 0.1em 1em;
   margin: 1em 0;
   color: #FFF;
   background: #6eb7ff;
@@ -384,7 +376,7 @@ export default {
   height: calc(100% - 88% - 30px);
   padding: 15px;
   /* border-top: 1px solid red; */
-  background-color: #FFFFFF;
+  filter: drop-shadow(0 0 3px black);
   z-index: 100;
   /* background-color: rgb(226, 227, 229); */
 }
@@ -394,6 +386,7 @@ export default {
   border: 1px solid rgb(226, 227, 229);
   line-height: 30px;
   display: inline-block;
+  border-radius: 12px;
 
 }
 #bms_send_btn{
@@ -438,6 +431,14 @@ export default {
   .message-content{
     font-size: 11px;
   }
+  .message-recruit-title{
+    /* padding: 1em 1em; */
+    margin: 1em 0;
+  }
+  .message-recruit-title p {
+    font-size:11px;
+  }
+
   .bottom-box{
     height: 10%;
     /* background-color: rgba(172, 255, 47, 0.479); */
@@ -445,6 +446,7 @@ export default {
     bottom: 0;
   }
   #bms_send_message{
+    height: 30%;
   }
 }
 
