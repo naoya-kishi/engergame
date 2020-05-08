@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Project
 
 
 def index(request):
@@ -26,7 +27,12 @@ def apply(request):
 
 def recruit(request):
     response = "recruit"
-    return render(request, 'engergame/recruit.html')
+    projects = Project.objects.all()[:5]
+    context = {
+        'message': 'Welcome Recruit Page',
+        'projects': projects,
+    }
+    return render(request, 'engergame/recruit.html', context)
 
 def like(request):
     response = "like"

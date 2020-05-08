@@ -3,10 +3,17 @@
     <title>recruit</title>
   </header>
   <body>
-   <div>
+    <div>
       <h1>recruit</h1>
       <a href = 'http://127.0.0.1:8000/engergame/recruit/detail'>detail</a>
       <a href = 'http://127.0.0.1:8000/engergame/'>top</a>
     </div>
+
+    <div>
+      {% for project in projects %}
+        <p>{{ project.title }}</p>
+      {% endfor %}
+    </div>
+
   </body>
 </html>
