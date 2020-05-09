@@ -222,10 +222,9 @@ export default {
     position: relative;
   }
   .link-spa{
-    width: 65px;
+    width: 100%;
     height: 50px;
     /* margin-right: 5px; */
-    /* background-color: red; */
   }
   .header{
     width: 100%;
@@ -241,7 +240,7 @@ export default {
     padding: 10px;
   }
   .top-user-profile{
-    border-radius: 50%;
+    border-radius: 20%;
     width: 45px;
     height: 45px;
     background-color: #506690;
@@ -294,19 +293,19 @@ export default {
   .menu-box{
     display: flex;
     height: 30px;
-    /* background-color: rgba(0, 128, 0, 0.377); */
+    width: 90%;
+    /* padding: 10px 0; */
   }
   .work-menu{
     display: inline-block;
-    width: 74px;
-    height: 45px;
+    width: 100%;
+    height: 80%;
+    top: 0;
     /* margin: 0px 10px 0 20px; */
     /* margin: 0px 5px 0px 5px; */
     margin-left: 2px;
     padding: 0;
     top:0;
-    background-color: #FFFFFF;
-    /* position: absolute; */
   }
   .logobox{
     width: 40px;
@@ -326,7 +325,7 @@ export default {
   /* container */
   .container{
   width: 100%;
-  height: 80%;
+  height: 84%;
 
   background-color: rgb(226, 227, 229);
   /* background-color: #FFFFFF; */

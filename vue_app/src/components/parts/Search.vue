@@ -69,9 +69,9 @@ export default {
 /* レスポンシブ */
 @media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
   .serach-box{
-    width: 60%;
-    height: 30px;
-    padding: 15px 0 0 50px;
+    width: 80%;
+    height: 90%;
+    padding: 15px 0 0 1px;
     /* background-color: aqua; */
   }
   .seach-form{
@@ -86,8 +86,8 @@ export default {
     display: none;
   }
   #search-free{
-    width: 150px;
-    height: 95%;
+    width: 80%;
+    height: 62%;
     border-radius: 4%;
     border: 1px solid grey;
     /* margin-left: 30px; */
