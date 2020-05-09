@@ -79,14 +79,18 @@
       </div>
       <div class="send-area">
         <div class="btn-are">
-          <router-link to="/" class="link-spa">
-            <form id="seach-form" action="apply" method="get">
-              <button class="apply-btn">応募する</button>
+          <div class="send-box">
+            <router-link to="/" class="link-spa">
+              <form id="seach-form" action="apply" method="get">
+                <button class="apply-btn">応募する</button>
+              </form>
+            </router-link>
+          </div>
+          <div class="send-box">
+            <form id="seach-form" action="like" method="get">
+              <button class="save-btn">保存する</button>
             </form>
-          </router-link>
-          <form id="seach-form" action="like" method="get">
-            <button class="save-btn">保存する</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -411,7 +415,7 @@ export default {
   padding: 20px 0;
 }
 .btn-are{
-  width: 35%;
+  width: 85%;
   height: 100%;
   margin: 0 auto;
 }
@@ -421,25 +425,33 @@ export default {
   width: 160px;
   display:inline-block;
 }
+.send-box{
+  display: inline-block;
+  width: 20%;
+  height: 50%;
+  padding: 0 13%;
+}
 .apply-btn{
-  width: 160px;
-  height: 40px;
+  width: 250px;
+  height: 54px;
   background-color: #f09819;
   color: #FFFFFF;
   text-align: center;
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 18px;
   padding: 2px 0 0 0 ;
   display: inline-block;
+  font-weight: bold;
 }
 .save-btn{
-  width: 160px;
-  height: 40px;
+  width: 250px;
+  height: 54px;
   background-color: #2AC1DF;
   color: #FFFFFF;
   text-align: center;
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: bold;
   padding: 2px 0 0 0 ;
   display: inline-block;
 }
@@ -715,6 +727,11 @@ export default {
     margin: 0;
     width: 100%;
     margin-top: 20px;
+  }
+  .send-box{
+    width: 20%;
+    height: 80%;
+    background-color: #2AC1DF;
   }
   .btn-are{
     width: 70%;
