@@ -199,7 +199,7 @@ export default {
   height: calc(100% - 30px);
   display: inline-block;
   top: 0;
-  font-size: 18px;
+  font-size: 22px;
   position: absolute;
   padding: 20px 10px 10px 10px;
   color: #F09819;
@@ -410,7 +410,7 @@ export default {
 }
 .send-area{
   width: calc(100% - 40px);
-  /* height: 25%; */
+  height: 60px;
   margin-top: 20px;
   padding: 20px 0;
 }
@@ -442,6 +442,15 @@ export default {
   padding: 2px 0 0 0 ;
   display: inline-block;
   font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 0 rgba(73, 73, 73, 0.7);
+  padding : 8px;
+  transition: 0.2s all ease 0s;
+}
+.apply-btn:hover{
+  background-color: #f09819;
+  box-shadow: none;
+  transform: translate3d(0, 3px, 0);
 }
 .save-btn{
   width: 250px;
@@ -454,6 +463,17 @@ export default {
   font-weight: bold;
   padding: 2px 0 0 0 ;
   display: inline-block;
+  cursor: pointer;
+  border-radius: 12px;
+  background-color: #2AC1DF;
+  box-shadow: 0px 4px 0 rgba(80, 80, 80, 0.7);
+  padding : 8px;
+  transition: 0.2s all ease 0s;
+}
+.save-btn:hover{
+  background-color: #2AC1DF;
+  box-shadow: none;
+  transform: translate3d(0, 3px, 0);
 }
 /* ローディング CSS */
 .load-box{
@@ -594,7 +614,7 @@ export default {
     height: 20px;
   }
   .salary-area{
-    font-size: 12px;
+    font-size: 18px;
     /* width: 20px; */
     height: 20px;
   }
@@ -694,7 +714,6 @@ export default {
   color: white;
   margin-left: -33px;
   line-height: 1.3;
-  /* z-index:-1; */
   z-index: 2;
   width: 30%;
   font-size: 14px;
@@ -729,9 +748,9 @@ export default {
     margin-top: 20px;
   }
   .send-box{
-    width: 20%;
+    width: 22%;
     height: 80%;
-    background-color: #2AC1DF;
+    position: relative;
   }
   .btn-are{
     width: 70%;
@@ -744,10 +763,18 @@ export default {
   .apply-btn{
     width: 100px;
     display: inline-block;
+    position: absolute;
+    left: 0;
+    height: 90%;
+    font-size: 14px;
   }
   .save-btn{
     width: 100px;
     display: inline-block;
+    position: absolute;
+    right: 0;
+        height: 90%;
+    font-size: 14px;
   }
 }
 </style>
