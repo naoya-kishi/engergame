@@ -1,6 +1,7 @@
 <template>
   <div class="detail-wrapper" v-if="item" key="product">
     <div class="top-recruit-detail">
+      <span class="ribbon15">★</span>
       <div class="time-zone">2020年4月22日</div>
       <!-- IDの確認 -->
       <!-- <p>このページは ID: {{ $route.params.id }} の詳細を表示する</p> -->
@@ -126,19 +127,69 @@ export default {
 </script>
 
 <style scoped>
+/* リボン */
+.ribbon15-wrapper {  
+  display: block;
+  position: relative;
+  margin: 15px auto;
+  padding: 30px 0;
+  width: 300px;
+  background: #f1f1f1;
+  box-sizing: border-box;
+}
+
+.ribbon15 {  
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: 10px;
+  margin: 0;
+  padding: 3% 0;
+  z-index: 2;
+  width: 40px;
+  text-align: center;
+  color: white;
+  font-size: 22px;
+  background: linear-gradient(#f09819 0%, #e95738 100%);
+  border-radius: 2px 0 0 0;
+}
+
+.ribbon15:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: -6px;
+  border: none;
+  border-bottom: solid 6px #cf4a2d;
+  border-right: solid 6px transparent;
+}
+.ribbon15:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 0;
+  width: 0;
+  border-left: 20px solid #e95738;
+  border-right: 20px solid #e95738;
+  border-bottom: 10px solid transparent;
+}
+/* ここまで */
+
 .detail-wrapper{
-  width: calc(92% - 80px);
+  width: calc(84%);
   /* height: 140%; */
   margin: 22px auto;
   background-color: rgb(255, 255, 255);
   box-shadow: 4px 2px 2px grey;
-  padding: 40px;
+  padding: 0 0 20px 35px; 
 }
 /* トップ 日付、会社名、タイトル */
 .top-recruit-detail{
   width: 100%;
   height: 15%;
   position: relative;
+  padding-top: 40px;
 }
 .time-zone{
   color: #818181;
@@ -397,6 +448,7 @@ export default {
   display: inline-block;
   position: absolute;
   bottom: 0;
+  border-radius: 20%;
 }
 .sales-comment{
   width: calc(100% - 190px);
@@ -404,7 +456,6 @@ export default {
   padding: 30px;
   font-size: 14px;
   background-color: #D8D8D8;
-  border-radius: 2%;
   /* display: inline-block; */
   float: right;
 }
@@ -434,7 +485,7 @@ export default {
 .apply-btn{
   width: 250px;
   height: 54px;
-  background-color: #f09819;
+  background-color: #ee910e;
   color: #FFFFFF;
   text-align: center;
   border-radius: 12px;
@@ -574,6 +625,9 @@ export default {
     padding: 20px;
     width: 82%;
     /* margin: 0; */
+  }
+  .top-recruit-detail{
+    padding: 0;
   }
   .company-logo{
     width: 30px;

@@ -89,9 +89,13 @@ export default {
 </script>
 
 <style scoped>
-/* Router URL textdecoration 削除 */
 a{
   text-decoration: none;
+}
+li{
+  width: 100px;
+  height: 100px;
+  background-color: green;
 }
 
 .recruit-wrapper{
@@ -143,7 +147,13 @@ a{
   text-align: center;
   border: solid 1px #1f5abc;
 }
-
+.applied-tag-are{
+  width: 100px;
+  height: 40px;
+  background-color: red;
+  float: right;
+  z-index: 100;
+}
 
 /* Center BOX */
 .recruit-centerbox{
@@ -262,6 +272,7 @@ a{
   color: #1f5abc;
   list-style: none;
   cursor: pointer;
+  font-size: 14px;
 }
 
 /* Icon  */
