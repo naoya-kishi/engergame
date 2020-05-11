@@ -10,6 +10,7 @@
 		} );
 	}
 	else if ( typeof exports === 'object' ) {
+		// CommonJS
 		module.exports = function (root, $) {
 			if ( ! root ) {
 				root = window;
