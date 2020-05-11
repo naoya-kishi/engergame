@@ -76,9 +76,9 @@ npm install -D normalize.css
 
 **Font awesome**
 ```
-> yarn add @fortawesome/fontawesome-svg-core
-> yarn add @fortawesome/free-solid-svg-icons
-> yarn add @fortawesome/vue-fontawesome
+$ yarn add @fortawesome/fontawesome-svg-core
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/vue-fontawesome
 ```
 
 **axios**
