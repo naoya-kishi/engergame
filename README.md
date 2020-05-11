@@ -23,41 +23,15 @@ docker-compose up --build
 <img width="1440" alt="スクリーンショット 2020-04-17 16 29 40" src="https://user-images.githubusercontent.com/56709557/79543719-e01c7f80-80c8-11ea-8cbe-18c4047790bb.png">
 
 
-## Vue.js install
-### ローカルにInstall
+# Vue.js install
 
 ### VERSION 一覧
-**npm**
-```
-npm -v
-6.11.3n
-```
-**node**
-```
-node -v
-v12.11.1
-```
-**yarn**
-```
-yarn -v
-1.19.0
-```
+|  command   |   version   |
+|:-----------|------------:|
+| npm -v     |  6.11.3n    |
+| node -v    |  v12.11.1   |
+| yarn -v    |  1.19.0     |
 
-**vue cli install**
-```
-npm install -g vue-cli
-```
-**Vue 起動コマンド**
-```
-cd vue_app
-npm run dev
-```
-
-**Vue** port http://localhost:8081/
-
-<img width="1440" alt="スクリーンショット 2020-04-17 16 29 50" src="https://user-images.githubusercontent.com/56709557/79543688-d72bae00-80c8-11ea-8df6-4dde1752cdb0.png">
-
-## Install 開始
 
 + [x] homebrewのインストール
 ```
@@ -71,7 +45,7 @@ npm run dev
 ```
  nodebrew -v
 ```
-### バージョンを指定してインスール
++ [x] バージョンを指定してインスール
 ```
 nodebrew install-binary 12.11.1
 ```
@@ -124,6 +98,9 @@ npm install vuex install --save
 ```
 npm run dev
 ```
+
+**Vue** port http://localhost:8081/
+
 
 + [x] Mock Server を使用
 仮想サーバーを構築してJSON型Dataを扱うため
