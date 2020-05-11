@@ -1,0 +1,2167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="enger" schema="work" type="MySQL - 5.7.27">
+   <tables>
+      <table catalog="enger" name="auth_group" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="name" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table catalog="enger" name="auth_group_permissions" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="group_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" implied="false" onDeleteCascade="false" table="auth_group"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="permission_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" implied="false" onDeleteCascade="false" table="auth_permission"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" unique="false">
+            <column ascending="true" name="permission_id"/>
+         </index>
+         <index name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq" unique="true">
+            <column ascending="true" name="group_id"/>
+            <column ascending="true" name="permission_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="auth_permission" numRows="652" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="content_type_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="auth_permission_content_type_id_2f476e4b_fk_django_co" implied="false" onDeleteCascade="false" table="django_content_type"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="codename" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_permission_content_type_id_codename_01ab375a_uniq" unique="true">
+            <column ascending="true" name="content_type_id"/>
+            <column ascending="true" name="codename"/>
+         </index>
+      </table>
+      <table catalog="enger" name="auth_user" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="password" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="last_login" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="3" name="is_superuser" nullable="false" remarks="" size="0" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="4" name="username" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="first_name" nullable="false" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="last_name" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="email" nullable="false" remarks="" size="254" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="is_staff" nullable="false" remarks="" size="0" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="9" name="is_active" nullable="false" remarks="" size="0" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="10" name="date_joined" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="username" unique="true">
+            <column ascending="true" name="username"/>
+         </index>
+      </table>
+      <table catalog="enger" name="auth_user_groups" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="group_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="auth_user_groups_group_id_97559544_fk_auth_group_id" implied="false" onDeleteCascade="false" table="auth_group"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_user_groups_group_id_97559544_fk_auth_group_id" unique="false">
+            <column ascending="true" name="group_id"/>
+         </index>
+         <index name="auth_user_groups_user_id_group_id_94350c0c_uniq" unique="true">
+            <column ascending="true" name="user_id"/>
+            <column ascending="true" name="group_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="auth_user_user_permissions" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="permission_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" implied="false" onDeleteCascade="false" table="auth_permission"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" unique="false">
+            <column ascending="true" name="permission_id"/>
+         </index>
+         <index name="auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" unique="true">
+            <column ascending="true" name="user_id"/>
+            <column ascending="true" name="permission_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="authtoken_token" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="key" nullable="false" remarks="" size="40" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="created" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="2" name="user_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="authtoken_token_user_id_35299eff_fk_auth_user_id" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <primaryKey column="key" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+         <index name="user_id" unique="true">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="business_monthly_goals" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="company_id" nullable="false" remarks="企業ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="company_id" foreignKey="company_id_business_monthly_goals_referenced" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="user_company_id" nullable="true" remarks="営業ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="user_company_id_business_monthly_goals_referenced" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="target_month" nullable="false" remarks="対象年月(YYYYMM)" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="sales" nullable="true" remarks="売上" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="profit" nullable="true" remarks="利益" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="5" name="matching" nullable="true" remarks="マッチング数" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="7" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="8" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <index name="company_id_business_monthly_goals_referenced" unique="false">
+            <column ascending="true" name="company_id"/>
+         </index>
+         <index name="user_company_id_business_monthly_goals_referenced" unique="false">
+            <column ascending="true" name="user_company_id"/>
+         </index>
+         <index name="user_company_id_target_month" unique="true">
+            <column ascending="true" name="target_month"/>
+            <column ascending="true" name="user_company_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="business_talk_status" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="business_talk_status_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="company_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="project_id" nullable="true" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="business_talk_status_project_project_id_fk" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="business_talk_status_worker_worker_id_fk" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="phase" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="accuracy" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="money" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="profit" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="8" name="proposal_date" nullable="true" remarks="提案日" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="9" name="completion_date" nullable="true" remarks="完了予定日" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="10" name="note" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="11" name="lost_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="12" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="13" name="create_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="14" name="update_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="business_talk_status_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="business_talk_status_id"/>
+         </index>
+         <index name="business_talk_status_project_project_id_fk" unique="false">
+            <column ascending="true" name="project_id"/>
+         </index>
+         <index name="business_talk_status_worker_worker_id_fk" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="company" numRows="47" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="company_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="company_manager_id" nullable="true" remarks="企業担当者" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="company_company_manager_id_foreign" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="business_type" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="industry" nullable="true" remarks="業界" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="company_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="company_name_ruby" nullable="true" remarks="企業名（フリガナ）" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="media_id" nullable="true" remarks="" size="50" type="VARCHAR">
+            <parent catalog="enger" column="media_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_media"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="7" name="media_company_id" nullable="true" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="prefecture_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="prefecture_id_company_referenced" implied="false" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="9" name="city_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="city_id" foreignKey="city_id_company_referenced" implied="false" onDeleteCascade="false" table="m_city"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="10" name="address" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="address2" nullable="true" remarks="建物以降住所" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="postal_code" nullable="true" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="billing_prefecture_id" nullable="true" remarks="請求先都道府県ID" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="14" name="billing_city_id" nullable="true" remarks="請求先市区町村ID" size="11" type="VARCHAR">
+            <parent catalog="enger" column="city_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_city"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="15" name="billing_address" nullable="true" remarks="請求先市区町村以降住所" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="billing_address2" nullable="true" remarks="請求先建物以降住所" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="billing_postal_code" nullable="true" remarks="請求先郵便番号" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="billing_name" nullable="true" remarks="請求先担当氏名" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="billing_department" nullable="true" remarks="請求先部署" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="20" name="billing_position" nullable="true" remarks="請求先役職" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="21" name="billing_address_same_flag" nullable="true" remarks="請求先と所在地の同一性フラグ" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="22" name="hp_url" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="movie_url" nullable="true" remarks="企業紹介動画URL" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="24" name="rep_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="25" name="rep_name_ruby" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="26" name="rep_dep_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="27" name="rep_position" nullable="true" remarks="企業代表者役職" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="28" name="rep_email" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="29" name="rep_phone_number" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="30" name="establishment_date" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="31" name="employees_number" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="32" name="capital" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="33" name="sales" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="34" name="company_caption" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="35" name="company_document" nullable="true" remarks="説明資料格納パス" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="36" name="latitude" nullable="true" remarks="" size="15" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="37" name="longitude" nullable="true" remarks="" size="15" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="38" name="cover_image" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="39" name="logo_image" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="1" digits="0" id="40" name="registration_phase" nullable="false" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="41" name="company_name_release_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="42" name="pickup_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="43" name="release_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="44" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="45" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="46" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="company_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="company_id"/>
+         </index>
+         <index name="city_id_company_referenced_idx" unique="false">
+            <column ascending="true" name="city_id"/>
+         </index>
+         <index name="company_company_manager_id_foreign" unique="false">
+            <column ascending="true" name="company_manager_id"/>
+         </index>
+         <index name="company_pk" unique="true">
+            <column ascending="true" name="media_id"/>
+            <column ascending="true" name="media_company_id"/>
+         </index>
+         <index name="del_release_create_idx" unique="false">
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+            <column ascending="true" name="create_date"/>
+         </index>
+         <index name="pre_bt_del_release_idx" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+            <column ascending="true" name="business_type"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+         </index>
+         <index name="prefecture_id_company_referenced_idx" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="django_admin_log" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="action_time" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="2" name="object_id" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="object_repr" nullable="false" remarks="" size="200" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="action_flag" nullable="false" remarks="" size="5" type="SMALLINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="change_message" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="content_type_id" nullable="true" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="django_admin_log_content_type_id_c4bce8eb_fk_django_co" implied="false" onDeleteCascade="false" table="django_content_type"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="7" name="user_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="django_admin_log_user_id_c564eba6_fk_auth_user_id" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="django_admin_log_content_type_id_c4bce8eb_fk_django_co" unique="false">
+            <column ascending="true" name="content_type_id"/>
+         </index>
+         <index name="django_admin_log_user_id_c564eba6_fk_auth_user_id" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="django_content_type" numRows="163" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="app_label" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="model" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="django_content_type_app_label_model_76bd3d3b_uniq" unique="true">
+            <column ascending="true" name="app_label"/>
+            <column ascending="true" name="model"/>
+         </index>
+      </table>
+      <table catalog="enger" name="django_migrations" numRows="21" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="app" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="applied" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="django_session" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="session_key" nullable="false" remarks="" size="40" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="session_data" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="expire_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="session_key" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="session_key"/>
+         </index>
+         <index name="django_session_expire_date_a5c62663" unique="false">
+            <column ascending="true" name="expire_date"/>
+         </index>
+      </table>
+      <table catalog="enger" name="engergame_comment" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="comment" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="visible" nullable="false" remarks="" size="0" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="3" name="created" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="4" name="hedgehog_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="engergame_comment_hedgehog_id_7d285d3f_fk_engergame_hedgehog_id" implied="false" onDeleteCascade="false" table="engergame_hedgehog"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="user_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="engergame_comment_user_id_acbdef75_fk_auth_user_id" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="engergame_comment_hedgehog_id_7d285d3f_fk_engergame_hedgehog_id" unique="false">
+            <column ascending="true" name="hedgehog_id"/>
+         </index>
+         <index name="engergame_comment_user_id_acbdef75_fk_auth_user_id" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="engergame_hedgehog" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="250" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="stars" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="3" name="description" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="created" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="pile_color_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="engergame_hedgehog_pile_color_id_2c9004af_fk_engergame" implied="false" onDeleteCascade="false" table="engergame_pilecolor"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="engergame_hedgehog_pile_color_id_2c9004af_fk_engergame" unique="false">
+            <column ascending="true" name="pile_color_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="engergame_pilecolor" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="description" nullable="false" remarks="" size="250" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="failed_jobs" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="connection" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="queue" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="payload" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="exception" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="failed_at" nullable="false" remarks="" size="19" type="TIMESTAMP"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="hr_applicant" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="applicant_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="platform_id" nullable="true" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="platform_id" foreignKey="hr_applicant_ibfk_2" implied="false" onDeleteCascade="false" table="m_platform"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="apply_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="3" name="share_to_id" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="4" name="apply_medium_id" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="5" name="last_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="first_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="last_name_ruby" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="first_name_ruby" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="initial_name" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="sex" nullable="true" remarks="0:男性 1:女性" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="11" name="age" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="12" name="birthday" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="13" name="phone_number" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="14" name="email" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="prefecture_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="16" name="city_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="city_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_city"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="17" name="address" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="nearest_station" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="nationality" nullable="true" remarks="0:未選択 1:日本籍 3:外国籍" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="20" name="logo_image" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="21" name="movie" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="resume" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="other_resume" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="24" name="portfolio" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="25" name="educational_background" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="26" name="educational_background_detail" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="27" name="graduate_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="28" name="release_flag" nullable="true" remarks="0:非公開&#10;1:公開" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="29" name="del_flag" nullable="true" remarks="0:未削除&#10;1:削除済" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="30" name="last_update_user_id" nullable="true" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="hr_applicant_ibfk_1" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="31" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="32" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="applicant_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="applicant_id"/>
+         </index>
+         <index name="last_update_user_id" unique="false">
+            <column ascending="true" name="last_update_user_id"/>
+         </index>
+         <index name="platform_id" unique="false">
+            <column ascending="true" name="platform_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="hr_applicant_question" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="applicant_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="applicant_id" foreignKey="hr_applicant_question_ibfk_1" implied="false" onDeleteCascade="false" table="hr_applicant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="motivation" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="objective_short" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="objective_medium" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="objective_long" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="self_introduction_sp" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="self_introduction_wp" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="seeking" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="eyesight" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="join_period" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="operation_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="11" name="ses_propriety" nullable="false" remarks="" size="0" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="12" name="skill_language" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="13" name="study_style" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="14" name="study_time" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="15" name="desired_contract_type" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="job_category_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="17" name="desired_annual_salary" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="18" name="desired_work_time" nullable="true" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="19" name="desired_work_day" nullable="true" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="20" name="desired_etc" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="21" name="last_update_user_id" nullable="true" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="hr_applicant_question_ibfk_2" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="22" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="23" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="applicant_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="applicant_id"/>
+         </index>
+         <index name="last_update_user_id" unique="false">
+            <column ascending="true" name="last_update_user_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="hr_selection_result" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="applicant_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="applicant_id" foreignKey="hr_selection_result_ibfk_1" implied="false" onDeleteCascade="false" table="hr_applicant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="selection_status_id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="2" name="user_company_id" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="3" name="selection_type_id" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="4" name="interview_date" nullable="true" remarks="面接日" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="other_selection" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="assessment" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="7" name="comment" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="first_impression" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="9" name="comprehension" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="10" name="earnest" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="11" name="aggressive" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="12" name="cooperation" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="13" name="fixing" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="14" name="communication" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="15" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="16" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="17" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="applicant_id" sequenceNumberInPK="1"/>
+         <primaryKey column="selection_status_id" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="applicant_id"/>
+            <column ascending="true" name="selection_status_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="hr_worker_history" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="applicant_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="applicant_id" foreignKey="hr_worker_history_ibfk_1" implied="false" onDeleteCascade="false" table="hr_applicant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="company" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="employment_status" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="position" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="job" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="department" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="work_content" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="retirement_reason" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="start_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="9" name="end_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="10" name="last_update_user_id" nullable="true" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="hr_worker_history_ibfk_2" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="11" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="12" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="applicant_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="applicant_id"/>
+         </index>
+         <index name="last_update_user_id" unique="false">
+            <column ascending="true" name="last_update_user_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="inquiry" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="customer_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="company_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="email" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="phone_number" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="inquiry_item" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="inquiry_message" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="8" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="9" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="inquiry_item_inquiry_referenced_idx" unique="false">
+            <column ascending="true" name="inquiry_item"/>
+         </index>
+      </table>
+      <table catalog="enger" name="jobs" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="queue" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="payload" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="attempts" nullable="false" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="reserved_at" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="available_at" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="created_at" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="jobs_queue_index" unique="false">
+            <column ascending="true" name="queue"/>
+         </index>
+      </table>
+      <table catalog="enger" name="line_tmporary_registration" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="line_id" nullable="false" remarks="LINEのユーザID" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="regist_id" nullable="false" remarks="登録時紐付けID" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="line_id" unique="true">
+            <column ascending="true" name="line_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="lp_inquiry" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="inquiry_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="entry_service_id" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="name1" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="3" name="name2" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="4" name="birth_y" nullable="false" remarks="" size="4" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="5" name="birth_m" nullable="false" remarks="" size="2" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="6" name="birth_d" nullable="false" remarks="" size="2" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="7" name="sex" nullable="false" remarks="" size="2" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="8" name="tel" nullable="false" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="9" name="mail" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="10" name="zip" nullable="false" remarks="" size="8" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="11" name="address1" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="12" name="address2" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="13" name="address3" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="14" name="skill" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="doc1" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="doc2" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="education1" nullable="true" remarks="" size="8" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="education_y" nullable="true" remarks="" size="4" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="education_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="20" name="education_txt" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="21" name="lang_jp" nullable="true" remarks="" size="8" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="lang_en" nullable="true" remarks="" size="8" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="toeic" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="24" name="lang_other" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="25" name="capacity" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="26" name="company_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="27" name="company_y_a" nullable="true" remarks="" size="4" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="28" name="company_m_a" nullable="true" remarks="" size="2" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="29" name="company_y_b" nullable="true" remarks="" size="4" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="30" name="company_m_b" nullable="true" remarks="" size="2" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="31" name="company_type" nullable="true" remarks="" size="8" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="32" name="company_text" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="33" name="other" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="34" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="35" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="inquiry_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="inquiry_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_another_feature" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="another_feature_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <child catalog="enger" column="desired_another_feature_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="worker_desired_another_feature"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="another_feature_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="another_feature_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="another_feature_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_city" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="city_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <child catalog="enger" column="billing_city_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="company"/>
+            <child catalog="enger" column="city_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="hr_applicant"/>
+            <child catalog="enger" column="city_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="proposal_worker"/>
+            <child catalog="enger" column="city_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="prefecture_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="prefecture_id" implied="false" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="city_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="city_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="city_id"/>
+         </index>
+         <index name="prefecture_id_idx" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_code" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="category" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="code" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="3" name="display_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="col_1" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="col_2" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="col_3" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="col_4" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="col_5" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="category" sequenceNumberInPK="1"/>
+         <primaryKey column="code" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="category"/>
+            <column ascending="true" name="code"/>
+         </index>
+         <index name="col_1_m_code_referenced_idx" unique="false">
+            <column ascending="true" name="col_1"/>
+         </index>
+         <index name="search_select_idx" unique="false">
+            <column ascending="true" name="category"/>
+            <column ascending="true" name="display_order"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_job" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="job_id" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="job_category_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="job_category_id" foreignKey="job_category_id_m_job_referenced" implied="false" onDeleteCascade="false" table="m_job_category"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="job_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="job_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="job_id"/>
+         </index>
+         <index name="job_category_id_m_job_referenced_idx" unique="false">
+            <column ascending="true" name="job_category_id"/>
+         </index>
+         <index name="search_select_idx" unique="false">
+            <column ascending="true" name="job_id"/>
+            <column ascending="true" name="job_category_id"/>
+            <column ascending="true" name="job_name"/>
+            <column ascending="true" name="display_order"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_job_category" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="job_category_id" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="job_category_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="job_category_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="job_category_id"/>
+         </index>
+         <index name="id_name_disp_idx" unique="false">
+            <column ascending="true" name="job_category_id"/>
+            <column ascending="true" name="job_category_name"/>
+            <column ascending="true" name="display_order"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_media" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="media_id" nullable="false" remarks="" size="50" type="VARCHAR">
+            <child catalog="enger" column="media_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="media_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="url" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="del_flag" nullable="false" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <primaryKey column="media_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="media_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_platform" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="platform_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="platform_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="ip_adress" nullable="false" remarks="" size="5" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="display_order" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="del_flag" nullable="false" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <primaryKey column="platform_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="platform_id"/>
+         </index>
+         <index name="platform_name" unique="true">
+            <column ascending="true" name="platform_name"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_prefecture" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="prefecture_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <child catalog="enger" column="billing_prefecture_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="company"/>
+            <child catalog="enger" column="prefecture_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="hr_applicant"/>
+            <child catalog="enger" column="prefecture_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="proposal_worker"/>
+            <child catalog="enger" column="prefecture_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="region_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="region_id" foreignKey="region_id_m_prefecture_referenced" implied="false" onDeleteCascade="false" table="m_region"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="prefecture_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="prefecture_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+         <index name="region_id_m_prefecture_referenced_idx" unique="false">
+            <column ascending="true" name="region_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_project_feature" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="project_feature_id" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="project_feature_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="project_feature_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="project_feature_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_recording_site" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="recording_site_id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="recording_site_name" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="url" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="4" name="del_flag" nullable="false" remarks="" size="0" type="BIT"/>
+         <primaryKey column="recording_site_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="recording_site_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_region" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="region_id" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="region_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="region_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="region_id"/>
+         </index>
+         <index name="id_name_order_idx" unique="false">
+            <column ascending="true" name="region_id"/>
+            <column ascending="true" name="region_name"/>
+            <column ascending="true" name="display_order"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_skill" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="skill_id" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="skill_category_id" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="skill_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="display_order" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="skill_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="skill_id"/>
+         </index>
+         <index name="search_select_idx" unique="false">
+            <column ascending="true" name="skill_id"/>
+            <column ascending="true" name="skill_name"/>
+            <column ascending="true" name="display_order"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_skill_weight" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="skill_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="skill_id" foreignKey="m_skill_weight_skill_id_referenced" implied="false" onDeleteCascade="false" table="m_skill"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="1" name="skill_weight" nullable="false" remarks="" size="12" type="FLOAT UNSIGNED"/>
+         <primaryKey column="skill_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="skill_id"/>
+         </index>
+         <index name="m_skill_weight_skill_id_referenced" unique="false">
+            <column ascending="true" name="skill_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="m_station" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="station_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="station_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="prefecture_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="prefecture_id_m_nearest_station_referenced" implied="false" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="city_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="city_id" foreignKey="city_id_m_nearest_station_referenced" implied="false" onDeleteCascade="false" table="m_city"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="postal_code" nullable="false" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="address" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="line_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="line_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="station_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="station_id"/>
+         </index>
+         <index name="city_id_m_nearest_station_referenced_idx" unique="false">
+            <column ascending="true" name="city_id"/>
+         </index>
+         <index name="prefecture_id_m_nearest_station_referenced_idx" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="message_detail" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="message_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="room_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="room_id" foreignKey="message_detail_room_id_foreign" implied="false" onDeleteCascade="false" table="message_room"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="sender_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="sender_type" nullable="false" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="message" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="original_file_name" nullable="true" remarks="オリジナルファイル名" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="file_name" nullable="true" remarks="添付ファイル名" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="read_flag" nullable="false" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="8" name="del_flag" nullable="false" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="9" name="create_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="10" name="update_date" nullable="false" remarks="" size="19" type="TIMESTAMP"/>
+         <primaryKey column="message_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="message_id"/>
+         </index>
+         <index name="message_detail_room_id_foreign" unique="false">
+            <column ascending="true" name="room_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="message_room" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="room_id" nullable="false" remarks="部屋ID" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="company_id" nullable="false" remarks="企業ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="company_id" foreignKey="message_room_company_id_foreign" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="worker_id" nullable="false" remarks="人材ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="message_room_worker_id_foreign" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="user_company_id" nullable="true" remarks="担当者ID(ユーザ企業ID)" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="message_room_user_company_id_foreign" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="del_flag" nullable="false" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="create_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="6" name="update_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="room_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="room_id"/>
+         </index>
+         <index name="message_room_company_id_worker_id_user_company_id_unique" unique="true">
+            <column ascending="true" name="company_id"/>
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="user_company_id"/>
+         </index>
+         <index name="message_room_worker_id_foreign" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+         <index name="uc_company" unique="false">
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="company_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="migrations" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="migration" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="batch" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="offer" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_id_offer_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="project_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="project_id_offer_referenced" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="del_flag_idx" unique="false">
+            <column ascending="true" name="del_flag"/>
+         </index>
+         <index name="project_worker_del_idx" unique="false">
+            <column ascending="true" name="project_id"/>
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="del_flag"/>
+         </index>
+         <index name="worker_id_offer_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="offer_to_worker" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_company_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="del_flag_idx" unique="false">
+            <column ascending="true" name="del_flag"/>
+         </index>
+         <index name="worker_create_idx" unique="false">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="create_date"/>
+         </index>
+      </table>
+      <table catalog="enger" name="participation_status" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="participation_status_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="company_id" nullable="true" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="company_id" foreignKey="participation_status_company_company_id_fk" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="participation_status_worker_worker_id_fk" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="project_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="participation_status_project_project_id_fk" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="period_start" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="5" name="period_end" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="6" name="note" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="8" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="9" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="participation_status_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="participation_status_id"/>
+         </index>
+         <index name="participation_status_company_company_id_fk" unique="false">
+            <column ascending="true" name="company_id"/>
+         </index>
+         <index name="participation_status_project_project_id_fk" unique="false">
+            <column ascending="true" name="project_id"/>
+         </index>
+         <index name="participation_status_worker_worker_id_fk" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="pre_signup" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="email" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="password" nullable="false" remarks="仮パスワード" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="phone_number" nullable="true" remarks="電話番号" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="last_name" nullable="true" remarks="姓" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="first_name" nullable="true" remarks="名" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="last_name_ruby" nullable="true" remarks="姓（ふりがな）" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="first_name_ruby" nullable="true" remarks="名（ふりがな）" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="birthday" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="8" name="one_time_token" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="9" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="email" sequenceNumberInPK="1"/>
+         <primaryKey column="one_time_token" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="email"/>
+            <column ascending="true" name="one_time_token"/>
+         </index>
+         <index name="email" unique="true">
+            <column ascending="true" name="email"/>
+         </index>
+      </table>
+      <table catalog="enger" name="pre_signup_company" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="email" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="password" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="one_time_token" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="email" sequenceNumberInPK="1"/>
+         <primaryKey column="one_time_token" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="email"/>
+            <column ascending="true" name="one_time_token"/>
+         </index>
+         <index name="email" unique="true">
+            <column ascending="true" name="email"/>
+         </index>
+      </table>
+      <table catalog="enger" name="pre_worker_questionnaire" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="id" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="email" nullable="true" remarks="" size="255" type="VARCHAR">
+            <parent catalog="enger" column="email" foreignKey="pre_worker_questionnaire_pre_signup_email_fk" implied="false" onDeleteCascade="false" table="pre_signup"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="ans1" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="ans2" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="ans3" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="capital" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="working_experience" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="8" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <index name="pre_worker_questionnaire_pre_signup_email_fk" unique="false">
+            <column ascending="true" name="email"/>
+         </index>
+      </table>
+      <table catalog="enger" name="pre_worker_skill" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="email" nullable="false" remarks="" size="255" type="VARCHAR">
+            <parent catalog="enger" column="email" foreignKey="pre_worker_skill_sns_pre_signup_email_fk" implied="false" onDeleteCascade="false" table="pre_signup"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="skill_id" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="experience_id" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="6" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="email" unique="true">
+            <column ascending="true" name="email"/>
+            <column ascending="true" name="skill_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="pre_worker_sns" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="email" nullable="false" remarks="" size="255" type="VARCHAR">
+            <parent catalog="enger" column="email" foreignKey="pre_worker_sns_pre_signup_email_fk" implied="false" onDeleteCascade="false" table="pre_signup"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="sns_id" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="sns_account" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="follow_user_num" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="5" name="follower_user_num" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="7" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="pre_worker_sns_pre_signup_email_fk" unique="false">
+            <column ascending="true" name="email"/>
+         </index>
+      </table>
+      <table catalog="enger" name="project" numRows="265" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="project_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="title" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="company_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="company_id" foreignKey="company_id_project_referenced" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="project_company_id" nullable="true" remarks="案件元企業ID" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="media_id" nullable="true" remarks="外部メディアID" size="50" type="VARCHAR">
+            <parent catalog="enger" column="media_id" foreignKey="project_company_media_id_media_company_id_fk" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="media_company_id" nullable="true" remarks="外部メディア固有企業ID" size="50" type="VARCHAR">
+            <parent catalog="enger" column="media_company_id" foreignKey="project_company_media_id_media_company_id_fk" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="6" name="media_project_id" nullable="true" remarks="外部メディア固有案件ID" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="media_url" nullable="true" remarks="外部メディア案件ページURL" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="project_manager_id" nullable="true" remarks="案件担当者" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="project_project_manager_id_foreign" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="9" name="cover_image" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="job_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="job_id" foreignKey="job_id_project_referenced" implied="false" onDeleteCascade="false" table="m_job"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="11" name="position" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="prefecture_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="prefecture_id_project_referenced" implied="false" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="13" name="city_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="city_id" foreignKey="city_id_project_referenced" implied="false" onDeleteCascade="false" table="m_city"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="14" name="address" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="postal_code" nullable="true" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="nearest_station" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="pay_rate_min" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="pay_rate_max" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="project_category" nullable="true" remarks="案件カテゴリ" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="20" name="monthly_income_min" nullable="true" remarks="最低単価" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="21" name="monthly_income_max" nullable="true" remarks="最高単価" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="22" name="monthly_income" nullable="true" remarks="月額単価" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="settlement_time" nullable="true" remarks="精算基準時間" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="24" name="contract_period" nullable="true" remarks="契約期間" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="25" name="working_days" nullable="true" remarks="稼働日数" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="26" name="working_system" nullable="true" remarks="勤務体制" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="27" name="recruitment_restrictions" nullable="true" remarks="募集制限" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="28" name="number_of_interviews" nullable="true" remarks="面談回数" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="29" name="contract_type" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="30" name="project_requirements" nullable="true" remarks="募集要項" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="31" name="project_outline" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="32" name="salary" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="33" name="welfare" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="34" name="vacation" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="35" name="selection_process" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="36" name="desired_personality" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="37" name="working_time_from" nullable="true" remarks="勤務開始時間" size="8" type="TIME"/>
+         <column autoUpdated="false" digits="0" id="38" name="working_time_to" nullable="true" remarks="勤務終了時間" size="8" type="TIME"/>
+         <column autoUpdated="false" digits="0" id="39" name="age_min" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="40" name="age_max" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="41" name="skill_management" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="42" name="skill_english" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="43" name="recruitment_number" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="44" name="latitude" nullable="true" remarks="" size="15" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="45" name="longitude" nullable="true" remarks="" size="15" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="46" name="inexperience_ok" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="47" name="work_start_date" nullable="true" remarks="稼働開始予定日" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="48" name="agent_comment" nullable="true" remarks="エージェントコメント" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="49" name="posting_end_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="50" name="release_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="51" name="pickup_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="52" name="release_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="53" name="recruitment_end_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="54" name="recruitment_end_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="55" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="56" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="57" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="project_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="project_id"/>
+         </index>
+         <index name="city_id_project_referenced_idx" unique="false">
+            <column ascending="true" name="city_id"/>
+         </index>
+         <index name="company_del_release_idx" unique="false">
+            <column ascending="true" name="company_id"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+         </index>
+         <index name="company_id_project_referenced_idx" unique="false">
+            <column ascending="true" name="company_id"/>
+         </index>
+         <index name="del_company_idx" unique="false">
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="company_id"/>
+         </index>
+         <index name="del_release_idx" unique="false">
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+            <column ascending="true" name="create_date"/>
+         </index>
+         <index name="job_id_project_referenced_idx" unique="false">
+            <column ascending="true" name="job_id"/>
+         </index>
+         <index name="prefecture_id_project_referenced_idx" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+         <index name="project_company_media_id_media_company_id_fk" unique="false">
+            <column ascending="true" name="media_id"/>
+            <column ascending="true" name="media_company_id"/>
+         </index>
+         <index name="project_project_manager_id_foreign" unique="false">
+            <column ascending="true" name="project_manager_id"/>
+         </index>
+         <index name="search_select_company_all_idx" unique="false">
+            <column ascending="true" name="job_id"/>
+            <column ascending="true" name="prefecture_id"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="company_id"/>
+         </index>
+         <index name="search_select_company_job_idx" unique="false">
+            <column ascending="true" name="job_id"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="company_id"/>
+         </index>
+         <index name="search_select_company_prefecture_idx" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="company_id"/>
+         </index>
+         <index name="search_select_engineer_all_idx" unique="false">
+            <column ascending="true" name="job_id"/>
+            <column ascending="true" name="prefecture_id"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+         </index>
+         <index name="search_select_engineer_job_idx" unique="false">
+            <column ascending="true" name="job_id"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+         </index>
+         <index name="search_select_engineer_prefecture_idx" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+         </index>
+         <index name="view_flags_idx" unique="false">
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+            <column ascending="true" name="recruitment_end_flag"/>
+         </index>
+      </table>
+      <table catalog="enger" name="project_feature" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="project_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="project_id_project_feature_referenced" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="project_feature_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="another_feature_id" foreignKey="project_feature_id_project_feature_referenced" implied="false" onDeleteCascade="false" table="m_another_feature"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="project_feature_id_project_feature_referenced" unique="false">
+            <column ascending="true" name="project_feature_id"/>
+         </index>
+         <index name="project_id" unique="true">
+            <column ascending="true" name="project_id"/>
+            <column ascending="true" name="project_feature_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="project_previews" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="project_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="project_previews_ibfk_1" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="1" name="previews" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="last_viewed_user_type" nullable="true" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="last_viewed_user_id" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="update_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="project_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="project_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="project_skill" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="project_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="project_id_project_skill_referenced" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="priority" nullable="false" remarks="0:必須スキル 1:尚可スキル" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="3" name="skill_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="skill_id" foreignKey="skill_id_project_skill_referenced" implied="false" onDeleteCascade="false" table="m_skill"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="6" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="project_id" unique="true">
+            <column ascending="true" name="project_id"/>
+            <column ascending="true" name="skill_id"/>
+         </index>
+         <index name="project_priority_skill_idx" unique="false">
+            <column ascending="true" name="project_id"/>
+            <column ascending="true" name="priority"/>
+            <column ascending="true" name="skill_id"/>
+         </index>
+         <index name="skill_id_project_skill_referenced" unique="false">
+            <column ascending="true" name="skill_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="project_workingplace" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="project_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="project_id_project_workingplace_referenced" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="prefecture_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="prefecture_id_project_workingplace_referenced" implied="false" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="prefecture_id_project_workingplace_referenced" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+         <index name="project_id" unique="true">
+            <column ascending="true" name="project_id"/>
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="proposal_worker" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="business_talk_status_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="business_talk_status_id" foreignKey="business_talk_status_id_proposal_worker_referenced" implied="false" onDeleteCascade="false" table="business_talk_status"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="prefecture_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="city_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="city_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_city"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="desired_contract_type" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="self_introduction" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="nearest_station" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="current_monthly_income" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="desired_monthly_income" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="operation_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="10" name="agent_comment" nullable="true" remarks="エージェントコメント" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="11" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="12" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="business_talk_status_id" sequenceNumberInPK="1"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="business_talk_status_id"/>
+            <column ascending="true" name="worker_id"/>
+         </index>
+         <index name="business_talk_status_id_proposal_worker_referenced" unique="false">
+            <column ascending="true" name="business_talk_status_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="proposal_worker_desired_another_feature" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="business_talk_status_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="business_talk_status_id" foreignKey="business_talk_status_id_pwdaf_referenced" implied="false" onDeleteCascade="false" table="business_talk_status"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_id_proposal_worker_desired_another_feature_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="desired_another_feature_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="another_feature_id" foreignKey="desired_another_feature_id_pwdaf_referenced" implied="false" onDeleteCascade="false" table="m_another_feature"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="business_talk_status_id" sequenceNumberInPK="1"/>
+         <primaryKey column="desired_another_feature_id" sequenceNumberInPK="2"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="business_talk_status_id"/>
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="desired_another_feature_id"/>
+         </index>
+         <index name="desired_another_feature_id_referenced" unique="false">
+            <column ascending="true" name="desired_another_feature_id"/>
+         </index>
+         <index name="worker_id_proposal_worker_desired_another_feature_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="proposal_worker_desired_job" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="business_talk_status_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="business_talk_status_id" foreignKey="business_talk_status_id_proposal_worker_desired_job_referenced" implied="false" onDeleteCascade="false" table="business_talk_status"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_id_proposal_worker_desired_job_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="desired_job_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="job_id" foreignKey="desired_job_id_proposal_worker_desired_job_referenced" implied="false" onDeleteCascade="false" table="m_job"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="business_talk_status_id" sequenceNumberInPK="1"/>
+         <primaryKey column="desired_job_id" sequenceNumberInPK="2"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="business_talk_status_id"/>
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="desired_job_id"/>
+         </index>
+         <index name="desired_job_id_worker_desired_job_referenced" unique="false">
+            <column ascending="true" name="desired_job_id"/>
+         </index>
+         <index name="worker_id_proposal_worker_desired_job_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="proposal_worker_desired_workingplace" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="business_talk_status_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="business_talk_status_id" foreignKey="business_talk_status_id_pwdw_referenced" implied="false" onDeleteCascade="false" table="business_talk_status"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_id_proposal_worker_desired_workingplace_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="prefecture_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="prefecture_id_proposal_worker_desired_workingplace_referenced" implied="false" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="priority" nullable="true" remarks="0:第1希望 1:第2希望" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="business_talk_status_id" sequenceNumberInPK="1"/>
+         <primaryKey column="prefecture_id" sequenceNumberInPK="2"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="business_talk_status_id"/>
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+         <index name="prefecture_id_worker_desired_workingplace_referenced" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+         <index name="worker_id_proposal_worker_desired_workingplace_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="proposal_worker_skill" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="business_talk_status_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="business_talk_status_id" foreignKey="business_talk_status_id_proposal_worker_skill_referenced" implied="false" onDeleteCascade="false" table="business_talk_status"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_id_proposal_worker_skill_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="skill_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="skill_id" foreignKey="skill_id_proposal_worker_skill_referenced" implied="false" onDeleteCascade="false" table="m_skill"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="experience_id" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="business_talk_status_id" sequenceNumberInPK="1"/>
+         <primaryKey column="skill_id" sequenceNumberInPK="2"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="business_talk_status_id"/>
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="skill_id"/>
+         </index>
+         <index name="skill_id_proposal_worker_skill_referenced" unique="false">
+            <column ascending="true" name="skill_id"/>
+         </index>
+         <index name="worker_id_proposal_worker_skill_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="RecruitApp_comment" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="comment" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="visible" nullable="false" remarks="" size="0" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="3" name="created" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="4" name="recruitapp_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="RecruitApp_comment_recruitapp_id_4b3c4e3d_fk_RecruitAp" implied="false" onDeleteCascade="false" table="RecruitApp_recruitapp"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="user_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="RecruitApp_comment_user_id_4f30b32e_fk_auth_user_id" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="RecruitApp_comment_recruitapp_id_4b3c4e3d_fk_RecruitAp" unique="false">
+            <column ascending="true" name="recruitapp_id"/>
+         </index>
+         <index name="RecruitApp_comment_user_id_4f30b32e_fk_auth_user_id" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="RecruitApp_pilecolor" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="description" nullable="false" remarks="" size="250" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="RecruitApp_recruitapp" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="250" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="stars" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="3" name="description" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="created" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="pile_color_id" nullable="false" remarks="" size="10" type="INT">
+            <parent catalog="enger" column="id" foreignKey="RecruitApp_recruitap_pile_color_id_0e5ad4de_fk_RecruitAp" implied="false" onDeleteCascade="false" table="RecruitApp_pilecolor"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="RecruitApp_recruitap_pile_color_id_0e5ad4de_fk_RecruitAp" unique="false">
+            <column ascending="true" name="pile_color_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="reservation" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="reservation_id" nullable="false" remarks="予約ID" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_engineer_id" nullable="false" remarks="登録者のユーザID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_engineer_id" foreignKey="reservation_user_engineer_id_foreign" implied="false" onDeleteCascade="false" table="user_engineer"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="company_id" nullable="false" remarks="企業ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="company_id" foreignKey="reservation_company_id_foreign" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="project_id" nullable="true" remarks="仕事ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="reservation_project_id_foreign" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="reservation_date" nullable="false" remarks="予約日" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="5" name="reservation_time" nullable="false" remarks="予約時間" size="8" type="TIME"/>
+         <column autoUpdated="false" digits="0" id="6" name="reservation_text" nullable="false" remarks="質問・備考" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="cancel_flag" nullable="false" remarks="キャンセルフラグ" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="8" name="reservation_cancel_text" nullable="true" remarks="キャンセル理由" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="del_flag" nullable="false" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="10" name="create_date" nullable="false" remarks="" size="19" type="TIMESTAMP"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="11" name="update_date" nullable="false" remarks="" size="19" type="TIMESTAMP"/>
+         <primaryKey column="reservation_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="reservation_id"/>
+         </index>
+         <index name="flag_date_idx" unique="false">
+            <column ascending="true" name="company_id"/>
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="cancel_flag"/>
+            <column ascending="true" name="reservation_date"/>
+         </index>
+         <index name="reservation_project_id_foreign" unique="false">
+            <column ascending="true" name="project_id"/>
+         </index>
+         <index name="reservation_user_engineer_id_foreign" unique="false">
+            <column ascending="true" name="user_engineer_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="search_project_condition" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="user_engineer_id" nullable="false" remarks="登録者のユーザID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_engineer_id" foreignKey="search_project_condition_user_engineer_id_foreign" implied="false" onDeleteCascade="false" table="user_engineer"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="category" nullable="false" remarks="検索区分" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="code" nullable="false" remarks="検索値" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="false" remarks="" size="19" type="TIMESTAMP"/>
+         <primaryKey column="category" sequenceNumberInPK="1"/>
+         <primaryKey column="code" sequenceNumberInPK="2"/>
+         <primaryKey column="user_engineer_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="user_engineer_id"/>
+            <column ascending="true" name="category"/>
+            <column ascending="true" name="code"/>
+         </index>
+      </table>
+      <table catalog="enger" name="search_worker_condition" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="user_company_id" nullable="false" remarks="登録者の企業ユーザID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="search_worker_condition_user_company_id_foreign" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="category" nullable="false" remarks="検索区分" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="code" nullable="false" remarks="検索値" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="false" remarks="" size="19" type="TIMESTAMP"/>
+         <primaryKey column="category" sequenceNumberInPK="1"/>
+         <primaryKey column="code" sequenceNumberInPK="2"/>
+         <primaryKey column="user_company_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="category"/>
+            <column ascending="true" name="code"/>
+         </index>
+      </table>
+      <table catalog="enger" name="send_recommend_project_mail" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="project_id" nullable="false" remarks="仕事ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="send_recommend_project_mail_ibfk_1" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="1" name="send_flag" nullable="false" remarks="送信フラグ" size="0" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="2" name="send_date" nullable="true" remarks="送信日" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="false" remarks="登録日" size="19" type="DATETIME"/>
+         <primaryKey column="create_date" sequenceNumberInPK="1"/>
+         <primaryKey column="project_id" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="project_id"/>
+            <column ascending="true" name="create_date"/>
+         </index>
+      </table>
+      <table catalog="enger" name="send_recommend_worker_mail" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="worker_id" nullable="false" remarks="人材ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="send_recommend_worker_mail_ibfk_1" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="1" name="send_flag" nullable="false" remarks="送信フラグ" size="0" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="2" name="send_date" nullable="true" remarks="送信日" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="false" remarks="登録日" size="19" type="DATETIME"/>
+         <primaryKey column="create_date" sequenceNumberInPK="1"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="create_date"/>
+         </index>
+      </table>
+      <table catalog="enger" name="skill_name_identification" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="skill_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="skill_id" foreignKey="skill_name_identification_ibfk_1" implied="false" onDeleteCascade="false" table="m_skill"/>
+         </column>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="skill_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="4" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="skill_id" unique="false">
+            <column ascending="true" name="skill_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="t_principal_stations" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="station_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="station_id" foreignKey="station_id_t_principal_stations_referenced" implied="false" onDeleteCascade="false" table="m_station"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="1" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="station_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="station_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="t_project_skill_popularity" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="skill_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="skill_id" foreignKey="skill_id_t_project_skill_popularity_referenced" implied="false" onDeleteCascade="false" table="m_skill"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="popularity" nullable="false" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="2" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="skill_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="skill_id"/>
+         </index>
+         <index name="popularity_idx" unique="false">
+            <column ascending="true" name="popularity"/>
+         </index>
+      </table>
+      <table catalog="enger" name="user_company" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="user_company_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="company_id" nullable="true" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="company_id" foreignKey="user_company_company_id_foreign" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="last_name" nullable="true" remarks="姓" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="first_name" nullable="true" remarks="名" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="last_name_ruby" nullable="true" remarks="姓（ふりがな）" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="first_name_ruby" nullable="true" remarks="名（ふりがな）" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="email" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="password" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="token" nullable="true" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="phone_number" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="department" nullable="true" remarks="部署" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="position" nullable="true" remarks="役職" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="birthday" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="13" name="age" nullable="true" remarks="年齢" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="14" name="sex" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="15" name="catch_phrase" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="self_introduction" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="17" name="school_name" nullable="true" remarks="学校名" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="final_education" nullable="true" remarks="最終学歴" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="educational_background_detail" nullable="true" remarks="学科専攻" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="20" name="enrollment_date" nullable="true" remarks="入学年月" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="21" name="graduate_date" nullable="true" remarks="卒業年月日" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="22" name="final_employment_name" nullable="true" remarks="最終職歴会社名" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="final_employment_department" nullable="true" remarks="最終職歴部署名" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="24" name="final_employment_content" nullable="true" remarks="最終職歴業務内容" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="25" name="final_employment_start_date" nullable="true" remarks="最終職歴開始日" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="26" name="final_employment_end_date" nullable="true" remarks="最終職歴終了日" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="27" name="facebook" nullable="true" remarks="フェイスブック" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="28" name="twitter" nullable="true" remarks="ツイッター" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="29" name="instagram" nullable="true" remarks="インスタグラム" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="30" name="logo_image" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="31" name="one_time_token" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="32" name="last_login_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="33" name="remember_token" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="34" name="human_resource_flag" nullable="false" remarks="0：使用不可&#13;&#10;1：使用" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="35" name="agent_flag" nullable="false" remarks="0：使用不可&#13;&#10;1：使用" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="36" name="admin_flag" nullable="false" remarks="管理者フラグ" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="37" name="account_suspended_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="38" name="authenticated_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="39" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="40" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="41" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="user_company_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="user_company_id"/>
+         </index>
+         <index name="email" unique="true">
+            <column ascending="true" name="email"/>
+         </index>
+         <index name="user_company_company_id_foreign" unique="false">
+            <column ascending="true" name="company_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="user_company_favorite" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="user_company_id" nullable="false" remarks="担当者ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="user_company_favorite_user_company_id_referenced" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="target_type" nullable="false" remarks="対象タイプ 1:人材" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="target_id" nullable="false" remarks="対象ID" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="update_date" nullable="false" remarks="更新時刻" size="19" type="DATETIME"/>
+         <primaryKey column="target_id" sequenceNumberInPK="1"/>
+         <primaryKey column="target_type" sequenceNumberInPK="2"/>
+         <primaryKey column="user_company_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="target_type"/>
+            <column ascending="true" name="target_id"/>
+         </index>
+         <index name="id_type_update_idx" unique="false">
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="target_type"/>
+            <column ascending="true" name="update_date"/>
+         </index>
+         <index name="user_company_favorite_user_company_id_referenced" unique="false">
+            <column ascending="true" name="user_company_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="user_company_matching_score_to_worker" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="user_company_id" nullable="false" remarks="担当者ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="user_company_matching_score_to_worker_project_id_referenced" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="人材ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="user_company_matching_score_to_worker_worker_id_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="matching_score" nullable="false" remarks="マッチングスコア" size="12" type="FLOAT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="mail_send_flag" nullable="false" remarks="" size="0" type="BIT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="update_date" nullable="false" remarks="更新時刻" size="19" type="DATETIME"/>
+         <primaryKey column="user_company_id" sequenceNumberInPK="1"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="worker_id"/>
+         </index>
+         <index name="mail_send_idx" unique="false">
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="mail_send_flag"/>
+            <column ascending="true" name="matching_score"/>
+            <column ascending="true" name="update_date"/>
+         </index>
+         <index name="user_company_matching_score_to_worker_project_id_referenced" unique="false">
+            <column ascending="true" name="user_company_id"/>
+         </index>
+         <index name="user_company_matching_score_to_worker_worker_id_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="user_company_qualification" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_company_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="user_company_id_user_company_qualification_referenced" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="qualification_name" nullable="false" remarks="資格名" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="certified_date" nullable="true" remarks="資格取得年月日" size="10" type="DATE"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="user_company_id_user_company_qualification_referenced" unique="false">
+            <column ascending="true" name="user_company_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="user_company_responsible_area" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_company_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="user_company_id_user_company_responsible_area_referenced" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="prefecture_id" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <primaryKey column="prefecture_id" sequenceNumberInPK="2"/>
+         <primaryKey column="user_company_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+         <index name="user_company_id_user_company_responsible_area_referenced" unique="false">
+            <column ascending="true" name="user_company_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="user_company_specialty" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="user_company_id" nullable="false" remarks="企業担当者ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="user_company_id_user_company_specialty_referenced" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="specialty_id" nullable="false" remarks="企業担当者ID" size="11" type="VARCHAR">
+            <parent catalog="enger" column="job_id" foreignKey="specialty_id_user_company_specialty_referenced" implied="false" onDeleteCascade="false" table="m_job"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="2" name="update_date" nullable="false" remarks="更新時刻" size="19" type="DATETIME"/>
+         <primaryKey column="specialty_id" sequenceNumberInPK="1"/>
+         <primaryKey column="user_company_id" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="specialty_id"/>
+         </index>
+         <index name="specialty_id_user_company_specialty_referenced" unique="false">
+            <column ascending="true" name="specialty_id"/>
+         </index>
+         <index name="user_company_id_specialty_id_unique" unique="true">
+            <column ascending="true" name="user_company_id"/>
+            <column ascending="true" name="specialty_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="user_engineer" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="user_engineer_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="email" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="password" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="token" nullable="true" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="line_id" nullable="true" remarks="LINEID" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="google_id" nullable="true" remarks="GOOGLEID" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="facebook_id" nullable="true" remarks="FACEBOOKID" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="one_time_token" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="last_login_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="9" name="remember_token" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="1" digits="0" id="10" name="registration_phase" nullable="false" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="11" name="account_suspended_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="12" name="authenticated_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="13" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="14" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="15" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="user_engineer_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="user_engineer_id"/>
+         </index>
+         <index name="email" unique="true">
+            <column ascending="true" name="email"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="1" name="worker_type" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="user_engineer_id" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="3" name="worker_manager_id" nullable="true" remarks="人材担当" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="worker_worker_manager_id_foreign" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="belongs_company_id" nullable="true" remarks="所属企業ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="company_id" foreignKey="worker_belongs_company_id_foreign" implied="false" onDeleteCascade="false" table="company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="last_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="first_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="last_name_ruby" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="first_name_ruby" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="initial_name" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="age" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="11" name="birthday" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="12" name="sex" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="13" name="phone_number" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="14" name="email" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="company_from" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="prefecture_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="17" name="city_id" nullable="true" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="city_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_city"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="18" name="address" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="19" name="nationality" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="20" name="desired_contract_type" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="21" name="skill_management" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="skill_english" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="23" name="cover_image" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="24" name="logo_image" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="25" name="resume" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="26" name="skill_sheet" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="27" name="other_resume" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="28" name="movie" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="29" name="self_introduction" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="30" name="school_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="31" name="final_education" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="32" name="educational_background_detail" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="33" name="graduate_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="34" name="priority" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="35" name="nearest_station" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="36" name="current_monthly_income" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="37" name="desired_monthly_income" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="38" name="operation_date" nullable="true" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="39" name="agent_comment" nullable="true" remarks="エージェントコメント" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="40" name="release_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="41" name="release_date" nullable="true" remarks="公開日" size="10" type="DATE"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="42" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="43" name="last_update_user_id" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="44" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="45" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="worker_id"/>
+         </index>
+         <index name="del_release_idx" unique="false">
+            <column ascending="true" name="del_flag"/>
+            <column ascending="true" name="release_flag"/>
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="create_date"/>
+         </index>
+         <index name="user_engineer_idx" unique="false">
+            <column ascending="true" name="user_engineer_id"/>
+         </index>
+         <index name="worker_belongs_company_id_foreign" unique="false">
+            <column ascending="true" name="belongs_company_id"/>
+         </index>
+         <index name="worker_worker_manager_id_foreign" unique="false">
+            <column ascending="true" name="worker_manager_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_desired_another_feature" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="desired_another_feature_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="another_feature_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" table="m_another_feature"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="worker_id" unique="true">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="desired_another_feature_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_desired_job" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_id_worker_desired_job_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="desired_job_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="job_id" foreignKey="desired_job_id_worker_desired_job_referenced" implied="false" onDeleteCascade="false" table="m_job"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="desired_job_id_worker_desired_job_referenced" unique="false">
+            <column ascending="true" name="desired_job_id"/>
+         </index>
+         <index name="worker_id" unique="true">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="desired_job_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_desired_workingplace" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_id_worker_desired_workingplace_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="prefecture_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="prefecture_id" foreignKey="prefecture_id_worker_desired_workingplace_referenced" implied="false" onDeleteCascade="false" table="m_prefecture"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="priority" nullable="true" remarks="0:第1希望 1:第2希望" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="6" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="prefecture_id_worker_desired_workingplace_referenced" unique="false">
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+         <index name="worker_id" unique="true">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="prefecture_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_favorite" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="worker_id" nullable="false" remarks="人材ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_favorite_worker_id_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="target_type" nullable="false" remarks="対象タイプ 0:案件,1:エージェント" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="target_id" nullable="false" remarks="対象ID" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="3" name="update_date" nullable="false" remarks="更新時刻" size="19" type="DATETIME"/>
+         <primaryKey column="target_id" sequenceNumberInPK="1"/>
+         <primaryKey column="target_type" sequenceNumberInPK="2"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="3"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="target_type"/>
+            <column ascending="true" name="target_id"/>
+         </index>
+         <index name="worker_favorite_worker_id_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_matching_score_to_project" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="worker_id" nullable="false" remarks="人材ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_matching_score_to_project_worker_id_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="project_id" nullable="false" remarks="案件ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="project_id" foreignKey="worker_matching_score_to_project_project_id_referenced" implied="false" onDeleteCascade="false" table="project"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="matching_score" nullable="false" remarks="マッチングスコア" size="12" type="FLOAT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="mail_send_flag" nullable="false" remarks="" size="0" type="BIT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="update_date" nullable="false" remarks="更新時刻" size="19" type="DATETIME"/>
+         <primaryKey column="project_id" sequenceNumberInPK="1"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="2"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="project_id"/>
+         </index>
+         <index name="mail_send_idx" unique="false">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="mail_send_flag"/>
+            <column ascending="true" name="matching_score"/>
+            <column ascending="true" name="update_date"/>
+         </index>
+         <index name="worker_matching_score_to_project_project_id_referenced" unique="false">
+            <column ascending="true" name="project_id"/>
+         </index>
+         <index name="worker_matching_score_to_project_worker_id_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_portfolio" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_portfolio_worker_id_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="portfolio_name" nullable="true" remarks="" size="30" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="portfolio_detail" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="portfolio_file" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="portfolio_thumbnail" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="7" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="8" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="worker_portfolio_worker_id_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_previews" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_previews_ibfk_1" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="1" name="previews" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="last_viewed_user_type" nullable="true" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="last_viewed_user_id" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="4" name="update_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_questionnaire" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_questionnaire_worker_id_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="ans_capital" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="ans_experience" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="ans1" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="ans2" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="ans3" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="6" name="create_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="7" name="update_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="worker_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="worker_id"/>
+         </index>
+         <index name="worker_questionnaire_worker_id_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_reviews" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="ID" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="求職者ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_reviews_worker_id_foreign" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="user_company_id" nullable="false" remarks="担当者ID" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="user_company_id" foreignKey="worker_reviews_user_company_id_foreign" implied="false" onDeleteCascade="false" table="user_company"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="review_rating" nullable="false" remarks="評価レート" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="review_title" nullable="true" remarks="レビュータイトル" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="review_text" nullable="true" remarks="レビュー本文" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="release_flag" nullable="false" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="del_flag" nullable="false" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="8" name="create_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="9" name="update_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="worker_id" unique="true">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="user_company_id"/>
+         </index>
+         <index name="worker_reviews_user_company_id_foreign" unique="false">
+            <column ascending="true" name="user_company_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_skill" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_id_worker_skill_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="skill_id" nullable="false" remarks="" size="11" type="VARCHAR">
+            <parent catalog="enger" column="skill_id" foreignKey="skill_id_worker_skill_referenced" implied="false" onDeleteCascade="false" table="m_skill"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="experience_id" nullable="true" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="del_flag" nullable="true" remarks="" size="3" type="TINYINT"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="5" name="create_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="6" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="skill_id_worker_skill_referenced" unique="false">
+            <column ascending="true" name="skill_id"/>
+         </index>
+         <index name="worker_id" unique="true">
+            <column ascending="true" name="worker_id"/>
+            <column ascending="true" name="skill_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_sns" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="worker_sns_worker_id_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="sns_id" nullable="false" remarks="" size="11" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="sns_account" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="follow_user_num" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="follower_user_num" nullable="true" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="published_flag" nullable="false" remarks="0：非公開,1：公開" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="del_flag" nullable="false" remarks="" size="3" type="TINYINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="8" name="create_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="9" name="update_date" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="worker_sns_worker_id_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+      <table catalog="enger" name="worker_work_history" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="worker_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="enger" column="worker_id" foreignKey="user_company_id_worker_work_history_referenced" implied="false" onDeleteCascade="false" table="worker"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="company_name" nullable="false" remarks="企業名" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="contract_type" nullable="true" remarks="雇用形態" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="industry" nullable="true" remarks="業界" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="job_id" nullable="true" remarks="職種" size="50" type="VARCHAR">
+            <parent catalog="enger" column="job_id" foreignKey="job_id_m_job_referenced" implied="false" onDeleteCascade="false" table="m_job"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="6" name="monthly_income" nullable="true" remarks="月収" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="management_experience" nullable="true" remarks="マネジメント経験有無" size="3" type="TINYINT"/>
+         <column autoUpdated="false" digits="0" id="8" name="work_content" nullable="true" remarks="仕事内容" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="achievement" nullable="true" remarks="実績" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="10" name="start_date" nullable="true" remarks="就業年月日" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="11" name="end_date" nullable="true" remarks="退職年月日" size="10" type="DATE"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="0" id="12" name="update_date" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="job_id_m_job_referenced" unique="false">
+            <column ascending="true" name="job_id"/>
+         </index>
+         <index name="worker_id_worker_work_history_referenced" unique="false">
+            <column ascending="true" name="worker_id"/>
+         </index>
+      </table>
+   </tables>
+</database>
