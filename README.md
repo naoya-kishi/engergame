@@ -1,6 +1,6 @@
-# ER図
-**schemaspy Relationships.html**
+**ER図**
 ***
+**schemaspy Relationships.html**
 
 # 環境構築 
 ## Docker install(Docker for Mac)
@@ -23,7 +23,7 @@ docker-compose up --build
 <img width="1440" alt="スクリーンショット 2020-04-17 16 29 40" src="https://user-images.githubusercontent.com/56709557/79543719-e01c7f80-80c8-11ea-8cbe-18c4047790bb.png">
 
 
-# Vue.js install
+***Vue.js install***
 
 ### VERSION 一覧
 |  command   |   version   |
