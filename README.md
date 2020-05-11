@@ -1,5 +1,5 @@
 **ER図**
-> schemaspy Relationships.html**
+> schemaspy Relationships.html
 
 # 環境構築 
 ## Docker install(Docker for Mac)
