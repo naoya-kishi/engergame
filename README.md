@@ -1,3 +1,7 @@
+# ER図
+**schemaspy Relationships.html**
+***
+
 # 環境構築 
 ## Docker install(Docker for Mac)
 
@@ -21,6 +25,7 @@ docker-compose up --build
 
 ## Vue.js install
 ### ローカルにInstall
+
 ### VERSION 一覧
 **npm**
 ```
@@ -54,11 +59,11 @@ npm run dev
 
 ## Install 開始
 
-### homebrewのインストール
++ [x] homebrewのインストール
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-### nodebrewのインストール
++ [x] nodebrewのインストール
 ```
  brew install nodebrew
 ```
@@ -76,12 +81,12 @@ nodebrew install-binary 12.11.1
  > v12.11.1
 ```
 
-### Webpack install
++ [x] Webpack install
 ```
  npm install webpack-dev-server -g
 ```
 
-### webpack-dev-serverの導入
++ [x] webpack-dev-serverの導入
 ```
 //最新のバージョンを確認
 $npm info webpack-dev-server
@@ -89,7 +94,7 @@ $npm info webpack-dev-server
 $npm install --save-dev webpack-dev-server@2.9.1
 ```
 
-### Library
++ [x] 使用Library
 **Reset CSS**
 ```
 npm install -D normalize.css
@@ -115,13 +120,12 @@ npm install vuex install --save
 参考URL
 > https://github.com/axios/axios#example
 
-
 **起動**
 ```
 npm run dev
 ```
 
-**Mock Server を使用**
++ [x] Mock Server を使用
 仮想サーバーを構築してJSON型Dataを扱うため
 ```
 npm install axios --save
