@@ -1,7 +1,7 @@
 <template>
   <div class="detail-wrapper" v-if="item" key="product">
     <div class="top-recruit-detail">
-      <span class="ribbon15">★</span>
+      <span class="ribbon15"></span>
       <div class="time-zone">2020年4月22日</div>
       <!-- IDの確認 -->
       <!-- <p>このページは ID: {{ $route.params.id }} の詳細を表示する</p> -->
