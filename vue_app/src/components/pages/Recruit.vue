@@ -135,6 +135,7 @@ li{
   font-size: 12px;
   text-align: center;
   border: solid 1px #f09819;
+  font-weight: bold;
 }
 .matching-status{
   float: right;
@@ -146,6 +147,7 @@ li{
   font-size: 12px;
   text-align: center;
   border: solid 1px #1f5abc;
+  font-weight: bold;
 }
 .applied-tag-are{
   width: 100px;
@@ -240,6 +242,7 @@ li{
   font-size: 14px;
   padding: 2px 0 0 0 ;
   display: inline-block;
+  font-weight: bold;
 }
 .skill-content{
   display: inline-block;
