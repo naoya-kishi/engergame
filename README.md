@@ -13,7 +13,7 @@ engergame_python                latest              *************        * hours
 engergame_db                   latest              *************        * hours ago        373MB
 ```
 
-build コマンド
+✏️ build コマンド
 ```
 docker-compose up --build
 ```
@@ -42,7 +42,7 @@ docker-compose up --build
 ```
  brew install nodebrew
 ```
-**確認**
+**✏️ 確認**
 ```
  nodebrew -v
 ```
@@ -50,7 +50,7 @@ docker-compose up --build
 ```
 nodebrew install-binary 12.11.1
 ```
-**確認**
+**✏️ 確認**
 ```
  nodebrew list
  > v12.11.1
