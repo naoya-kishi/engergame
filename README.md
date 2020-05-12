@@ -70,32 +70,37 @@ $npm install --save-dev webpack-dev-server@2.9.1
 ```
 
 + [x] 使用Library
-**Reset CSS**
+**1) Reset CSS**
 ```
 npm install -D normalize.css
 ```
 
-**Font awesome**
+**2) Font awesome**
 ```
 $ yarn add @fortawesome/fontawesome-svg-core
 $ yarn add @fortawesome/free-solid-svg-icons
 $ yarn add @fortawesome/vue-fontawesome
 ```
 
-**axios**
+**3) axios**
 ```
 npm install axios
 ```
 
-**Vuex**
+**4) Vuex**
 ```
 npm install vuex install --save
+```
+
+**5) vue-select**
+```
+npm install vue-select
 ```
 
 参考URL
 > https://github.com/axios/axios#example
 
-**起動**
+**サーバー 起動コマンド**
 ```
 npm run dev
 ```
