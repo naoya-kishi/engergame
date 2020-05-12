@@ -28,7 +28,7 @@
         </div>
         <div class="recruit-centerbox">
           <div class="recruit-title-box">
-            {{ title }}
+            {{ title | truncateTitle }}
           </div>
           <div class="recruit-company-box">
             {{ company }}
@@ -51,12 +51,13 @@
           </div>
           <div class="recruit-skill-box">
             <div class="skill-logo">スキル</div>
-            <div class="skill-content">{{ must_skill }}</div>
+            <div class="skill-content">{{ must_skill | truncateSkill }}</div>
           </div>
-          <div class="recruit-sales-box">
+          <!-- エージェント 表示 -->
+          <!-- <div class="recruit-sales-box">
             <div class="sales-logo"></div>
             <div class="sales-name">{{ sales_name }}</div>
-          </div>
+          </div> -->
         </div>
         </router-link>
       </div>
@@ -84,6 +85,26 @@ export default {
   // },
   computed: {
     list: () => database1.fetch()
+  },
+  filters: {
+    // 案件タイトル 文字制限
+    truncateTitle: function(value) {
+      var length = 133;
+      var ommision = "...";
+      if (value.length <= length) {
+        return value;
+      }
+      return value.substring(0, length) + ommision;
+    },
+    // スキル 文字制限
+    truncateSkill: function(value) {
+      var length = 100;
+      var ommision = "...";
+      if (value.length <= length) {
+        return value;
+      }
+      return value.substring(0, length) + ommision;
+    },
   }
 }
 </script>
@@ -128,7 +149,7 @@ li{
 .create-work{
   display: inline-block;
   width: 8%;
-  background-color: #f09819;
+  background: linear-gradient(#f09819, #fa9200);
   color: #FFFFFF;
   border-radius: 12px;
   padding: 5px 12px;
@@ -170,7 +191,7 @@ li{
   font-size: 16px;
 }
 .recruit-company-box{
-  font-size: 12px;
+  font-size: 14px;
   color: #818181;
 }
 
@@ -228,14 +249,13 @@ li{
 
 /* スキル CSS */
 .recruit-skill-box{
-  width: 75%;
-  /* height: 40px; */
+  width: 95%;
   display: inline-block;
 }
 .skill-logo{
   width: 120px;
   height: 20px;
-  background-color: #2AC1DF;
+  background: linear-gradient(rgb(8, 190, 226), #2AC1DF);
   color: #FFFFFF;
   text-align: center;
   border-radius: 12px;
@@ -318,7 +338,7 @@ li{
     width: 20%;
   }
   .matching-status{
-    
+    width: 30%;
   }
   .recruit-centerbox{
     width: 100%;
@@ -326,11 +346,14 @@ li{
     position: relative;
   }
   .recruit-title-box{
+    height: 54%;
     font-size: 14px;
+    overflow: hidden; /* 文字制限 */
+    text-overflow: ellipsis; /* 文字制限 */
   }
   .recruit-company-box{
     position: absolute;
-    bottom: 0;
+    bottom: 3px;
   }
   .recruit-btmbox{
     width: 100%;
@@ -357,15 +380,22 @@ li{
   }
   .skill-logo{
     width: 20%;
-    font-size: 11px;
-    height: 90%;
+    font-size: 9px;
+    height: 80%;
+    display: inline-block;
   }
   .skill-content{
+    width: 100%;
     font-size: 11px;
+    display: inline-block;
+    overflow: hidden; /* 文字制限 */
+    text-overflow: ellipsis; /* 文字制限 */
+    height: 12px;
   }
-  .recruit-sales-box{
+  /* エージェント 表示 */
+  /* .recruit-sales-box{
     display: none;
-  }
+  } */
   .pagination{
     margin: 0;
   }

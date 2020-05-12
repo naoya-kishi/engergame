@@ -48,7 +48,7 @@
       </div>
       <div class="label-tag">
         <p class="title-label">案件内容</p>
-        <p class="content-label">電子決済サービス向けプロダクトの機能追加がメインの作業となりますが、サービス全体を俯瞰してシステム構築作業にも携わっていただきます。</p>
+        <p class="content-label">{{ item.project_detail }}</p>
       </div>
       <div class="recruit-detail-box">
         <div class="label-tag">
@@ -74,10 +74,11 @@
       </div>
     </div>
     <div class="bottom-recruit-detail">
-      <div class="sales-comment-box">
+      <!-- エージェント コメント欄 -->
+      <!-- <div class="sales-comment-box">
         <div class="sales-logo"></div>
         <div class="sales-comment">{{ item.agent_comment }}</div>
-      </div>
+      </div> -->
       <div class="send-area">
         <div class="btn-are">
           <div class="send-box">
@@ -147,6 +148,7 @@ export default {
   padding: 3% 0;
   z-index: 2;
   width: 40px;
+  height: 20px;
   text-align: center;
   color: white;
   font-size: 22px;
@@ -441,7 +443,8 @@ export default {
   margin: 0;
   padding: 0;
 }
-.sales-logo{
+/* エージェント表示 */
+/* .sales-logo{
   width: 100px;
   height: 100px;
   background-color: grey;
@@ -456,13 +459,13 @@ export default {
   padding: 30px;
   font-size: 14px;
   background-color: #D8D8D8;
-  /* display: inline-block; */
   float: right;
-}
+} */
+
 .send-area{
   width: calc(100% - 40px);
   height: 60px;
-  margin-top: 20px;
+  margin-top: 45px;
   padding: 20px 0;
 }
 .btn-are{
@@ -485,7 +488,7 @@ export default {
 .apply-btn{
   width: 250px;
   height: 54px;
-  background-color: #ee910e;
+  background: linear-gradient(#ef6443, #f09819);
   color: #FFFFFF;
   text-align: center;
   border-radius: 12px;
@@ -494,7 +497,7 @@ export default {
   display: inline-block;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0px 4px 0 rgba(73, 73, 73, 0.7);
+  box-shadow: 0px 4px 0 rgba(138, 138, 138, 0.7);
   padding : 8px;
   transition: 0.2s all ease 0s;
 }
@@ -506,7 +509,6 @@ export default {
 .save-btn{
   width: 250px;
   height: 54px;
-  background-color: #2AC1DF;
   color: #FFFFFF;
   text-align: center;
   border-radius: 12px;
@@ -516,13 +518,12 @@ export default {
   display: inline-block;
   cursor: pointer;
   border-radius: 12px;
-  background-color: #2AC1DF;
-  box-shadow: 0px 4px 0 rgba(80, 80, 80, 0.7);
+  background: linear-gradient(#2AC1DF, rgb(42, 105, 223));
+  box-shadow: 0px 4px 0 rgba(138, 138, 138, 0.7);
   padding : 8px;
   transition: 0.2s all ease 0s;
 }
 .save-btn:hover{
-  background-color: #2AC1DF;
   box-shadow: none;
   transform: translate3d(0, 3px, 0);
 }
@@ -630,8 +631,8 @@ export default {
     padding: 0;
   }
   .company-logo{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
   }
   .company-name{
@@ -776,7 +777,7 @@ export default {
 
   .bottom-recruit-detail{
     width: 100%;
-    height: 230px;
+    /* height: 230px; */
   }
   .sales-comment-box{
     padding: 15px 15px 15px 0;
@@ -829,6 +830,23 @@ export default {
     right: 0;
         height: 90%;
     font-size: 14px;
+  }
+
+  .ribbon15 {  
+    display: inline-block;
+    position: absolute;
+    top: -6px;
+    right: 10px;
+    margin: 0;
+    padding: 3% 0;
+    z-index: 2;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    background: linear-gradient(#f09819 0%, #e95738 100%);
+    border-radius: 2px 0 0 0;
   }
 }
 </style>
