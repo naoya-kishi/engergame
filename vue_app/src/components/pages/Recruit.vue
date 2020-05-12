@@ -149,13 +149,13 @@ li{
 .create-work{
   display: inline-block;
   width: 8%;
-  background: linear-gradient(#f09819, #fa9200);
+  background: linear-gradient(#ef6443, #f09819);
   color: #FFFFFF;
   border-radius: 12px;
   padding: 5px 12px;
   font-size: 12px;
   text-align: center;
-  border: solid 1px #f09819;
+  /* border: solid 1px #f09819; */
   font-weight: bold;
 }
 .matching-status{
@@ -209,7 +209,7 @@ li{
 .money-area{
   display: inline-block;
   position: relative;
-  width: 400px;
+  width: 50%;
 }
 .location-area{
   display: inline-block;
@@ -231,7 +231,7 @@ li{
 .location-area{
   display: inline-block;
   position: relative;
-  width: 400px;
+  width: 20%;
 }
 .location-logo{
   width: 25px;
@@ -255,7 +255,7 @@ li{
 .skill-logo{
   width: 120px;
   height: 20px;
-  background: linear-gradient(rgb(8, 190, 226), #2AC1DF);
+  background: linear-gradient(rgb(20, 148, 233), #2AC1DF);
   color: #FFFFFF;
   text-align: center;
   border-radius: 12px;

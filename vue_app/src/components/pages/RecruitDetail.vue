@@ -476,7 +476,6 @@ export default {
 
 /* 保存 応募ボタン */
 #seach-form{
-  width: 160px;
   display:inline-block;
 }
 .send-box{
@@ -486,7 +485,7 @@ export default {
   padding: 0 13%;
 }
 .apply-btn{
-  width: 250px;
+  width: 220px;
   height: 54px;
   background: linear-gradient(#ef6443, #f09819);
   color: #FFFFFF;
@@ -500,6 +499,7 @@ export default {
   box-shadow: 0px 4px 0 rgba(138, 138, 138, 0.7);
   padding : 8px;
   transition: 0.2s all ease 0s;
+  border-radius: 50rem;
 }
 .apply-btn:hover{
   background-color: #f09819;
@@ -507,7 +507,7 @@ export default {
   transform: translate3d(0, 3px, 0);
 }
 .save-btn{
-  width: 250px;
+  width: 220px;
   height: 54px;
   color: #FFFFFF;
   text-align: center;
@@ -517,11 +517,11 @@ export default {
   padding: 2px 0 0 0 ;
   display: inline-block;
   cursor: pointer;
-  border-radius: 12px;
   background: linear-gradient(#2AC1DF, rgb(42, 105, 223));
   box-shadow: 0px 4px 0 rgba(138, 138, 138, 0.7);
   padding : 8px;
   transition: 0.2s all ease 0s;
+  border-radius: 50rem;
 }
 .save-btn:hover{
   box-shadow: none;
@@ -816,7 +816,8 @@ export default {
     display:inline-block;
   }
   .apply-btn{
-    width: 100px;
+    /* width: 100px; */
+    width: 100%;
     display: inline-block;
     position: absolute;
     left: 0;
@@ -824,7 +825,8 @@ export default {
     font-size: 14px;
   }
   .save-btn{
-    width: 100px;
+    /* width: 100px; */
+    width: 100%;
     display: inline-block;
     position: absolute;
     right: 0;
