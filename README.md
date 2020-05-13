@@ -97,6 +97,11 @@ npm install vuex install --save
 npm install vue-select
 ```
 
+**6) vue-loading**
+```
+yarn add vue-loading-template
+```
+
 参考URL
 > https://github.com/axios/axios#example
 
