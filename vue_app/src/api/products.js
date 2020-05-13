@@ -57,7 +57,7 @@ const database = [
       "sales_name": "佐藤 しおり"
   },
   {
-      "project_id": 3,
+      "project_id": 2,
       "title": "急成長FinTechスタートアップのpythonエンジニアを大募集！",
       "company": "FinTech 株式会社",
       "job": "エンジニア",
@@ -309,15 +309,6 @@ const database = [
       "sales_name": "川崎 勇気"
   }
 ]
-var databaseResult = [];
-const data = axios.get('http://localhost:3000/mock/users').then(response => databaseResult = response.data)
-console.log(data)
-const result = data.then((value) => { return value });
-console.log(result)
-// data.then((value) => {
-//   console.log(value);
-//   return value
-// });
 
 
 
