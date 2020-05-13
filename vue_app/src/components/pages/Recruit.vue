@@ -1,37 +1,19 @@
 <template>
   <div class="recruit-wrapper">
-    <paginate name="paginate-log" :list="list" :per="10" class="paginate">
-      <!-- <div class="recruit-content" v-for="project in projects " :key="project_id">
-      </div> -->
-      <div class="recruit-content" 
-      v-for="{
-        project_id,
-        title,
-        created_at,
-        working_type,
-        matching,
-        company,
-        monthly_income_min,
-        monthly_income_max,
-        prefecture,
-        city,
-        must_skill,
-        sales_name 
-        } in paginated('paginate-log')" :key="project_id">
-        <router-link :to="`/recruit/${ project_id }`">
+    <paginate name="paginate-log" :list="postList" :per="10" class="paginate">
+      <router-link :to="`/recruit/${ post.project_id }`" v-for="post in paginated('paginate-log')" :key="post.id" class="post">
+      <div class="recruit-content">
         <div class="recruit-topbox">
-          <!-- IDの確認 -->
-          <!-- {{ project_id }} -->
-          <div class="create-time">{{ created_at }}</div>
-          <div class="create-work">{{ working_type }}</div>
-          <div class="matching-status">マッチング率{{ matching }}%</div>
+          <div class="create-time">{{ post.created_at }}</div>
+          <div class="create-work">{{ post.position }}</div>
+          <div class="matching-status">マッチング率 {{ post.matching }}%</div>
         </div>
         <div class="recruit-centerbox">
           <div class="recruit-title-box">
-            {{ title | truncateTitle }}
+            {{ post.title }}
           </div>
           <div class="recruit-company-box">
-            {{ company }}
+            {{ post.company }}
           </div>
         </div>
         <div class="recruit-btmbox">
@@ -39,19 +21,19 @@
             <div class="money-area">
               <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
               <div class="money-content">
-                {{ monthly_income_min }} ~ {{ monthly_income_max }}
+                {{ post.monthly_income_min }} ~ {{ post.monthly_income_max }}
               </div>
             </div>
             <div class="location-area">
               <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
               <div class="location-content">
-                {{ prefecture }} {{ city }}
+                {{ post.prefecture }} {{ post.city }}
               </div>
             </div>
           </div>
           <div class="recruit-skill-box">
             <div class="skill-logo">スキル</div>
-            <div class="skill-content">{{ must_skill | truncateSkill }}</div>
+            <div class="skill-content">{{ post.must_skill }}</div>
           </div>
           <!-- エージェント 表示 -->
           <!-- <div class="recruit-sales-box">
@@ -59,8 +41,8 @@
             <div class="sales-name">{{ sales_name }}</div>
           </div> -->
         </div>
-        </router-link>
       </div>
+      </router-link>
     </paginate>
     <paginate-links for="paginate-log" class="pagination" :show-step-links="true" ></paginate-links>
   </div>
@@ -72,20 +54,16 @@ import database from '@/api/products.js'
 export default {
   data(){
     return{
-      // url: 'http://localhost:3000/mock/users',
-      // projects: [],
+      postList: [],
       paginate: ['paginate-log']
     }
   },
-  // * axios setting
-  // mounted: function(){
-  //   axios.get(this.url)
-  //   .then(response => this.projects =response.data)
-  //   .catch(response => console.log(response))
-  // },
+  //! 使用しない
   computed: {
     list: () => database.fetch()
   },
+  // !------- ここまで -----
+  // * 文字制限
   filters: {
     // 案件タイトル 文字制限
     truncateTitle: function(value) {
@@ -106,7 +84,16 @@ export default {
       return value.substring(0, length) + ommision;
     },
   },
-
+  // * axios setting
+  mounted() {
+    axios.get('http://localhost:3000/mock/users')
+      .then(response => {
+          return response.data
+      })
+      .then(data => {
+          this.postList = data
+      })
+  }
 }
 </script>
 
@@ -149,7 +136,6 @@ li{
 }
 .create-work{
   display: inline-block;
-  width: 8%;
   background: linear-gradient(#ef6443, #f09819);
   color: #FFFFFF;
   border-radius: 12px;

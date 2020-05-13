@@ -1,38 +1,38 @@
 <template>
-  <div class="detail-wrapper" v-if="item" key="product">
+  <div class="detail-wrapper" v-if="post" key="product">
     <div class="top-recruit-detail">
       <span class="ribbon15"></span>
-      <div class="time-zone">2020年4月22日</div>
+      <div class="time-zone">{{ post.created_at }}</div>
       <!-- IDの確認 -->
       <!-- <p>このページは ID: {{ $route.params.id }} の詳細を表示する</p> -->
       <div class="company-logo"></div>
-      <div class="company-name">{{ item.company }}</div>
-      <div class="recruit-title">{{ item.title }}</div>
+      <div class="company-name">{{ post.company }}</div>
+      <div class="recruit-title">{{ post.title }}</div>
     </div>
     <div class="top-main-recruit-box">
       <div class="recruit-list-box">
         <div class="top-list">
           <div class="salary-menu">月額単価</div>
-          <div class="salary-area">{{ item.monthly_income_min }} ~ {{ item.monthly_income_max }}</div>
+          <div class="salary-area">{{ post.monthly_income_min }} ~ {{ post.monthly_income_max }}</div>
         </div>
         <div class="middle-list">
           <div class="left-box-first">
             <div class="recruit-type-menu">雇用携帯</div>
-            <div class="recruit-type-area">{{ item.working_type }}</div>
+            <div class="recruit-type-area">{{ post.working_type }}</div>
           </div>
           <div class="rigth-box-second">
             <div class="recruit-days-menu">稼働日数</div>
-            <div class="recruit-days-area">{{ item.working_days }} ~</div>
+            <div class="recruit-days-area">{{ post.working_days }} ~</div>
           </div>
         </div>
         <div class="bottom-list">
           <div class="left-box-secound">
             <div class="recruit-times-menu">契約期間</div>
-            <div class="recruit-times-area">{{ item.time }}</div>
+            <div class="recruit-times-area">{{ post.time }}</div>
           </div>
           <div class="right-box-secound">
             <div class="recruit-worktype-menu">募集職種</div>
-            <div class="recruit-worktype-area">{{ item.position }}</div>
+            <div class="recruit-worktype-area">{{ post.position }}</div>
           </div>
         </div>
       </div>
@@ -40,36 +40,36 @@
     <div class="center-recruit-detail">
       <div class="label-tag">
         <p class="title-label">必須スキル</p>
-        <p class="content-label">{{ item.must_skill }}</p>
+        <p class="content-label">{{ post.must_skill }}</p>
       </div>
       <div class="label-tag">
         <p class="title-label">歓迎スキル</p>
-        <p class="content-label">{{ item.want_skill }}</p>
+        <p class="content-label">{{ post.want_skill }}</p>
       </div>
       <div class="label-tag">
         <p class="title-label">案件内容</p>
-        <p class="content-label">{{ item.project_detail }}</p>
+        <p class="content-label">{{ post.project_detail }}</p>
       </div>
       <div class="recruit-detail-box">
         <div class="label-tag">
           <p class="detail-title-label">面談回数</p>
-          <p class="content-label">{{ item.mendann }}</p>
+          <p class="content-label">{{ post.mendann }}</p>
         </div>
         <div class="label-tag">
           <p class="detail-title-label">待遇 / 福利厚生</p>
-          <p class="content-label">{{ item.welfare }}</p>
+          <p class="content-label">{{ post.welfare }}</p>
         </div>
         <div class="label-tag">
           <p class="detail-title-label">休日 / 休暇</p>
-          <p class="content-label">{{ item.vacation }}</p>
+          <p class="content-label">{{ post.vacation }}</p>
         </div>
         <div class="label-tag">
           <p class="detail-title-label">求める人材</p>
-          <p class="content-label">{{ item.want_person }}</p>
+          <p class="content-label">{{ post.want_person }}</p>
         </div>
         <div class="label-tag">
           <p class="detail-title-label">勤務地</p>
-          <p class="content-label">{{ item.prefecture }} {{ item.city }}</p>
+          <p class="content-label">{{ post.prefecture }} {{ post.city }}</p>
         </div>
       </div>
     </div>
@@ -103,17 +103,21 @@
 </template>
 
 <script>
+import axios from 'axios'
 import products from '@/api/products.js'
 export default {
   // * Project_id を継承する
   props: {
-    id: Number
+    id: Number,
+    id: {type: Number},
   },
   data() {
     return {
-      item: null
+      item: null,
+      post: null,
     }
   },
+  // ! 使用しない
   watch: {
     id: {
       handler() {
@@ -123,7 +127,21 @@ export default {
       },
       immediate: true
     }
-  }
+  },
+  // ! ここまで -------------
+  // * id 取得し, 詳細表示
+  created() {
+    // this.$http(`${this.$httpPosts}/${this.id}/`)
+    axios.get(`${this.$httpPosts}/${this.id}/`)
+        .then(response => {
+          console.log('aaaaaaaaaaaaaaa')
+          console.log(response.data)
+            return response.data
+        })
+        .then(data => {
+            this.post = data
+        })
+  },
 }
 </script>
 

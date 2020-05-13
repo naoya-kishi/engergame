@@ -40,4 +40,3 @@ Vue.prototype.$httpCategories = 'http://localhost:3000/mock/users'
 
 
 
-
