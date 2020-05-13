@@ -33,7 +33,7 @@ const database = [
       "title": "【最先端のAI・アドテク活用】急成長中の企業で、会社の“顔”となる自社プロダクトの開発したい方 大募集！【最先端のAI・アドテク活用】急成長中の企業で、会社の“顔”となる自社プロダクトの開発したい方 大募集！【最先端のAI・アドテク活用】急成長中の企業で、会社の“顔”となる自社プロダクトの開発したい方 大募集！【最先端のAI・アドテク活用】急成長中の企業で、会社の“顔”となる自社プロダクトの開発したい方 大募集！【最先端のAI・アドテク活用】急成長中の企業で、会社の“顔”となる自社プロダクトの開発したい方 大募集！",
       "company": "Tech 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "データベースエンジニア",
       "prefecture": "東京都",
       "city": "池袋",
       "monthly_income_min": "40万",
@@ -61,7 +61,7 @@ const database = [
       "title": "急成長FinTechスタートアップのpythonエンジニアを大募集！",
       "company": "FinTech 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "ネットワークエンジニア",
       "prefecture": "東京都",
       "city": "多摩",
       "monthly_income_min": "80万",
@@ -89,7 +89,7 @@ const database = [
       "title": "【Web開発】キャリアの選択肢も無限大！/上流工程から参画/複数のWeb開発プロジェクトで経験を積んでスキルアップ可能です！",
       "company": "FinTech 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "ネットワークエンジニア",
       "prefecture": "千葉県",
       "city": "四街道",
       "monthly_income_min": "40万",
@@ -117,7 +117,7 @@ const database = [
       "title": "【webエンジニア】フルスタックエンジニアとして活躍してください！",
       "company": "FinTech 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "サーバーエンジニア",
       "prefecture": "東京都",
       "city": "多摩",
       "monthly_income_min": "80万",
@@ -145,7 +145,7 @@ const database = [
       "title": "【SE / PG】自社開発クラウド案件／モダン開発・GCPなどに興味があるエンジニア大歓迎！3年連続Google Awardを受賞したアジアNo1企業",
       "company": "FinTech 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "サーバーエンジニア",
       "prefecture": "東京都",
       "city": "多摩",
       "monthly_income_min": "80万",
@@ -173,7 +173,7 @@ const database = [
       "title": "【Rails】主力事業BOXILをネクストステージに押し上げるグロースエンジニア募集！エンジニアのパフォーマンスの出しやすさに注力した環境で能力発揮しませんか？",
       "company": "ロプ 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "サーバーエンジニア",
       "prefecture": "東京都",
       "city": "多摩",
       "monthly_income_min": "80万",
@@ -201,7 +201,7 @@ const database = [
       "title": "急成長FinTechスタートアップのpythonエンジニアを大募集！",
       "company": "FinTech 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "プロジェクトマネージャー",
       "prefecture": "東京都",
       "city": "多摩",
       "monthly_income_min": "80万",
@@ -229,7 +229,7 @@ const database = [
       "title": "【Python使い倒す】Python×Djangoを使った自社開発！「開発好きな気持ち」重視します。",
       "company": "FinTech 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "CTO候補",
       "prefecture": "東京都",
       "city": "多摩",
       "monthly_income_min": "80万",
@@ -257,7 +257,7 @@ const database = [
       "title": "【SE / PG】自社開発クラウド案件／モダン開発・GCPなどに興味があるエンジニア大歓迎！3年連続Google Awardを受賞したアジアNo1企業",
       "company": "FinTech 株式会社",
       "job": "エンジニア",
-      "position": "バックエンドエンジニア",
+      "position": "プロジェクトマネージャー(PM)",
       "prefecture": "東京都",
       "city": "多摩",
       "monthly_income_min": "80万",
@@ -314,10 +314,10 @@ const data = axios.get('http://localhost:3000/mock/users').then(response => data
 console.log(data)
 const result = data.then((value) => { return value });
 console.log(result)
-data.then((value) => {
-  console.log(value);
-  return value
-});
+// data.then((value) => {
+//   console.log(value);
+//   return value
+// });
 
 
 
@@ -331,6 +331,11 @@ export default {
   },
   fetch(id, value) {
     // * dataから取り出す ...できない
+    // var sample = axios.get('http://localhost:3000/mock/users')
+    // .then
+    //   (response => this.projects = response.data)
+    // console.log(sample)
+    // return sample
     // data.then((value) => {
     //   console.log(value);
     //   return value
