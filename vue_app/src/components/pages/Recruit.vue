@@ -68,7 +68,7 @@
 
 <script>
 import axios from 'axios'
-import database1 from '@/api/products.js'
+import database from '@/api/products.js'
 export default {
   data(){
     return{
@@ -84,7 +84,7 @@ export default {
   //   .catch(response => console.log(response))
   // },
   computed: {
-    list: () => database1.fetch()
+    list: () => database.fetch()
   },
   filters: {
     // 案件タイトル 文字制限
@@ -105,7 +105,8 @@ export default {
       }
       return value.substring(0, length) + ommision;
     },
-  }
+  },
+
 }
 </script>
 
