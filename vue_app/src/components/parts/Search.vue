@@ -60,13 +60,14 @@ export default {
 <style scoped>
 .serach-box{
   width: 80%;
-  height: 48px;
+  height: 34px;
   float: right;
   padding: 15px;
 }
 #seach-form{
   width: 95%;
   height: 100%;
+  font-size: 16px;
 }
 #search-type{
   width: 26%;
@@ -76,14 +77,6 @@ export default {
   background-color: #117ee456;
   display: inline-block;
 }
-.vs__dropdown-toggle{
-  background-color: green;
-  width: 2000px;
-}
-.vs__selected-options{
-  background-color: green;
-  width: 2000px;
-}
 #search-location{
   width: 20%;
   height: 70%;
@@ -91,8 +84,8 @@ export default {
   border: 1px solid #FFFFFF;
 }
 #search-free{
-  width: 40%;
-  height: 62%;
+  width: 29%;
+  height: 89%;
   /* border-radius: 4%; */
   background-color: #117ee456;
   border: 1px solid rgba(60,60,60,.26);
