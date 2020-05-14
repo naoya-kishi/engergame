@@ -1,21 +1,53 @@
 <template>
   <div class="serach-box">
-    <form id="seach-form" action="URL" method="get">
-      <input v-model="form.WorkType" id="search-type" name="" type="text" placeholder=" 職種"/><input v-model="form.Location" id="search-location" name="" type="text" placeholder=" 地域"/><input v-model="form.Freeword" id="search-free" name="" type="text" placeholder=" フリーワード"/>
+    <form id="seach-form" action="search" method="get">
+      <!-- {{ workerType.selected }} -->
+      <v-select id="search-type" name="hoge" :options="workerType.options" v-model="workerType.selected"></v-select><v-select id="search-type" name="hoge" :options="location.options" v-model="location.selected"></v-select><input v-model="form.freeword" id="search-free" name="" type="text" placeholder=" フリーワード"/>
       <input id="search-btn" type="submit" value="検索" />
     </form>
   </div>
 </template>
 
 <script>
+import vSelect from 'vue-select'
 export default {
   data(){
     return {
       form: {
-        WorkType: '',
-        Location: '',
-        Freeword: '',
+        freeword: ''
       },
+      workerType: {
+        selected: '職種',
+        options: [
+          'ゲームエンジンプログラマー',
+          'ネットワークエンジニア',
+          'インフラエンジニア',
+          'フロントエンドエンジニア',
+          'サーバーエンジニア',
+          'セキュリティエンジニア',
+          'データベースエンジニア',
+          'テストエンジニア',
+          '組み込み・制御エンジニア',
+          'プロジェクトマネージャー(PM)',
+          'CTO候補',
+
+        ]
+      },
+      location: {
+        selected: '都道府県',
+        options: [
+          '千葉',
+          '東京',
+          '埼玉',
+          '沖縄',
+          '北海道'
+        ]
+      },
+    }
+  },
+  methods: {
+    updateSelected (newSelected) {
+      this.selected = newSelected
     }
   },
   computed: {
@@ -27,20 +59,23 @@ export default {
 
 <style scoped>
 .serach-box{
-  width: 70%;
-  height: 48px;
+  width: 80%;
+  height: 34px;
   float: right;
   padding: 15px;
 }
 #seach-form{
-  width: 90%;
+  width: 95%;
   height: 100%;
+  font-size: 16px;
 }
 #search-type{
-  width: 20%;
+  width: 26%;
   height: 70%;
-  /* border-radius: 4%; */
-  border: 1px solid #FFFFFF;
+  color: #333;
+  cursor: pointer;
+  background-color: #117ee456;
+  display: inline-block;
 }
 #search-location{
   width: 20%;
@@ -49,16 +84,21 @@ export default {
   border: 1px solid #FFFFFF;
 }
 #search-free{
-  width: 40%;
-  height: 70%;
+  width: 29%;
+  height: 89%;
   /* border-radius: 4%; */
-  border: 1px solid #FFFFFF;
+  background-color: #117ee456;
+  border: 1px solid rgba(60,60,60,.26);
+  border-radius: 4px;
+  color: #333333;
+}
+#search-free::placeholder {
+	color: #333333;
 }
 #search-btn{
   width: 58px;
-  height: 39px;
+  height: 34px;
   border-radius: 3%;
-  /* background-color: #ef6443; */
   background: linear-gradient(#ef6443, #f09819);
   border: 1px solid #ef6443;
   border-radius: 3px;
@@ -69,9 +109,9 @@ export default {
 /* レスポンシブ */
 @media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
   .serach-box{
-    width: 60%;
-    height: 30px;
-    padding: 15px 0 0 50px;
+    width: 80%;
+    height: 90%;
+    padding: 15px 0 0 1px;
     /* background-color: aqua; */
   }
   .seach-form{
@@ -86,8 +126,8 @@ export default {
     display: none;
   }
   #search-free{
-    width: 150px;
-    height: 95%;
+    width: 80%;
+    height: 62%;
     border-radius: 4%;
     border: 1px solid grey;
     /* margin-left: 30px; */

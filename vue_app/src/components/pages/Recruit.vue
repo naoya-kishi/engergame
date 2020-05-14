@@ -1,166 +1,118 @@
 <template>
   <div class="recruit-wrapper">
-    <router-link to="/recruit/detail/">
+    <div v-show="loading" class="load-box">
+      <div class="loader">Loading...</div>
+    </div>
+    <paginate v-show="!loading" name="paginate-log" :list="postList" :per="10" class="paginate">
+      <router-link :to="`/recruit/${ post.project_id }`" v-for="post in paginated('paginate-log')" :key="post.id" class="post">
       <div class="recruit-content">
         <div class="recruit-topbox">
-          <div class="create-time">2020年4月12日</div>
-          <div class="create-work">業務委託</div>
-          <div class="matching-status">マッチング率22%</div>
+          <div class="create-time">{{ post.created_at }}</div>
+          <div class="create-work">{{ post.position }}</div>
+          <div class="matching-status">マッチング率 {{ post.matching }}%</div>
         </div>
         <div class="recruit-centerbox">
           <div class="recruit-title-box">
-            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
+            {{ post.title | truncateTitle }}
           </div>
           <div class="recruit-company-box">
-            株式会社エイト
+            {{ post.company }}
           </div>
         </div>
         <div class="recruit-btmbox">
           <div class="recruit-detail-box">
             <div class="money-area">
               <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-              <div class="money-content">70万 ~ 80万</div>
+              <div class="money-content">
+                {{ post.monthly_income_min }} ~ {{ post.monthly_income_max }}
+              </div>
             </div>
             <div class="location-area">
               <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-              <div class="location-content">東京都 渋谷区</div>
+              <div class="location-content">
+                {{ post.prefecture }} {{ post.city }}
+              </div>
             </div>
           </div>
           <div class="recruit-skill-box">
             <div class="skill-logo">スキル</div>
-            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
+            <div class="skill-content">{{ post.must_skill | truncateSkill }}</div>
           </div>
-          <div class="recruit-sales-box">
+          <!-- エージェント 表示 -->
+          <!-- <div class="recruit-sales-box">
             <div class="sales-logo"></div>
-            <div class="sales-name">SAMPLE NAME</div>
-          </div>
+            <div class="sales-name">{{ sales_name }}</div>
+          </div> -->
         </div>
       </div>
-    </router-link>
-    <router-link to="/recruit/detail/">
-      <div class="recruit-content">
-        <div class="recruit-topbox">
-          <div class="create-time">2020年4月12日</div>
-          <div class="create-work">業務委託</div>
-          <div class="matching-status">マッチング率22%</div>
-        </div>
-        <div class="recruit-centerbox">
-          <div class="recruit-title-box">
-            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
-          </div>
-          <div class="recruit-company-box">
-            株式会社エイト
-          </div>
-        </div>
-        <div class="recruit-btmbox">
-          <div class="recruit-detail-box">
-            <div class="money-area">
-              <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-              <div class="money-content">70万 ~ 80万</div>
-            </div>
-            <div class="location-area">
-              <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-              <div class="location-content">東京都 渋谷区</div>
-            </div>
-          </div>
-          <div class="recruit-skill-box">
-            <div class="skill-logo">スキル</div>
-            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-          </div>
-          <div class="recruit-sales-box">
-            <div class="sales-logo"></div>
-            <div class="sales-name">SAMPLE NAME</div>
-          </div>
-        </div>
-      </div>
-    </router-link>
-    <router-link to="/recruit/detail/">
-      <div class="recruit-content">
-        <div class="recruit-topbox">
-          <div class="create-time">2020年4月12日</div>
-          <div class="create-work">業務委託</div>
-          <div class="matching-status">マッチング率22%</div>
-        </div>
-        <div class="recruit-centerbox">
-          <div class="recruit-title-box">
-            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
-          </div>
-          <div class="recruit-company-box">
-            株式会社エイト
-          </div>
-        </div>
-        <div class="recruit-btmbox">
-          <div class="recruit-detail-box">
-            <div class="money-area">
-              <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-              <div class="money-content">70万 ~ 80万</div>
-            </div>
-            <div class="location-area">
-              <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-              <div class="location-content">東京都 渋谷区</div>
-            </div>
-          </div>
-          <div class="recruit-skill-box">
-            <div class="skill-logo">スキル</div>
-            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-          </div>
-          <div class="recruit-sales-box">
-            <div class="sales-logo"></div>
-            <div class="sales-name">SAMPLE NAME</div>
-          </div>
-        </div>
-      </div>
-    </router-link>
-    <router-link to="/recruit/detail/">
-      <div class="recruit-content">
-        <div class="recruit-topbox">
-          <div class="create-time">2020年4月12日</div>
-          <div class="create-work">業務委託</div>
-          <div class="matching-status">マッチング率22%</div>
-        </div>
-        <div class="recruit-centerbox">
-          <div class="recruit-title-box">
-            【AI・クローラーエンジニア】HR Tech業界で人材と企業を独自のアルゴリズムで結び付け、新たな理論を創ったプラットフォームサービス 一緒に将来を担っていけるメンバーを募集します！
-          </div>
-          <div class="recruit-company-box">
-            株式会社エイト
-          </div>
-        </div>
-        <div class="recruit-btmbox">
-          <div class="recruit-detail-box">
-            <div class="money-area">
-              <div class="money-logo"><font-awesome-icon icon="yen-sign" class="awesome-icon"/></div>
-              <div class="money-content">70万 ~ 80万</div>
-            </div>
-            <div class="location-area">
-              <div class="location-logo"><font-awesome-icon icon="map-marker-alt" class="awesome-icon"/></div>
-              <div class="location-content">東京都 渋谷区</div>
-            </div>
-          </div>
-          <div class="recruit-skill-box">
-            <div class="skill-logo">スキル</div>
-            <div class="skill-content">PHP Laravel  Python JavaScript Vue.js</div>
-          </div>
-          <div class="recruit-sales-box">
-            <div class="sales-logo"></div>
-            <div class="sales-name">SAMPLE NAME</div>
-          </div>
-        </div>
-      </div>
-    </router-link>
+      </router-link>
+    </paginate>
+    <paginate-links for="paginate-log" class="pagination" :show-step-links="true" ></paginate-links>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+// import database from '@/api/products.js'
+import Loading from '@/components/parts/Loading'
 export default {
-
+  data(){
+    return{
+      postList: [],
+      paginate: ['paginate-log'],
+      loading: true,
+    }
+  },
+  //! 使用しない
+  // computed: {
+  //   list: () => database.fetch()
+  // },
+  // !------- ここまで -----
+  // * 文字制限
+  filters: {
+    // 案件タイトル 文字制限
+    truncateTitle: function(value) {
+      var length = 133;
+      var ommision = "...";
+      if (value.length <= length) {
+        return value;
+      }
+      return value.substring(0, length) + ommision;
+    },
+    // スキル 文字制限
+    truncateSkill: function(value) {
+      var length = 100;
+      var ommision = "...";
+      if (value.length <= length) {
+        return value;
+      }
+      return value.substring(0, length) + ommision;
+    },
+  },
+  // * axios setting
+  mounted() {
+    axios.get('http://localhost:3000/mock/users')
+      .then(response => {
+        setTimeout(() => {
+          this.loading = false;
+          this.postList = response.data
+        }, 1000);
+      })
+      .then(data => {
+          this.postList = data
+      })
+  }
 }
 </script>
 
 <style scoped>
-/* Router URL textdecoration 削除 */
 a{
   text-decoration: none;
+}
+li{
+  width: 100px;
+  height: 100px;
+  background-color: green;
 }
 
 .recruit-wrapper{
@@ -168,7 +120,6 @@ a{
   height: 120%;
   margin: 22px auto;
 }
-
 /* 求人content CSS */
 .recruit-content{
   width: calc(100% - 20px);
@@ -193,14 +144,14 @@ a{
 }
 .create-work{
   display: inline-block;
-  width: 8%;
-  background-color: #f09819;
+  background: linear-gradient(#ef6443, #f09819);
   color: #FFFFFF;
   border-radius: 12px;
   padding: 5px 12px;
   font-size: 12px;
   text-align: center;
-  border: solid 1px #f09819;
+  /* border: solid 1px #f09819; */
+  font-weight: bold;
 }
 .matching-status{
   float: right;
@@ -212,8 +163,15 @@ a{
   font-size: 12px;
   text-align: center;
   border: solid 1px #1f5abc;
+  font-weight: bold;
 }
-
+.applied-tag-are{
+  width: 100px;
+  height: 40px;
+  background-color: red;
+  float: right;
+  z-index: 100;
+}
 
 /* Center BOX */
 .recruit-centerbox{
@@ -228,7 +186,7 @@ a{
   font-size: 16px;
 }
 .recruit-company-box{
-  font-size: 12px;
+  font-size: 14px;
   color: #818181;
 }
 
@@ -246,7 +204,7 @@ a{
 .money-area{
   display: inline-block;
   position: relative;
-  width: 400px;
+  width: 50%;
 }
 .location-area{
   display: inline-block;
@@ -268,7 +226,7 @@ a{
 .location-area{
   display: inline-block;
   position: relative;
-  width: 400px;
+  width: 20%;
 }
 .location-logo{
   width: 25px;
@@ -286,20 +244,20 @@ a{
 
 /* スキル CSS */
 .recruit-skill-box{
-  width: 80%;
-  /* height: 40px; */
+  width: 95%;
   display: inline-block;
 }
 .skill-logo{
   width: 120px;
   height: 20px;
-  background-color: #2AC1DF;
+  background: linear-gradient(rgb(20, 148, 233), #2AC1DF);
   color: #FFFFFF;
   text-align: center;
   border-radius: 12px;
   font-size: 14px;
   padding: 2px 0 0 0 ;
   display: inline-block;
+  font-weight: bold;
 }
 .skill-content{
   display: inline-block;
@@ -328,6 +286,13 @@ a{
   color: #818181;
 }
 
+.pagination{
+  color: #1f5abc;
+  list-style: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
 /* Icon  */
 .awesome-icon{
   color: #2AC1DF;
@@ -342,6 +307,85 @@ a{
 }
 
 
+/* ローディング */
+.load-box{
+  width: 100px;
+  height: 100px;
+  /* background-color: #0052C0; */
+  margin: 200px auto 0 auto;
+}
+
+
+.loader {
+  margin: 100px auto;
+  font-size: 25px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@-webkit-keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #2AC1DF, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #2AC1DF, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #2AC1DF, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #2AC1DF, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #2AC1DF, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #2AC1DF, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #2AC1DF, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #2AC1DF;
+  }
+}
+@keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #2AC1DF, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #2AC1DF, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #2AC1DF, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #2AC1DF, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #2AC1DF, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #2AC1DF, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #2AC1DF, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #2AC1DF;
+  }
+}
+
+
 /* レスポンシブ デザイン */
 @media screen and (max-width: 767px) {
   .recruit-wrapper{
@@ -349,7 +393,14 @@ a{
     margin: 0 auto;
   }
   .recruit-content{
-    width: 300px;
+    /* width: calc(100% - 40px); */
+    width: 90%;
+  }
+  .paginate{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* background-color: green; */
   }
   .recruit-topbox{
     width: 100%;
@@ -358,10 +409,11 @@ a{
     font-size: 11px;
   }
   .create-work{
-    width: 20%;
+    /* width: 20%; */
+    float: right;
   }
   .matching-status{
-    
+    display: none;
   }
   .recruit-centerbox{
     width: 100%;
@@ -369,11 +421,14 @@ a{
     position: relative;
   }
   .recruit-title-box{
+    height: 54%;
     font-size: 14px;
+    overflow: hidden; /* 文字制限 */
+    text-overflow: ellipsis; /* 文字制限 */
   }
   .recruit-company-box{
     position: absolute;
-    bottom: 0;
+    bottom: 3px;
   }
   .recruit-btmbox{
     width: 100%;
@@ -381,6 +436,8 @@ a{
   }
   .recruit-detail-box{
     width: 100%;
+    height: 22px;
+    /* background-color: #f09819; */
   }
   .money-area{
     width: 49%;
@@ -398,14 +455,24 @@ a{
   }
   .skill-logo{
     width: 20%;
-    font-size: 11px;
-    height: 90%;
+    font-size: 9px;
+    height: 80%;
+    display: inline-block;
   }
   .skill-content{
+    width: 100%;
     font-size: 11px;
+    display: inline-block;
+    overflow: hidden; /* 文字制限 */
+    text-overflow: ellipsis; /* 文字制限 */
+    height: 12px;
   }
-  .recruit-sales-box{
+  /* エージェント 表示 */
+  /* .recruit-sales-box{
     display: none;
+  } */
+  .pagination{
+    margin: 0;
   }
 
 }

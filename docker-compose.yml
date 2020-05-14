@@ -24,15 +24,37 @@ services:
       TZ: 'Asia/Tokyo'
 
   nginx:
+    
     build: ./nginx
+    volumes:
+      - ./schemaspy:/var/www/html:ro
+      - ./nginx/conf/app_nginx.conf:/etc/nginx/conf.d/app_nginx.conf:ro
     ports:
       - "8000:8000"
     links:
       - python
     depends_on:
       - python
+    environment:
+      - LANG=ja_JP.UTF-8
+      - TZ=Asia/Tokyo
+    command: "nginx -g 'daemon off;'"
 
-  # vue_app: 
+  schemaspy:
+    build: ./schemaspy
+    image: treetips/schemaspy-mysql
+    container_name: schemaspy
+    volumes:
+      - ./schemaspy:/app/html:rw
+      - ./schemaspy/config/schemaspy.properties:/app/schemaspy.properties:ro
+    environment:
+      - LANG=ja_JP.UTF-8
+      - TZ=Asia/Tokyo
+    working_dir: "/app"
+    command: "java -jar schemaspy.jar"
+
+
+  # vue_app:
   #   build: .
   #   ports:
   #     - "8080:8080" # ここを変更していく

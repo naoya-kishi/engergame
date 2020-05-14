@@ -36,8 +36,11 @@ export default new Router({
       component: Profile
     },
     {
-      path: '/recruit/detail/',
-      component: RecruitDetail
+      path: '/recruit/:id/',
+      component: RecruitDetail,
+      props: route => ({
+        id: Number(route.params.id),
+      })
     },
     {
       path: '/chat/1/',
