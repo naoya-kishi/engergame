@@ -402,7 +402,7 @@ export default {
   float: right;/*bms_sendに対して右寄せ*/
   color: #fff;
   font-weight: bold;
-  background: linear-gradient(#ef6443, #f09819);
+  background: #ef6443;
   text-align: center;/*文字をボタン中央に表示*/
   border: 1px solid #ef6443;
   border-radius: 4px;/*角丸*/

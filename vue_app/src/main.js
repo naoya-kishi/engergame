@@ -11,6 +11,8 @@ Vue.use(Vuex)
 Vue.component('v-select', vSelect) //? Search (Vue-select install)
 // reset css
 import 'normalize.css' //ResetCss
+import VueLoading from 'vue-loading-template'
+Vue.use(VueLoading, /** options **/)
 
 // ! Font Awesome 
 // https://fontawesome.com/
